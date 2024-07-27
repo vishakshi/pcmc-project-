@@ -16,10 +16,17 @@ const UserLogin = () => {
             const response = await axios.get('https://www.googleapis.com/oauth2/v1/userinfo',{headers:{Authorization:`Bearer ${data.access_token}`}});
             console.log(response.data);
             const userData = {
-                name:response?.data?.name,
+                firstName:response?.data?.name,
                 email:response?.data?.email,
             }
             const response2 = await ApiManager.googleLogin(userData);
+            if(response2?.data?.status){
+                const token = response2?.data?.token;
+                sessionStorage.setItem('@authToken',token);
+                sessionStorage.setItem('@userType','user')
+                navigate('/dashboard')
+                window.location.reload();
+            }
         } catch (error) {
             console.log(error)
         }
@@ -35,9 +42,11 @@ const UserLogin = () => {
         const response = await ApiManager.userLogin(formData);
         setIsLoading(false)
         if(response.data.status){
-        const token = response?.data?.data?.authToken;
+        const token = response?.data?.token;
         sessionStorage.setItem('@authToken',token);
+        sessionStorage.setItem('@userType','user')
         navigate('/dashboard')
+        window.location.reload();
         }
     }
     catch(err){
@@ -78,15 +87,15 @@ const UserLogin = () => {
         <Typography variant="h5" fontSize={25}>
           Log into your account
         </Typography>
-        <Typography mb={2} color="secondary" variant="body1">
-          Enter your username and password to login
+        <Typography mb={2} pr={2} color="secondary" variant="body1">
+          Enter your email and password to login
         </Typography>
         <TextField
           sx={{ display: "block", mb: 2 }}
           fullWidth
           required
           size="small"
-          placeholder="Username"
+          placeholder="Email"
           variant="outlined"
           value={formData.userName}
           onChange={(e)=>setFormData({...formData,userName:e.target.value})}

@@ -2,11 +2,13 @@ import React,{useState} from 'react'
 import { Box,Typography,TextField,InputAdornment,Button,CircularProgress } from '@mui/material'
 import { Lock,Mail } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
+import CustomAlert from '../../components/customAlert'
 import ApiManager from '../../apiManager/apiManager'
 
 const AdminLogin = () => {
     const [formData,setFormData] = useState({userName:"",password:""})
     const [isLoading,setIsLoading] = useState(false);
+    const [alertData,setAlertData] = useState({severity:'',message:''});
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         try{
@@ -17,7 +19,11 @@ const AdminLogin = () => {
         if(response?.data?.status){
         const token = response?.data?.data?.authToken;
         sessionStorage.setItem('@authToken',token);
+        sessionStorage.setItem('@userType','admin')
         navigate('/dashboard')
+        window.location.reload();
+        }else{
+            setAlertData({severity:'error',message:response?.data?.message});
         }
     }
     catch(err){
@@ -35,6 +41,7 @@ const AdminLogin = () => {
       height: "100vh",
     }}
   >
+    {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
     <Box
       sx={{
         display: "flex",
