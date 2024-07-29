@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { publicRoutes,adminRoutes,userRoutes } from './route/routes'
+import { adminRoutes,userRoutes } from './route/routes'
+import { publicRoutes } from './route/publicRoutes';
 
 const App = () => {
   const userType = sessionStorage.getItem('@userType');
