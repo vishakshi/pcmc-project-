@@ -1,3 +1,7 @@
+import { GoogleOAuthProvider } from "@react-oauth/google"
+import AdminLogin from "../pages/admin/admin-login"
+import UserLogin from "../pages/user/user-login"
+
 export const publicRoutes = [
     {
         path:'/',
