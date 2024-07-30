@@ -5,7 +5,7 @@ import UserLogin from "../pages/user/user-login"
 export const publicRoutes = [
     {
         path:'/',
-        element:<div>Landing page</div>
+        element:<div>Welcome to Landing page</div>
     },
     {
         path:'/user-login',
