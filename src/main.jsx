@@ -9,13 +9,11 @@ import './index.css'
 import { theme } from './theme/theme.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
       <BrowserRouter>
       <App />
       </BrowserRouter>
       </LocalizationProvider>
-     </ThemeProvider>
-  </React.StrictMode>,
+     </ThemeProvider>,
 )

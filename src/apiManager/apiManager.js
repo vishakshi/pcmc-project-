@@ -47,7 +47,7 @@ class ApiManager {
     static getUsers = async () => {
       try {
         const url = BASE_URL + PATHS.GET_USERS;
-        const response = await axios.get(url);
+        const response = await axios.get(url,getHeaders());
         return response;
       } catch (error) {
         console.log(error);
@@ -67,7 +67,7 @@ class ApiManager {
     static addCompetetion = async (data) => {
       try {
         const url = BASE_URL + PATHS.CREATE_CONTEST;
-        const response = await axios.post(url, data);
+        const response = await axios.post(url, data,getHeaders());
         return response;
       } catch (error) {
         console.log(error);
@@ -77,7 +77,7 @@ class ApiManager {
     static getCompetetions = async () => {
       try {
         const url = BASE_URL + PATHS.GET_CONTESTS;
-        const response = await axios.get(url);
+        const response = await axios.get(url,getHeaders());
         return response;
       } catch (error) {
         console.log(error);
