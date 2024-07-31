@@ -4,6 +4,7 @@ import Competition from "../pages/admin/competitions"
 import Sidebar from "../pages/admin/sidebar"
 import Users from "../pages/admin/users"
 import UserLogin from "../pages/user/user-login"
+import UserDashboard from "../pages/user/dashboard"
 
 export const adminRoutes = [
     {
@@ -19,6 +20,6 @@ export const adminRoutes = [
 export const userRoutes = [
     {
         path:'/dashboard',
-        element:<div>User Dashboard</div>,
+        element:<UserDashboard/>,
     },
 ]
