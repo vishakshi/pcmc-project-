@@ -2,14 +2,17 @@ import React,{useState} from 'react'
 import { Box,Typography,TextField,InputAdornment,Button,CircularProgress, Divider } from '@mui/material'
 import { Google, Lock,Mail } from '@mui/icons-material'
 import bg from '../../assets/user-login.jpg'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios'
 import ApiManager from '../../apiManager/apiManager'
+import CustomAlert from '../../components/customAlert'
 
 const UserLogin = () => {
-    const [formData,setFormData] = useState({userName:"",password:""})
+    const [formData,setFormData] = useState({email:"",password:""})
     const [isLoading,setIsLoading] = useState(false);
+    const [alertData,setAlertData] = useState({severity:'',message:''});
+
     const navigate = useNavigate();
     const handleGoogleData = async (data) => {
         try {
@@ -47,6 +50,8 @@ const UserLogin = () => {
         sessionStorage.setItem('@userType','user')
         navigate('/dashboard')
         window.location.reload();
+        }else{
+          setAlertData({severity:'error',message:response?.data?.message});
         }
     }
     catch(err){
@@ -64,6 +69,7 @@ const UserLogin = () => {
       height: "100vh",
     }}
   >
+    {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
     <Box
       sx={{
         display: "flex",
@@ -77,7 +83,7 @@ const UserLogin = () => {
       }}
     >
       <Box>
-        <form onSubmit={handleSubmit}>
+        <form autoComplete='off' onSubmit={handleSubmit}>
         <Box display="flex" alignItems="center">
           {/* <img src={'logo'} style={{ width: "2rem" }} /> */}
           <Typography variant="h4" fontWeight='700' >
@@ -97,8 +103,8 @@ const UserLogin = () => {
           size="small"
           placeholder="Email"
           variant="outlined"
-          value={formData.userName}
-          onChange={(e)=>setFormData({...formData,userName:e.target.value})}
+          value={formData.email}
+          onChange={(e)=>setFormData({...formData,email:e.target.value})}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -133,6 +139,7 @@ const UserLogin = () => {
         <Button variant='outlined' onClick={handleGoogleLogin}  startIcon={<Google/>} fullWidth>
             Sign in with Google
         </Button>
+        <Typography variant='caption' sx={{float:'right',mt:1}}>Don’t have an account? <span style={{color:'blue',cursor:'pointer'}}><Link style={{textDecoration:'none'}} to='/user-signup'>Sign Up</Link></span></Typography>
         </Box>
       </Box>
       <Box
