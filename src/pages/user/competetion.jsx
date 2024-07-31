@@ -27,7 +27,7 @@ const Competetion = () => {
   return (
     <div>
         <Grid container spacing={2}>
-      {data.map((data, index) => (
+      {datagti.map((data, index) => (
         <CompetitionCard key={data?._id} data={data} />
       ))}
       </Grid>
