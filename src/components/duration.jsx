@@ -2,6 +2,7 @@ import React from 'react'
 import { Box,Typography,Button, Grid } from '@mui/material'
 import bg from '../assets/d9.jpg'
 import { useTranslation } from 'react-i18next'
+import { LoginOutlined } from '@mui/icons-material'
 
 const Duration = () => {
     const {t} = useTranslation();
@@ -16,9 +17,9 @@ const Duration = () => {
             <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>
             {t('competitionDuration')} <span style={{fontWeight:700}}> 10-08-2024 {t('to')} 15-08-2024</span>
             </Typography>
-            <Button variant='outlined'>Register Now</Button>
+            <Box mx='auto'><Button variant='contained' size="large" endIcon={<LoginOutlined/>} sx={{color:'white',backgroundColor:'red','&:hover':{backgroundColor:'#9B3922'}}}>Register Now</Button></Box>
         </Grid>
-        <Grid sx={{display:'flex',justifyContent:'end'}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5}} width={300} component='img' src={bg} /></Grid>
+        <Grid sx={{display:'flex',justifyContent:{xs:'center',sm:'end'}}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5}} width={300} component='img' src={bg} /></Grid>
     </Grid>
     </Box>
   )

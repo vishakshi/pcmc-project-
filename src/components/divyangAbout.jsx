@@ -14,7 +14,7 @@ const DivyangAbout = () => {
         container
         sx={{ "@media (min-width:768px)": { px: 20 }, py: 5 }}
       >
-        <Box sx={{backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",backgroundSize: "1200px 400px",width:'100%',height:400,px:2,py:4,borderRadius:5}} >
+        <Box sx={{backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',minHeight:400,px:2,py:4,borderRadius:5}} >
             <Typography textAlign='center' color='white' variant="body2">{t("pimpriDescription")}</Typography>
         </Box>
       </Box>

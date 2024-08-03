@@ -29,7 +29,7 @@ const MyCarousel = () => {
 
 
   return (
-    <Box height={'100vh'}>
+    <Box maxHeight={'100vh'}>
     <Carousel
       swipeable={true}
       slidesToSlide={1}

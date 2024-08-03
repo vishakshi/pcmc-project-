@@ -14,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { CalendarMonthOutlined, Logout } from '@mui/icons-material';
+import { CalendarMonthOutlined, LoginOutlined, Logout } from '@mui/icons-material';
 import MyCarousel from './carousel';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -98,7 +98,7 @@ function Navbar(props) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } ,py:3}}
           >
             PCMC
           </Typography>
@@ -109,8 +109,8 @@ function Navbar(props) {
               </Button>
             ))}
             
-            <Button onClick={handleSignIn} sx={{fontSize:15}}>
-             {sessionStorage.getItem('@authToken') ? "Logout" : "Sign in"} 
+            <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'red','&:hover':{backgroundColor:'#9B3922'}}}>
+             {sessionStorage.getItem('@authToken') ? "Logout" : "Register"} 
             </Button>
           </Box>
         </Toolbar>

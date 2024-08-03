@@ -45,7 +45,7 @@ const Slider = () => {
   ]
 
   return (
-    <Box m={10} mx={10}>
+    <Box my={8}>
     <Carousel
       swipeable={true}
       slidesToSlide={1}
@@ -57,7 +57,7 @@ const Slider = () => {
       autoPlaySpeed={1000}
       keyBoardControl={true}
       customTransition="all .5"
-      transitionDuration={500}
+      transitionDuration={1000}
       containerClass="carousel-container"
       removeArrowOnDeviceType={["tablet", "mobile","desktop"]}
     //   deviceType={this.props.deviceType}

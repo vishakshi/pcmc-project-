@@ -43,7 +43,7 @@ const Prizes = () => {
     <Grid spacing={2} container sx={{'@media (min-width:768px)':{px:20},py:5}} >
         <Grid sx={{position:'relative'}} item md={6} sm={12} xs={12}>
             <Box component='img' src={bg} width={300} />
-            <Box sx={{display:'flex',gap:2,position:'absolute',top:'80%',justifyContent:'center'}}>
+            <Box sx={{display:'flex',gap:2,position:'absolute',top:'80%',justifyContent:'center',left:25}}>
                 {counter.map(({type,value})=>(
  <Box key={type} sx={{borderRadius:5,border:'1px solid aqua',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
  <Typography sx={{color:'black',px:2,py:1}} variant='body1' fontWeight={700}>{value}</Typography>
