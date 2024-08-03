@@ -6,6 +6,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import App from './App.jsx'
 import './index.css'
+import './i18n.js'
 import { theme } from './theme/theme.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(

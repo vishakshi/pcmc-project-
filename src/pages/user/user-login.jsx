@@ -7,11 +7,13 @@ import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios'
 import ApiManager from '../../apiManager/apiManager'
 import CustomAlert from '../../components/customAlert'
+import { useTranslation } from 'react-i18next'
 
 const UserLogin = () => {
     const [formData,setFormData] = useState({email:"",password:""})
     const [isLoading,setIsLoading] = useState(false);
     const [alertData,setAlertData] = useState({severity:'',message:''});
+    const {t} = useTranslation()
 
     const navigate = useNavigate();
     const handleGoogleData = async (data) => {
@@ -87,14 +89,14 @@ const UserLogin = () => {
         <Box display="flex" alignItems="center">
           {/* <img src={'logo'} style={{ width: "2rem" }} /> */}
           <Typography variant="h4" fontWeight='700' >
-            Welcome back!
+            {t("welcomeBack")}
           </Typography>
         </Box>
         <Typography variant="h5" fontSize={25}>
-          Log into your account
+          {t("logIntoYourAccount")}
         </Typography>
         <Typography mb={2} pr={2} color="secondary" variant="body1">
-          Enter your email and password to login
+          {t("enterEmailAndPassword")}
         </Typography>
         <TextField
           sx={{ display: "block", mb: 2 }}
@@ -132,14 +134,14 @@ const UserLogin = () => {
           }}
         />
         <Button variant="contained" type='submit' disabled={isLoading} fullWidth={true} >
-          {isLoading ? <CircularProgress size={24} /> : "Log In"}
+          {isLoading ? <CircularProgress size={24} /> : t("signIn")}
         </Button>
         </form>
         <Box mt={2}>
         <Button variant='outlined' onClick={handleGoogleLogin}  startIcon={<Google/>} fullWidth>
             Sign in with Google
         </Button>
-        <Typography variant='caption' sx={{float:'right',mt:1}}>Don’t have an account? <span style={{color:'blue',cursor:'pointer'}}><Link style={{textDecoration:'none'}} to='/user-signup'>Sign Up</Link></span></Typography>
+        <Typography variant='caption' sx={{float:'right',mt:1}}>{t("dontHaveAnAccount")} <span style={{color:'blue',cursor:'pointer'}}><Link style={{textDecoration:'none'}} to='/user-signup'>{t("signUp")}</Link></span></Typography>
         </Box>
       </Box>
       <Box

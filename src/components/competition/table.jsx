@@ -2,7 +2,8 @@ import React, { useMemo, useState } from "react";
 import { Box, CircularProgress, IconButton, Typography } from "@mui/material";
 import { getFormatDate } from "../../utiils/dateFormatter";
 import DataTable from "react-data-table-component";
-import { ArrowDownward, EditOutlined, RemoveRedEye } from "@mui/icons-material";
+import { ArrowDownward, EditOutlined, RemoveRedEye, RemoveRedEyeOutlined } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Table = ({ rowData, isLoading }) => {
   const columns = useMemo(() => [
@@ -33,6 +34,12 @@ const Table = ({ rowData, isLoading }) => {
         width:'170px'
       },
       {
+        name: "Total Applicants",
+        selector: (row) => row?.participants.length,
+        sortable:true,
+        width:'170px'
+      },
+      {
         name: "Joining Fee",
         selector: (row) => row.joiningFee,
         sortable:true,
@@ -52,12 +59,17 @@ const Table = ({ rowData, isLoading }) => {
       },
     {
       name: "Action",
-      width:'80px',
+      width:'150px',
       center:true,
       selector: (row,ind,ass) => (
+        <>
           <IconButton size="small" onClick={() => console.log(row._id)}>
             <EditOutlined fontSize="small" />
           </IconButton>
+          <IconButton LinkComponent={Link} to={`/competition/${row._id}`} size="small" onClick={() => console.log(row._id)}>
+          <RemoveRedEyeOutlined fontSize="small" />
+        </IconButton>
+        </>
       ),
     },
   ]);

@@ -7,6 +7,8 @@ import {Grid} from "@mui/material";
 const Competetion = () => {
   const [data, setData] = useState([]);
   const [isLoading,setIsLoading] = useState(false);
+  const [recall,setRecall] = useState(1);
+
   useEffect(() => {
     (async () => {
       try {
@@ -20,15 +22,15 @@ const Competetion = () => {
         setIsLoading(false);
       }
     })();
-  }, []);
+  }, [recall]);
   if(isLoading){
     return <CircularProgress/>
   }
   return (
     <div>
         <Grid container spacing={2}>
-      {datagti.map((data, index) => (
-        <CompetitionCard key={data?._id} data={data} />
+      {data.map((data, index) => (
+        <CompetitionCard recall={()=>setRecall(recall + 1)} key={data?._id} data={data} />
       ))}
       </Grid>
     </div>

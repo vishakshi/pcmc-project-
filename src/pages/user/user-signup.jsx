@@ -15,8 +15,10 @@ import SignUpForm from "../../components/SignUp";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import ApiManager from "../../apiManager/apiManager";
+import { useTranslation } from "react-i18next";
 
 const UserSignUp = () => {
+  const {t} = useTranslation()
   const handleGoogleData = async (data) => {
     try {
       const response = await axios.get(
@@ -87,10 +89,10 @@ const UserSignUp = () => {
               Sign in with Google
             </Button>
             <Typography variant="caption" sx={{ float: "right", mt: 1 }}>
-              Already have an account?{" "}
+              {t('alreadyHaveAnAccount')} 
               <span style={{ color: "blue", cursor: "pointer" }}>
                 <Link style={{ textDecoration: "none" }} to="/user-login">
-                  Sign In
+                  {" " + t("signIn")}
                 </Link>
               </span>
             </Typography>

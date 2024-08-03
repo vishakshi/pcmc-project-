@@ -5,6 +5,7 @@ import Sidebar from "../pages/admin/sidebar"
 import Users from "../pages/admin/users"
 import UserLogin from "../pages/user/user-login"
 import UserDashboard from "../pages/user/dashboard"
+import CompetetionDetail from "../pages/admin/competetionDetail"
 
 export const adminRoutes = [
     {
@@ -15,6 +16,10 @@ export const adminRoutes = [
         path:'/competition',
         element:<Sidebar><Competition/></Sidebar>,
     },
+    {
+        path:'/competition/:id',
+        element:<Sidebar><CompetetionDetail/></Sidebar>
+    }
 ]
 
 export const userRoutes = [

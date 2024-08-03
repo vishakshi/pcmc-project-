@@ -84,6 +84,27 @@ class ApiManager {
         return error?.response
       }
     }
+    static addInCompetetion = async (data) => {
+      try {
+        const url = BASE_URL + PATHS.ADD_IN_CONTEST
+        const response = await axios.post(url,data,getHeaders());
+        return response
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
+    static getCompetetionDetail = async (id) => {
+      try {
+        const url = BASE_URL + PATHS.CREATE_CONTEST
+        const response = await axios.get(`${url}/${id}`,getHeaders());
+        return response
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
+    
 }
 
 export default ApiManager;

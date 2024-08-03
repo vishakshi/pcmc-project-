@@ -2,11 +2,12 @@ import { GoogleOAuthProvider } from "@react-oauth/google"
 import AdminLogin from "../pages/admin/admin-login"
 import UserLogin from "../pages/user/user-login"
 import UserSignUp from "../pages/user/user-signup"
+import Landing from "../pages/landing/landing"
 
 export const publicRoutes = [
     {
         path:'/',
-        element:<div>Welcome to Landing page</div>
+        element:<Landing/>
     },
     {
         path:'/user-login',
