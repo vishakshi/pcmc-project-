@@ -1,7 +1,8 @@
 import axios from "axios";
 import PATHS from "./apiEndPoints";
 
-const BASE_URL = "http://localhost:3000";
+// const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://api.pcmcdivyangbhavan.org";
 
 const getHeaders = () => {
     const authToken = sessionStorage.getItem("@authToken");

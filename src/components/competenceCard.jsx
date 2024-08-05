@@ -6,7 +6,8 @@ import { useTranslation } from "react-i18next";
 
 const Card = ({icon,heading,description}) => {
   return (
-    <Box sx={{ display: "flex", py: 2, px: 4,bgcolor:'#FF0000',gap:5,alignItems:'center',borderRadius:5,color:'white',minHeight:200 }}>
+    <>
+    <Box sx={{ display: "flex", py: 2, px: 4,bgcolor:'#DD131A',gap:5,alignItems:'center',borderRadius:5,color:'white',minHeight:200,zIndex:99,position:'relative' }}>
       <Box>
         <Box component="img" width={50} src={icon} />
       </Box>
@@ -15,6 +16,8 @@ const Card = ({icon,heading,description}) => {
         <Typography variant="body1">{description}</Typography>
       </Box>
     </Box>
+    <Box sx={{paddingY:1,backgroundColor:'#FAD9DA',width:'95%',mx:'auto',marginTop:-1,borderRadius:5}}></Box>
+    </>
   );
 };
 

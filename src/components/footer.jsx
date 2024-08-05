@@ -8,7 +8,7 @@ import facebook from '../assets/facebook.png'
 const Footer = () => {
     const {t} = useTranslation()
   return (
-    <Box sx={{backgroundColor:'#FF0000',color:'#fff',mt:2}}>
+    <Box sx={{backgroundColor:'#DD131A',color:'#fff',mt:2}}>
       <Grid container spacing={2} p={2}>
         <Grid item sm={4}>
           <Box>

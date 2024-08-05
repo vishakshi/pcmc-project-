@@ -20,8 +20,7 @@ export const theme = createTheme({
     },
   },
   typography:{
-    fontFamily:'Nunito',
-    fontSize:12,
+    fontFamily:'Roboto',
     body2:{
       fontSize:18,
       fontWeight:600
