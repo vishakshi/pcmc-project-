@@ -76,8 +76,8 @@ const CompetetionDetail = () => {
         </Box>
       </Box>
       <Typography my={2} variant="body2">Submissions Lists</Typography>
-      {data?.submissions?.map((data)=>(
-        <SubmissionCard data={data} key={data?._id}/>
+      {data?.submissions?.map((data,index)=>(
+        <SubmissionCard serialNo={index+1} data={data} key={data?._id}/>
       ))}
     </>
   );

@@ -19,7 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import  Collapse  from '@mui/material/Collapse';
-import { Home,ChevronRight,Logout,KeyboardArrowDown,DashboardOutlined,AdminPanelSettingsOutlined,CurrencyRupeeOutlined,PaymentOutlined,ArrowOutwardOutlined,PaymentsOutlined, LocalMallOutlined, ContentCutOutlined, EmojiEventsOutlined} from '@mui/icons-material';
+import { Home,ChevronRight,Logout,KeyboardArrowDown,DashboardOutlined,AdminPanelSettingsOutlined,CurrencyRupeeOutlined,PaymentOutlined,ArrowOutwardOutlined,PaymentsOutlined, LocalMallOutlined, ContentCutOutlined, EmojiEventsOutlined, PeopleAltOutlined} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 
 const drawerWidth = 220;
@@ -124,6 +124,12 @@ export default function Sidebar({children}) {
         icon:<EmojiEventsOutlined/>,
         route:'/competition',
     },
+    {
+      id:2,
+      title:"Submissions",
+      icon:<PeopleAltOutlined/>,
+      route:'/submission',
+  },
   ]
 
   return (

@@ -6,6 +6,7 @@ const PATHS = {
     GOOGLE_LOGIN: '/google-login',
     CREATE_CONTEST: '/contest',
     GET_CONTESTS: '/contests',
-    ADD_IN_CONTEST: '/submission'
+    ADD_IN_CONTEST: '/submission',
+    GET_SUBMISSIONS:'/submissions',
 }
 export default PATHS;

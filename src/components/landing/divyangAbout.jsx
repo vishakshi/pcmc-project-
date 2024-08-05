@@ -1,13 +1,19 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import bg from "../assets/d15.jpg"
+import bg from "../../assets/d15.jpg"
 import { useTranslation } from "react-i18next";
+import star from '../../assets/star.png'
+
 const DivyangAbout = () => {
     const {t} = useTranslation();
   return (
     <Box sx={{ backgroundColor: "#fff", py: 3 }}>
       <Typography sx={{ textAlign: "center",fontWeight:700 }} variant="h4">
-        {t("divyangFoundation")}
+      {Array.from({length:3}).map(()=>(
+          <Typography component='img' height={12} src={star} />
+         ))} {t("divyangFoundation")} {Array.from({length:3}).map(()=>(
+          <Typography component='img' height={12} src={star} />
+         ))}
       </Typography>
       <Box
         spacing={2}

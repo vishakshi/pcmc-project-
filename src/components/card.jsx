@@ -11,7 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import { getFormatDate } from '../utiils/dateFormatter';
-import { Grid,IconButton,InputLabel,TextField } from '@mui/material';
+import { CircularProgress, Grid,IconButton,InputLabel,TextField } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import ApiManager from '../apiManager/apiManager';
 import CustomAlert from './customAlert';
@@ -21,6 +21,7 @@ export default function CompetitionCard({data,recall}) {
     const [image,setImage] = React.useState("")
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
+    const [isSubmitting,setIsSubmitting] = React.useState(false);
 
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
     
@@ -31,16 +32,20 @@ export default function CompetitionCard({data,recall}) {
         formData.append('image',image)
         formData.append('contest',data?._id);
         try {
+            setIsSubmitting(true);
             const response = await ApiManager.addInCompetetion(formData);
             console.log(response)
             if(response.data?.status){
-            //   console.log(response.data);
+              setAlertData({severity:'success',message:response?.data?.message});
             recall();
             }else{
               setAlertData({severity:'error',message:response?.data?.message});
             }
         } catch (error) {
             console.log(error)
+        }finally{
+          setIsSubmitting(false)
+          setOpen(false)
         }
     }
 
@@ -83,7 +88,7 @@ export default function CompetitionCard({data,recall}) {
       onClose={()=>setOpen(false)}
     >
       <DialogTitle>
-        <>Add Competition</>
+        <>Add Submission</>
         <IconButton onClick={()=>setOpen(false)}><CloseOutlined/></IconButton>
       </DialogTitle>
       <form autoComplete='off' > 
@@ -96,7 +101,7 @@ export default function CompetitionCard({data,recall}) {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button variant='contained' color='info' onClick={handleSubmit} >Submit</Button>
+        <Button variant='contained' color='info' onClick={handleSubmit} disabled={isSubmitting} >{isSubmitting ? <CircularProgress size={22}/> : "Submit"}</Button>
       </DialogActions>
       </form>
     </Dialog>

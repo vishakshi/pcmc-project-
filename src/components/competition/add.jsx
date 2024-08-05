@@ -6,15 +6,17 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
 import { DatePicker } from '@mui/x-date-pickers';
-import { InputLabel,TextField,IconButton } from '@mui/material';
+import { InputLabel,TextField,IconButton, CircularProgress } from '@mui/material';
 import { useFormik } from 'formik';
 import { CloseOutlined, X } from '@mui/icons-material';
 import ApiManager from '../../apiManager/apiManager';
 import { competitionSchema } from '../../utiils/validationSchema';
 
-const Add = ({onOpen,onClose,recall}) => {
+
+const Add = ({onOpen,onClose,recall,setAlertData}) => {
   const [isSubmitting,setIsSubmitting] = useState(false);
     const handleSubmit = async (values) => {
+      setIsSubmitting(true)
         console.log(values);
         try {
           let formData = new FormData();
@@ -25,11 +27,16 @@ const Add = ({onOpen,onClose,recall}) => {
           console.log(response)
           if(response.data?.status){
             console.log(response.data);
+            setAlertData({severity:'success',message:response?.data?.message});
             recall();
             onClose();
+          }else{
+            setAlertData({severity:'error',message:response?.data?.message});
           }
         } catch (error) {
           
+        }finally{
+          setIsSubmitting(false)
         }
     }
     
@@ -106,7 +113,7 @@ const Add = ({onOpen,onClose,recall}) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button variant='contained' color='info' type='submit'>Submit</Button>
+        <Button variant='contained' color='info' disabled={isSubmitting} type='submit'>{isSubmitting ? <CircularProgress size={22}/> : "Submit"}</Button>
       </DialogActions>
       </form>
     </Dialog>

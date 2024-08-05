@@ -4,11 +4,11 @@ import React from "react";
 
 const SliderCard = ({ data }) => {
   return (
-    <Card sx={{minHeight:300,mx:5,cursor:'pointer',p:2}}>
+    <Card sx={{minHeight:340,mx:3,cursor:'pointer',p:2,py:4,':hover':{color:'white',backgroundColor:'red'}, transition: 'color 0.7s ease, background-color 0.7s ease',}}>
       <Box
         sx={{ display: "flex", alignItems: "center", flexDirection: "column",gap:2 }}
       >
-        {data.icon}
+        <Typography component='img' src={data.icon} height={100} />
         <Typography variant="body2">{data.heading}</Typography>
         <Typography variant="body1">{data.description}</Typography>
       </Box>

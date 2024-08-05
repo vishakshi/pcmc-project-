@@ -1,13 +1,18 @@
 import { Box,Card,Typography,Grid } from '@mui/material'
 import React,{useEffect, useMemo, useState} from 'react'
 import { useTranslation } from 'react-i18next'
-import bg from '../assets/d10.jpg'
-import { getRemainingTime } from '../utiils/dateFormatter'
+import bg from '../../assets/d10.jpg'
+import { getRemainingTime } from '../../utiils/dateFormatter'
+import star from '../../assets/star.png'
 
 const PrizeCard = ({heading, amount}) => {
     const {t} = useTranslation();
     return(
-        <Card sx={{p:2,m:2}} elevation={2} >
+        <Card sx={{p:2,m:2,cursor:'pointer',
+            transition: 'box-shadow 0.3s ease',
+            ':hover': {
+              boxShadow: 4, 
+            }}} elevation={2} >
             <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><Typography>{t('competitionOrganized')}</Typography><Typography sx={{fontWeight:700,borderRadius:2,backgroundColor:'aqua',px:1,py:0.5}}>August 2024</Typography></Box>
             <Typography sx={{textAlign:'center',fontSize:18,my:2,fontWeight:700}} variant='body1'>{heading}</Typography>
             <Typography textAlign='center' variant='body2'>{amount}</Typography>
@@ -20,7 +25,7 @@ const Prizes = () => {
     const {t} = useTranslation();
     const [counter,setCounter] = useState([]);
     useEffect(()=>{
-        const id = setInterval(()=>{setCounter(getRemainingTime('2024-08-04T10:59:59'))},[1000]);
+        const id = setInterval(()=>{setCounter(getRemainingTime('2024-08-15T10:00:00'))},[1000]);
         return ()=>clearInterval(id);
     },[])
 
@@ -38,7 +43,11 @@ const Prizes = () => {
     ]
   return (
     <Box sx={{backgroundColor:'#fff',py:3}}>
-    <Typography sx={{textAlign:'center',fontWeight:700}} variant='h4'>{t('prizes')}</Typography>
+    <Typography sx={{textAlign:'center',fontWeight:700,py:2}} variant='h4'>{Array.from({length:3}).map(()=>(
+          <Typography component='img' height={12} src={star} />
+         ))} {t('prizes')} {Array.from({length:3}).map(()=>(
+            <Typography component='img' height={12} src={star} />
+           ))}</Typography>
     <Typography sx={{textAlign:'center',color:'#727289',width:300,mx:'auto'}} variant='body1'>{t('participateDescription')}</Typography>
     <Grid spacing={2} container sx={{'@media (min-width:768px)':{px:20},py:5}} >
         <Grid sx={{position:'relative'}} item md={6} sm={12} xs={12}>

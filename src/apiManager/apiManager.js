@@ -104,7 +104,16 @@ class ApiManager {
         return error?.response
       }
     }
-    
+    static getSubmissions = async () => {
+      try {
+        const url = BASE_URL + PATHS.GET_SUBMISSIONS;
+        const response = await axios.get(url,getHeaders());
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
 }
 
 export default ApiManager;

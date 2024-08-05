@@ -2,13 +2,20 @@ import { GoogleOAuthProvider } from "@react-oauth/google"
 import AdminLogin from "../pages/admin/admin-login"
 import UserLogin from "../pages/user/user-login"
 import UserSignUp from "../pages/user/user-signup"
-import Landing from "../pages/landing/landing"
+import LandingPage from "../pages/landing"
 
 export const publicRoutes = [
     {
         path:'/',
-        element:<Landing/>
+        element:<LandingPage/>
     },
+    {
+        path:'/*',
+        element:<div>404 Page Not Found</div>
+    }
+]
+
+export const authRoutes = [
     {
         path:'/user-login',
         element:<GoogleOAuthProvider clientId='628932087895-3derv1ft2t9lq3uvie425s9ulmgni5a4.apps.googleusercontent.com'><UserLogin /></GoogleOAuthProvider>

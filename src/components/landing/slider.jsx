@@ -1,10 +1,15 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import SliderCard from "./sliderCard";
+import SliderCard from "../sliderCard";
 import { CheckCircle, CheckCircleOutline, EditCalendarOutlined, EmojiEventsOutlined } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import bg from '../../assets/d7.webp'
+import checkCircle from '../../assets/check.png'
+import calendarIcon from '../../assets/calendar.png'
+import featherIcon from '../../assets/feather-leaf.png'
+
 
 const Slider = () => {
     const {t} = useTranslation()
@@ -28,24 +33,24 @@ const Slider = () => {
 
   const sliderData = [
     {
-        icon:<CheckCircleOutline sx={{fontSize:100}}/>,
+        icon:checkCircle,
         heading:t("heading1"),
         description:t("description2"),
     },
     {
-        icon:<EditCalendarOutlined sx={{fontSize:100}}/>,
+        icon:calendarIcon,
         heading:t("heading2"),
         description:t("description2"),
     },
     {
-        icon:<EmojiEventsOutlined sx={{fontSize:100}}/>,
+        icon:featherIcon,
         heading:t("heading3"),
         description:t("description3"),
     }
   ]
 
   return (
-    <Box my={8}>
+    <Box py={15} sx={{ "@media (min-width:768px)": { px: 20 },backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',backgroundSize:'cover'}}>
     <Carousel
       swipeable={true}
       slidesToSlide={1}
@@ -59,7 +64,7 @@ const Slider = () => {
       customTransition="all .5"
       transitionDuration={1000}
       containerClass="carousel-container"
-      removeArrowOnDeviceType={["tablet", "mobile","desktop"]}
+      removeArrowOnDeviceType={["tablet", "mobile"]}
     //   deviceType={this.props.deviceType}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"

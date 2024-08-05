@@ -14,18 +14,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { CalendarMonthOutlined, LoginOutlined, Logout } from '@mui/icons-material';
-import MyCarousel from './carousel';
+import { CalendarMonthOutlined, KeyboardArrowUp, LoginOutlined, Logout } from '@mui/icons-material';
+import MyCarousel from './landing/carousel';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Footer from './footer';
-import Slider from './slider';
+import Slider from './landing/slider';
 import { getFormatDate } from '../utiils/dateFormatter';
-import Notice from './notice';
-import Duration from './duration';
-import Prizes from './prizes';
+import Notice from './landing/notice';
+import Duration from './landing/duration';
+import Prizes from './landing/prizes';
 import CompetenceCard from './competenceCard';
-import DivyangAbout from './divyangAbout';
+import DivyangAbout from './landing/divyangAbout';
+import logo from '../assets/logo.png'
+import { Container, Fab, Fade, useScrollTrigger } from '@mui/material';
 
 const drawerWidth = 240;
 
@@ -45,9 +47,8 @@ function Navbar(props) {
   };
 
   const handleSignIn = () => {
-    if(sessionStorage.getItem('@authToken')){
-        sessionStorage.clear();
-        // props.window?.location.reload();
+    if(sessionStorage.getItem('@authToken') && sessionStorage.getItem('@userType') === "user"){
+      navigate('/dashboard')
     }else{
         navigate('/user-login')
     }
@@ -57,7 +58,7 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        PCMC
+        <Typography component='img' src={logo} alt='Logo' height={50} />
       </Typography>
       <Divider />
       <List>
@@ -77,6 +78,43 @@ function Navbar(props) {
     </Box>
   );
 
+  function ScrollTop(props) {
+    const { children, window } = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({
+      target: window ? window() : undefined,
+      disableHysteresis: true,
+      threshold: 100,
+    });
+  
+    const handleClick = (event) => {
+      const anchor = (event.target.ownerDocument || document).querySelector(
+        '#back-to-top-anchor',
+      );
+  
+      if (anchor) {
+        anchor.scrollIntoView({
+          block: 'center',
+        });
+      }
+    };
+  
+    return (
+      <Fade in={trigger}>
+        <Box
+          onClick={handleClick}
+          role="presentation"
+          sx={{ position: 'fixed', bottom: 16, right: 16 }}
+        >
+          {children}
+        </Box>
+      </Fade>
+    );
+  }
+  
+
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
@@ -85,6 +123,7 @@ function Navbar(props) {
       
       <AppBar component="nav" sx={{backgroundColor:'white',color:'black'}}>
       <Box sx={{backgroundColor:'#FF0000',display:'flex',justifyContent:'space-between',alignItems:'center'}}><Button sx={{color:'white'}} size='small' onClick={handleChangeLanguage}>{i18n.language === "en" ? "Marathi" : "English"}</Button> <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center'}} mr={1}><CalendarMonthOutlined/> {getFormatDate(new Date())}</Typography> </Box>
+      <Container maxWidth='lg'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -98,9 +137,9 @@ function Navbar(props) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } ,py:3}}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } ,py:2}}
           >
-            PCMC
+            <Typography component='img' src={logo} alt='Logo' height={50} />
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -110,10 +149,11 @@ function Navbar(props) {
             ))}
             
             <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'red','&:hover':{backgroundColor:'#9B3922'}}}>
-             {sessionStorage.getItem('@authToken') ? "Logout" : "Register"} 
+             Register Now
             </Button>
           </Box>
         </Toolbar>
+        </Container>
       </AppBar>
       <nav>
         <Drawer
@@ -132,27 +172,18 @@ function Navbar(props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ pt: 3,width:'100%' }}>
-        <Toolbar />
-        <MyCarousel/>
-        <Slider/>
-        <Notice/>
-        <Duration/>
-        <Prizes />
-        <CompetenceCard/>
-        <DivyangAbout/>
+      <ScrollTop {...props}>
+        <Fab size="small" sx={{backgroundColor:'red','&:hover':{backgroundColor:'#9B3922'}}}>
+          <KeyboardArrowUp sx={{color:'white'}} />
+        </Fab>
+      </ScrollTop>
+      <Box component="main" sx={{ width:'100%' }}>
+        <Toolbar id="back-to-top-anchor" />
+     {props.children}
         <Footer/>
       </Box>
     </Box>
   );
 }
-
-Navbar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
 
 export default Navbar;
