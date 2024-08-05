@@ -7,6 +7,7 @@ import Prizes from './prizes'
 import CompetenceCard from '../competenceCard'
 import DivyangAbout from './divyangAbout'
 import Navbar from '../navbar'
+import Testimonials from './testimonials'
 
 const Landing = () => {
   return (
@@ -17,6 +18,7 @@ const Landing = () => {
         <Duration/>
         <Prizes />
         <CompetenceCard/>
+        <Testimonials/>
         <DivyangAbout/>
    </Navbar>
   )

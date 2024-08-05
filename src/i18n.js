@@ -54,6 +54,14 @@ i18next.use(initReactI18next).init({
                 empowermentOfDisabledDescription: 'Empowerment of the disabled means making them self-reliant, expanding their skills, and strengthening their position in society. This is our purpose, the direction of equality, and the inspiration of empowerment.',
                 divyangFoundation: 'Divyang Foundation',
                 pimpriDescription: 'Pimpri Chinchwad Municipal Corporation is a pioneer in taking initiatives for the rights of persons with disabilities in India. The Municipal Corporation has implemented many effective schemes to protect the interests of the disabled and protect their rights. The Pimpri Chinchwad Municipal Corporation is highly committed to the implementation of the Rights of Persons with Disabilities Act, 2016 (RPWD Act 2016). Accordingly, the Municipal Corporation has established a Divyang Bhavan Foundation at Morwadi, Pimpri with an area of ​​25000 sq.ft. Sadar Bhawan works for therapy and rehabilitation of all persons with disabilities and skills and empowerment among them (all 21 persons with disabilities designated under RPWD Act 2016). Divyang Bhavan will be done by "Divyang Bhavan Foundation".',
+                publicComments: 'Public Comments',
+                peopleSayAboutUs: 'People say about us',
+                divyangPhenomenalJob: 'Divyang Bhavan Foundation has done a phenomenal job in empowering the differently abled in the society. Their hard work and dedication has changed the lives of many. The opportunity and support given to the differently abled through this foundation is very inspiring.',
+                rajeshPatil: 'Rajesh Patil, Social Worker',
+                foundationWorkImpact: 'Through the foundation\'s work, persons with disabilities have now become competent, self-reliant and active members of the society. With their commitment and efficiency, Divyang Bhavan Foundation has created a new hope and confidence in the society.',
+                snehaShah: 'Sneha Shah, Disability Rights Activist',
+                extraordinaryEfforts: 'Divyang Bhavan Foundation has made extraordinary efforts to empower the differently abled. Their innovative initiatives and dedication have made a positive difference in the lives of many.',
+                amitKumar: 'Amit Kumar, Social Entrepreneur',
             },
         },
         mt:{
@@ -103,6 +111,14 @@ i18next.use(initReactI18next).init({
                 empowermentOfDisabledDescription: 'अपंगांचे सक्षमीकरण म्हणजे त्यांना स्वावलंबी बनवणे, त्यांच्या कौशल्यांचा विस्तार करणे आणि समाजात त्यांचे स्थान बळकट करणे. हेच आमचे उद्दिष्ट, समतेची दिशा आणि सक्षमीकरणाची प्रेरणा आहे.',
                 divyangFoundation: 'दिव्यांग फाउंडेशन',
                 pimpriDescription: 'पिंपरी चिंचवड महानगरपालिका भारतातील अपंग व्यक्तींच्या हक्कांसाठी पुढाकार घेण्याच्या बाबतीत अग्रेसर आहे. महानगरपालिकेने अपंगांचे हित जपण्यासाठी आणि त्यांच्या हक्कांचे संरक्षण करण्यासाठी अनेक प्रभावी योजना राबवल्या आहेत. पिंपरी चिंचवड महानगरपालिका अपंग व्यक्तींच्या हक्क अधिनियम, 2016 (RPWD Act 2016) ची अंमलबजावणी करण्यासाठी अत्यंत वचनबद्ध आहे. तद्नुसार, महानगरपालिकेने मोरवाडी, पिंपरी येथे 25000 चौ.फुटांच्या क्षेत्रफळात दिव्यांग भवन फाउंडेशन स्थापन केले आहे. सदर भवन सर्व अपंग व्यक्तींच्या थेरपी आणि पुनर्वसन तसेच त्यांच्यातील कौशल्य आणि सक्षमीकरणासाठी कार्य करते (RPWD Act 2016 अंतर्गत नामांकित 21 सर्व अपंग व्यक्ती). दिव्यांग भवन "दिव्यांग भवन फाउंडेशन" द्वारे केले जाईल.',
+                publicComments: 'सार्वजनिक टिप्पण्या',
+                peopleSayAboutUs: 'लोक आमच्याबद्दल काय म्हणतात',
+                divyangPhenomenalJob: 'दिव्यांग भवन फाउंडेशनने समाजातील वेगवेगळ्या प्रकारच्या अपंगांना सशक्त बनवण्यात अद्भुत काम केले आहे. त्यांचे कठोर परिश्रम आणि समर्पण अनेकांच्या जीवनात बदल घडवून आणले आहेत. या फाउंडेशनद्वारे अपंगांना दिलेली संधी आणि समर्थन खूप प्रेरणादायक आहे.',
+                rajeshPatil: 'राजेश पाटील, समाजसेवक',
+                foundationWorkImpact: 'फाउंडेशनच्या कामाच्या माध्यमातून, अपंग व्यक्ती आता सक्षम, स्वावलंबी आणि समाजाचे सक्रिय सदस्य बनले आहेत. त्यांच्या वचनबद्धता आणि कार्यक्षमता यांच्या माध्यमातून, दिव्यांग भवन फाउंडेशनने समाजात नवीन आशा आणि आत्मविश्वास निर्माण केला आहे.',
+                snehaShah: 'स्नेहा शाह, अपंग हक्क कार्यकर्त्या',
+                extraordinaryEfforts: 'दिव्यांग भवन फाउंडेशनने अपंगांना सशक्त बनवण्यासाठी असाधारण प्रयत्न केले आहेत. त्यांच्या नाविन्यपूर्ण उपक्रम आणि समर्पणामुळे अनेकांच्या जीवनात सकारात्मक बदल झाला आहे.',
+                amitKumar: 'अमित कुमार, सामाजिक उद्योजक',
             }
         }
     }

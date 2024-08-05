@@ -7,8 +7,8 @@ import star from '../../assets/star.png'
 const DivyangAbout = () => {
     const {t} = useTranslation();
   return (
-    <Box sx={{ backgroundColor: "#fff", py: 3 }}>
-      <Typography sx={{ textAlign: "center",fontWeight:700 }} variant="h4">
+    <Box sx={{ backgroundColor: "#fff", py: 5 }}>
+      <Typography sx={{ textAlign: "center",fontWeight:700,py:3 }} variant="h4">
       {Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
          ))} {t("divyangFoundation")} {Array.from({length:3}).map(()=>(
