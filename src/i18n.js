@@ -62,6 +62,10 @@ i18next.use(initReactI18next).init({
                 snehaShah: 'Sneha Shah, Disability Rights Activist',
                 extraordinaryEfforts: 'Divyang Bhavan Foundation has made extraordinary efforts to empower the differently abled. Their innovative initiatives and dedication have made a positive difference in the lives of many.',
                 amitKumar: 'Amit Kumar, Social Entrepreneur',
+                resetPassword: 'Reset Password',
+                enterPassword: 'Enter Password',
+                reEnterPassword: 'Re - Enter Password',
+                reset:'Reset',
             },
         },
         mt:{
@@ -119,6 +123,10 @@ i18next.use(initReactI18next).init({
                 snehaShah: 'स्नेहा शाह, अपंग हक्क कार्यकर्त्या',
                 extraordinaryEfforts: 'दिव्यांग भवन फाउंडेशनने अपंगांना सशक्त बनवण्यासाठी असाधारण प्रयत्न केले आहेत. त्यांच्या नाविन्यपूर्ण उपक्रम आणि समर्पणामुळे अनेकांच्या जीवनात सकारात्मक बदल झाला आहे.',
                 amitKumar: 'अमित कुमार, सामाजिक उद्योजक',
+                resetPassword: 'पासवर्ड रीसेट करा',
+                enterPassword: 'पासवर्ड प्रविष्ट करा',
+                reEnterPassword: 'पासवर्ड पुन्हा प्रविष्ट करा',
+                reset:'रीसेट',
             }
         }
     }

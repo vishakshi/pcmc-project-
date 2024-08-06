@@ -3,6 +3,7 @@ import AdminLogin from "../pages/admin/admin-login"
 import UserLogin from "../pages/user/user-login"
 import UserSignUp from "../pages/user/user-signup"
 import LandingPage from "../pages/landing"
+import ResetPassword from "../pages/user/reset-password"
 
 export const publicRoutes = [
     {
@@ -12,6 +13,10 @@ export const publicRoutes = [
     {
         path:'/*',
         element:<div>404 Page Not Found</div>
+    },
+    {
+        path:'/reset-password/:token',
+        element:<ResetPassword/>
     }
 ]
 

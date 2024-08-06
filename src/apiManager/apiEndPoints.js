@@ -7,6 +7,7 @@ const PATHS = {
     CREATE_CONTEST: '/contest',
     GET_CONTESTS: '/contests',
     ADD_IN_CONTEST: '/submission',
-    GET_SUBMISSIONS:'/submissions',
+    GET_SUBMISSIONS: '/submissions',
+    GET_USER_DETAIL: '/user',
 }
 export default PATHS;

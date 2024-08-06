@@ -122,7 +122,7 @@ function Navbar(props) {
       <CssBaseline />
       
       <AppBar component="nav" sx={{backgroundColor:'white',color:'black'}}>
-      <Box sx={{backgroundColor:'#DD131A',display:'flex',justifyContent:'space-between',alignItems:'center'}}><Button sx={{color:'white'}} size='small' onClick={handleChangeLanguage}>{i18n.language === "en" ? "Marathi" : "English"}</Button> <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center',color:'white',gap:1}} mr={1}><CalendarMonthOutlined/> {getFormatDate(new Date())}</Typography> </Box>
+      <Box sx={{backgroundColor:'#800080',display:'flex',justifyContent:'space-between',alignItems:'center'}}><Button sx={{color:'white'}} size='small' onClick={handleChangeLanguage}>{i18n.language === "en" ? "Marathi" : "English"}</Button> <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center',color:'white',gap:1}} mr={1}><CalendarMonthOutlined/> {getFormatDate(new Date())}</Typography> </Box>
       <Container maxWidth='lg'>
         <Toolbar>
           <IconButton
@@ -148,7 +148,7 @@ function Navbar(props) {
               </Button>
             ))}
             
-            <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'#DD131A','&:hover':{backgroundColor:'#9B3922'}}}>
+            <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
              Register Now
             </Button>
           </Box>
@@ -173,7 +173,7 @@ function Navbar(props) {
         </Drawer>
       </nav>
       <ScrollTop {...props}>
-        <Fab size="small" sx={{backgroundColor:'red','&:hover':{backgroundColor:'#9B3922'}}}>
+        <Fab size="small" sx={{backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
           <KeyboardArrowUp sx={{color:'white'}} />
         </Fab>
       </ScrollTop>

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const Card = ({icon,heading,description}) => {
   return (
     <>
-    <Box sx={{ display: "flex", py: 2, px: 4,bgcolor:'#DD131A',gap:5,alignItems:'center',borderRadius:5,color:'white',minHeight:200,zIndex:99,position:'relative' }}>
+    <Box sx={{ display: "flex", py: 2, px: 4,bgcolor:'#800080',gap:5,alignItems:'center',borderRadius:5,color:'white',minHeight:200,zIndex:99,position:'relative' }}>
       <Box>
         <Box component="img" width={50} src={icon} />
       </Box>

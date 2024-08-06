@@ -8,6 +8,8 @@ import axios from 'axios'
 import ApiManager from '../../apiManager/apiManager'
 import CustomAlert from '../../components/customAlert'
 import { useTranslation } from 'react-i18next'
+import { useFormik } from 'formik'
+import { userLoginSchema } from '../../utiils/validationSchema'
 
 const UserLogin = () => {
     const [formData,setFormData] = useState({email:"",password:""})
@@ -40,11 +42,10 @@ const UserLogin = () => {
         onSuccess: (codeResponse) => handleGoogleData(codeResponse),
         onError: (error) => console.log('Login Failed:', error)
     });
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (values) => {
         try{
-        e.preventDefault();
         setIsLoading(true)
-        const response = await ApiManager.userLogin(formData);
+        const response = await ApiManager.userLogin(values);
         setIsLoading(false)
         if(response.data.status){
         const token = response?.data?.token;
@@ -61,6 +62,22 @@ const UserLogin = () => {
         setIsLoading(false)
     }
     }
+
+    const formik = useFormik({
+      initialValues:{
+          email:'',
+          password:''
+      },
+      onSubmit:handleSubmit,
+      validationSchema:userLoginSchema
+  })
+
+  const getErrorProps = (field) => {
+      return {
+        helperText: formik.touched[field] && formik.errors[field],
+        error: formik.touched[field] && Boolean(formik.errors[field])
+      };
+    };
   return (
     <Box
     sx={{
@@ -85,7 +102,7 @@ const UserLogin = () => {
       }}
     >
       <Box>
-        <form autoComplete='off' onSubmit={handleSubmit}>
+        <form autoComplete='off' onSubmit={formik.handleSubmit}>
         <Box display="flex" alignItems="center">
           {/* <img src={'logo'} style={{ width: "2rem" }} /> */}
           <Typography variant="h4" fontWeight='700' >
@@ -101,12 +118,10 @@ const UserLogin = () => {
         <TextField
           sx={{ display: "block", mb: 2 }}
           fullWidth
-          required
           size="small"
           placeholder="Email"
           variant="outlined"
-          value={formData.email}
-          onChange={(e)=>setFormData({...formData,email:e.target.value})}
+          {...formik.getFieldProps("email")} {...getErrorProps("email")}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -118,13 +133,11 @@ const UserLogin = () => {
         <TextField
           sx={{ display: "block", mb: 2 }}
           fullWidth
-          required
           size="small"
           placeholder="Password"
           variant="outlined"
           type="password"
-          value={formData.password}
-          onChange={(e)=>setFormData({...formData,password:e.target.value})}
+          {...formik.getFieldProps("password")} {...getErrorProps("password")}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
