@@ -33,7 +33,7 @@ const Prizes = () => {
         {
             id:'01',
             heading:t('logoDesignPrize'),
-            amount:'Rs. 50,000'
+            amount:'Rs. 25,000'
         },
         {
             id:'02',
