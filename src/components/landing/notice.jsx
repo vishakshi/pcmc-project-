@@ -25,7 +25,7 @@ const Notice = () => {
           <Typography component='img' height={12} src={star} />
          ))}</Typography>
     <Box sx={{display:'flex'}}>
-        <Box width={'50%'} sx={{'@media (max-width:768px)':{display:'none'}}}><Box sx={{borderRadius:10}} component='img' height={500} width={'100%'} src={bg} /></Box>
+        <Box width={'50%'} sx={{'@media (max-width:768px)':{display:'none'}}}><Box sx={{borderRadius:10,objectFit:'contain'}} component='img' height={500} width={'100%'} src={bg} /></Box>
         <Box sx={{width:{xs:'100%',md:'50%'}}}>
             <Box sx={{display:'flex',alignItems:'center',flexDirection:'column',paddingX:10,gap:5,mt:5}}>
             <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>

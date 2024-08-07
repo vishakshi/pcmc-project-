@@ -9,5 +9,6 @@ const PATHS = {
     ADD_IN_CONTEST: '/submission',
     GET_SUBMISSIONS: '/submissions',
     GET_USER_DETAIL: '/user',
+    GET_SUBMISSIONS_NY_CONTEST: '/submissions-by-contest'
 }
 export default PATHS;

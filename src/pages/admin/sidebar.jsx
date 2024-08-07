@@ -126,7 +126,7 @@ export default function Sidebar({children}) {
     },
     {
       id:2,
-      title:"Submissions",
+      title:"Participants",
       icon:<PeopleAltOutlined/>,
       route:'/submission',
   },

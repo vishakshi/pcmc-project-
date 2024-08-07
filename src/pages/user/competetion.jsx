@@ -29,7 +29,7 @@ const Competetion = () => {
   return (
     <div>
         <Grid container spacing={2}>
-      {data.slice(0,1).map((data, index) => (
+      {data.map((data, index) => (
         <CompetitionCard recall={()=>setRecall(recall + 1)} key={data?._id} data={data} />
       ))}
       </Grid>

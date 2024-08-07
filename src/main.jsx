@@ -1,20 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { ThemeProvider } from '@emotion/react'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider } from "@emotion/react";
 import { BrowserRouter } from "react-router-dom";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import App from './App.jsx'
-import './index.css'
-import './i18n.js'
-import { theme } from './theme/theme.js'
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import App from "./App.jsx";
+import "./index.css";
+import "./i18n.js";
+import { theme } from "./theme/theme.js";
+import { ThemeContextProvider } from "./context/themeContext.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <ThemeContextProvider>
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
-      <BrowserRouter>
-      <App />
-      </BrowserRouter>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </LocalizationProvider>
-     </ThemeProvider>,
-)
+    </ThemeProvider>
+  </ThemeContextProvider>
+);

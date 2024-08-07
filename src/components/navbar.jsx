@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,19 +14,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { CalendarMonthOutlined, KeyboardArrowUp, LoginOutlined, Logout } from '@mui/icons-material';
-import MyCarousel from './landing/carousel';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Footer from './footer';
-import Slider from './landing/slider';
 import { getFormatDate } from '../utiils/dateFormatter';
-import Notice from './landing/notice';
-import Duration from './landing/duration';
-import Prizes from './landing/prizes';
-import CompetenceCard from './competenceCard';
-import DivyangAbout from './landing/divyangAbout';
 import logo from '../assets/logo.png'
 import { Container, Fab, Fade, useScrollTrigger } from '@mui/material';
+import { useThemeContext } from '../context/themeContext';
 
 const drawerWidth = 240;
 
@@ -37,6 +30,7 @@ function Navbar(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { t, i18n } = useTranslation();
     const navItems = [t('home'), t('aboutUs'), t('contactUs')];
+    const {theme:nameva} = useThemeContext();
   const handleChangeLanguage = () => {
     const languageCode = i18n.language === "mt" ? "en" : "mt"
     i18n.changeLanguage(languageCode)
@@ -53,6 +47,10 @@ function Navbar(props) {
         navigate('/user-login')
     }
         
+  }
+
+  const handleFontSize = (type) => {
+    
   }
 
   const drawer = (
@@ -122,7 +120,27 @@ function Navbar(props) {
       <CssBaseline />
       
       <AppBar component="nav" sx={{backgroundColor:'white',color:'black'}}>
-      <Box sx={{backgroundColor:'#800080',display:'flex',justifyContent:'space-between',alignItems:'center'}}><Button sx={{color:'white'}} size='small' onClick={handleChangeLanguage}>{i18n.language === "en" ? "Marathi" : "English"}</Button> <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center',color:'white',gap:1}} mr={1}><CalendarMonthOutlined/> {getFormatDate(new Date())}</Typography> </Box>
+
+      <Box sx={{backgroundColor:'#800080',display:'flex',justifyContent:'space-between',alignItems:'center',}}>
+        <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+        <Box sx={{borderRight:'2px solid #951595'}}>
+        <Button sx={{color:'white'}} size='small' onClick={handleChangeLanguage}>{i18n.language === "en" ? "Marathi" : "English"}</Button> 
+        </Box>
+        <Box sx={{borderRight:'2px solid #951595'}}>
+        <Button sx={{color:'white'}} onClick={()=>handleFontSize('A+')} size='small'>A+</Button> 
+        </Box>
+        <Box sx={{borderRight:'2px solid #951595'}}>
+        <Button sx={{color:'white'}} size='small'>A</Button> 
+        </Box>
+        <Box sx={{borderRight:'2px solid #951595'}}>
+        <Button sx={{color:'white'}} size='small'>A-</Button> 
+        </Box>
+        </Box>
+
+        <Box>
+        <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center',color:'white',gap:1}} mr={1}><CalendarMonthOutlined/> {getFormatDate(new Date())}</Typography> 
+        </Box>
+      </Box>
       <Container maxWidth='lg'>
         <Toolbar>
           <IconButton

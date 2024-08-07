@@ -1,11 +1,24 @@
-import React from 'react'
-import { Box,Typography } from '@mui/material'
+import React,{useState} from 'react'
+import { Box,Typography,Button } from '@mui/material'
 import { getFormatDate } from '../utiils/dateFormatter'
 import bg from '../assets/user-login.jpg'
+import ConfirmDialog from './confirmDialog'
 
 const SubmissionCard = ({data,serialNo}) => {
+  const [openConfirm,setOpenConfirm] = useState();
+  const [position,setPosition] = useState("")
+  const handleClick = (type) => {
+    setPosition(type);
+    setOpenConfirm(true);    
+  }
+
+  const handleConfirm = () => {
+    console.log(position);
+  }
+
   return (
-    <Box sx={{backgroundColor:'white',mt:1,py:1,px:2,borderRadius:5,display:'flex',gap:5}}>
+    <>
+    <Box sx={{backgroundColor:'white',mt:1,py:1,px:2,borderRadius:5,display:'flex',gap:5,flexGrow:1}}>
       <Box>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", gap: 2 }}>
@@ -58,7 +71,14 @@ const SubmissionCard = ({data,serialNo}) => {
             </Box>
           </Box>
         </Box>
+        <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',flexGrow:1,gap:2}}>
+          <Button variant='contained' color='success' onClick={()=>handleClick("1")} >Give 1st Position</Button>
+          <Button variant='contained' color='warning' onClick={()=>handleClick("2")}>Give 2nd Position</Button>
+          <Button variant='contained' color='info' onClick={()=>handleClick("3")}>Give 3rd Position</Button>
+        </Box>
     </Box>
+    <ConfirmDialog onOpen={openConfirm} onClose={()=>setOpenConfirm(false)} message='This operation cannot be undone. Are you sure you want to proceed?' title='Confirmation' onConfirm={handleConfirm} />
+    </>
   )
 }
 

@@ -5,10 +5,10 @@ import SliderCard from "../sliderCard";
 import { CheckCircle, CheckCircleOutline, EditCalendarOutlined, EmojiEventsOutlined } from "@mui/icons-material";
 import { Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import bg from '../../assets/d7.jpg'
-import checkCircle from '../../assets/check.png'
-import calendarIcon from '../../assets/calendar.png'
-import featherIcon from '../../assets/feather-leaf.png'
+import bg from '../../assets/DFB1.jpg'
+import checkCircle from '../../assets/s2.png'
+import calendarIcon from '../../assets/s3.png'
+import featherIcon from '../../assets/s1.png'
 
 
 const Slider = () => {
@@ -50,7 +50,7 @@ const Slider = () => {
   ]
 
   return (
-    <Box py={18} sx={{ "@media (min-width:768px)": { px: 20 },backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',backgroundSize:'cover'}}>
+    <Box py={18} sx={{ "@media (min-width:768px)": { px: 20 },backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',backgroundSize:'cover',backgroundPosition:'top'}}>
     <Carousel
       swipeable={true}
       slidesToSlide={1}
