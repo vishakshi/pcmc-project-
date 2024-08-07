@@ -10,10 +10,10 @@ export const getRemainingTime = (targetDate) => {
     const duration = moment.duration(target.diff(now));
 
     const timeValues = [
-        { type: 'Days', value: duration.days() },
-        { type: 'Hours', value: duration.hours() },
-        { type: 'Minutes', value: duration.minutes() },
-        { type: 'Seconds', value: duration.seconds() }
+        { type: 'days', value: duration.days() },
+        { type: 'hours', value: duration.hours() },
+        { type: 'minutes', value: duration.minutes() },
+        { type: 'seconds', value: duration.seconds() }
     ];
 
     return timeValues;

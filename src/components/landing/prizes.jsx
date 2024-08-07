@@ -13,7 +13,7 @@ const PrizeCard = ({heading, amount,tagline}) => {
             ':hover': {
               boxShadow: 8, 
             }}} elevation={2} >
-            <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><Typography>{t('competitionOrganized')}</Typography><Typography sx={{fontWeight:700,borderRadius:2,backgroundColor:'aqua',px:1,py:0.5}}>August 2024</Typography></Box>
+            <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><Typography>{t('competitionOrganized')}</Typography><Typography sx={{fontWeight:700,borderRadius:2,backgroundColor:'aqua',px:1,py:0.5}}>{t('august')} 2024</Typography></Box>
             <Typography sx={{textAlign:'center',fontSize:18,my:2,fontWeight:700}} variant='body1'>{heading}</Typography>
             <Typography textAlign='center' variant='body2'>{amount}</Typography>
             {tagline && <Box sx={{display:'flex',justifyContent:'flex-end'}}><Typography sx={{px:0.8,py:0.5,bgcolor:'#800080',borderRadius:2,color:'white'}} variant='caption'>{tagline}</Typography></Box>}
@@ -64,7 +64,7 @@ const Prizes = () => {
                 {counter.map(({type,value})=>(
  <Box key={type} sx={{borderRadius:5,border:'1px solid aqua',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
  <Typography sx={{color:'black',px:2,py:1}} variant='body1' fontWeight={700}>{value}</Typography>
- <Typography sx={{color:'black',backgroundColor:'aqua',px:2,py:1,borderRadius:'0  0 20px 20px'}} variant='body1'>{type}</Typography>
+ <Typography sx={{color:'black',backgroundColor:'aqua',px:2,py:1,borderRadius:'0  0 20px 20px'}} variant='body1'>{t(type)}</Typography>
  </Box>
                 ))}
             </Box>

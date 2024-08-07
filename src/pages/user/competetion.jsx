@@ -6,7 +6,7 @@ import {Grid} from "@mui/material";
 
 const Competetion = () => {
   const [data, setData] = useState([]);
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(true);
   const [recall,setRecall] = useState(1);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Competetion = () => {
   return (
     <div>
         <Grid container spacing={2}>
-      {data.map((data, index) => (
+      {data.slice(0,1).map((data, index) => (
         <CompetitionCard recall={()=>setRecall(recall + 1)} key={data?._id} data={data} />
       ))}
       </Grid>

@@ -34,7 +34,7 @@ const Notice = () => {
             <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>
                 {t('freeEntryNotice')}
             </Typography>
-            <Button variant='contained' onClick={handleSignIn} size="large" sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}} endIcon={<LoginOutlined/>}>Register Now</Button>
+            <Button variant='contained' onClick={handleSignIn} size="large" sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}} endIcon={<LoginOutlined/>}>{t('registerNow')}</Button>
             </Box>
         </Box>
     </Box>

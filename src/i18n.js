@@ -68,6 +68,12 @@ i18next.use(initReactI18next).init({
                 reset:'Reset',
                 englishTagline: 'English tagline',
                 marathiTagline: 'Marathi tagline',
+                registerNow: 'Register Now',
+                days: 'days',
+                hours: 'hours',
+                minutes: 'minutes',
+                seconds: 'seconds',
+                august: 'August',
             },
         },
         mt:{
@@ -131,6 +137,12 @@ i18next.use(initReactI18next).init({
                 reset:'रीसेट',
                 englishTagline: 'इंग्रजी टॅगलाईन',
                 marathiTagline: 'मराठी टॅगलाईन',
+                registerNow: 'आता नोंदणी करा',
+                days: 'दिवस',
+                hours: 'तास',
+                minutes: 'मिनिटे',
+                seconds: 'सेकंद',
+                august: 'ऑगस्ट',
             }
         }
     }

@@ -153,7 +153,7 @@ function Navbar(props) {
             ))}
             
             <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
-             Register Now
+             {t('registerNow')}
             </Button>
           </Box>
         </Toolbar>

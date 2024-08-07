@@ -53,7 +53,7 @@ export default function CompetitionCard({data,recall}) {
     <>
     {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
     <Grid item md={6}>
-    <Card sx={{ display: 'flex',minWidth:450 }}>
+    <Card sx={{ display: 'flex'}}>
           <CardMedia
         component="img"
         sx={{ height:200,width:150 }}

@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
-import { Typography,Box } from '@mui/material'
+import { Typography,Box, CircularProgress } from '@mui/material'
 import Breadcrumb from '../../components/breadCrumb'
 import SubmissionCard from '../../components/submissionCard';
 import ApiManager from '../../apiManager/apiManager';
 
 const Submission = () => {
   const [data, setData] = useState([]);
-  const [isLoading,setIsLoading] = useState(false);
+  const [isLoading,setIsLoading] = useState(true);
   const [recall,setRecall] = useState(1);
 
   useEffect(() => {
@@ -32,9 +32,11 @@ const Submission = () => {
     <Box>
     <Typography variant='h4' fontWeight='700'>Submission</Typography>
     <Breadcrumb currentPage="Submission"/>
+      {isLoading ? <CircularProgress/> : <>
     {data.map((data,index)=>(
         <SubmissionCard serialNo={index+1} data={data} key={data?._id}/>
       ))}
+      </>}
     </Box>
   )
 }
