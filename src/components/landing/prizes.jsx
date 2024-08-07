@@ -59,8 +59,8 @@ const Prizes = () => {
     <Typography sx={{textAlign:'center',color:'#727289',width:300,mx:'auto'}} variant='body1'>{t('participateDescription')}</Typography>
     <Grid spacing={2} container sx={{'@media (min-width:768px)':{px:20},py:5}} >
         <Grid sx={{position:'relative'}} item md={6} sm={12} xs={12}>
-            <Box component='img' src={bg} width={400} />
-            <Box sx={{display:'flex',gap:1,position:'absolute',top:'70%',justifyContent:'center',left:25}}>
+            <Box component='img' src={bg} sx={{width:{xs:350,md:400}}} />
+            <Box sx={{display:'flex',gap:1,position:'absolute',top:'70%',justifyContent:'center',left:20}}>
                 {counter.map(({type,value})=>(
  <Box key={type} sx={{borderRadius:5,border:'1px solid aqua',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
  <Typography sx={{color:'black',px:2,py:1}} variant='body1' fontWeight={700}>{value}</Typography>
