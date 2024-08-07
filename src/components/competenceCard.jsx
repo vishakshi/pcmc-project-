@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 const Card = ({icon,heading,description}) => {
   return (
     <>
-    <Box sx={{ display: "flex", py: 2, px: 4,bgcolor:'#800080',gap:5,alignItems:'center',borderRadius:5,color:'white',minHeight:200,zIndex:99,position:'relative' }}>
+    <Box sx={{ display: "flex", py: 2,mx:{xs:2,md:0}, px: 4,bgcolor:'#800080',gap:5,alignItems:'center',borderRadius:5,color:'white',minHeight:200,zIndex:99,position:'relative' }}>
       <Box>
         <Box component="img" width={50} src={icon} />
       </Box>
@@ -16,7 +16,7 @@ const Card = ({icon,heading,description}) => {
         <Typography variant="body1">{description}</Typography>
       </Box>
     </Box>
-    <Box sx={{paddingY:1,backgroundColor:'#FAD9DA',width:'95%',mx:'auto',marginTop:-1,borderRadius:5}}></Box>
+    <Box sx={{paddingY:1,backgroundColor:'#FAD9DA',width:{xs:'85%',md:'95%'},mx:'auto',marginTop:-1,borderRadius:5}}></Box>
     </>
   );
 };
@@ -40,7 +40,7 @@ const CompetenceCard = () => {
   return (
     <Grid container sx={{'@media (min-width:768px)':{px:20},pt:3,pb:5,bgcolor:'white'}} spacing={2}>
       {cardData.map(({id,heading,description,icon}) => (
-        <Grid sm={6} md={6}  item>
+        <Grid sm={6} md={6} item>
           <Card key={id} heading={heading} icon={icon} description={description} />
         </Grid>
       ))}

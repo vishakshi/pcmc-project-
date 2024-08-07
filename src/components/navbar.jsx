@@ -134,6 +134,10 @@ function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
+          <Typography variant="h6" sx={{ display:{xs:"flex",md:'none'},position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}>
+        <Typography component='img' src={logo} alt='Logo' height={50} />
+      </Typography>
+          
           <Typography
             variant="h6"
             component="div"
@@ -173,7 +177,7 @@ function Navbar(props) {
         </Drawer>
       </nav>
       <ScrollTop {...props}>
-        <Fab size="small" sx={{backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
+        <Fab size="medium" sx={{backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
           <KeyboardArrowUp sx={{color:'white'}} />
         </Fab>
       </ScrollTop>

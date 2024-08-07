@@ -66,6 +66,8 @@ i18next.use(initReactI18next).init({
                 enterPassword: 'Enter Password',
                 reEnterPassword: 'Re - Enter Password',
                 reset:'Reset',
+                englishTagline: 'English tagline',
+                marathiTagline: 'Marathi tagline',
             },
         },
         mt:{
@@ -127,6 +129,8 @@ i18next.use(initReactI18next).init({
                 enterPassword: 'पासवर्ड प्रविष्ट करा',
                 reEnterPassword: 'पासवर्ड पुन्हा प्रविष्ट करा',
                 reset:'रीसेट',
+                englishTagline: 'इंग्रजी टॅगलाईन',
+                marathiTagline: 'मराठी टॅगलाईन',
             }
         }
     }

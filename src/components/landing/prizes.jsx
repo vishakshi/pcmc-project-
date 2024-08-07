@@ -5,17 +5,18 @@ import bg from '../../assets/d10.jpg'
 import { getRemainingTime } from '../../utiils/dateFormatter'
 import star from '../../assets/star.png'
 
-const PrizeCard = ({heading, amount}) => {
+const PrizeCard = ({heading, amount,tagline}) => {
     const {t} = useTranslation();
     return(
         <Card sx={{p:2,m:2,cursor:'pointer',
-            transition: 'box-shadow 0.3s ease',
+            transition: 'box-shadow 0.5s ease',
             ':hover': {
-              boxShadow: 4, 
+              boxShadow: 8, 
             }}} elevation={2} >
             <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}}><Typography>{t('competitionOrganized')}</Typography><Typography sx={{fontWeight:700,borderRadius:2,backgroundColor:'aqua',px:1,py:0.5}}>August 2024</Typography></Box>
             <Typography sx={{textAlign:'center',fontSize:18,my:2,fontWeight:700}} variant='body1'>{heading}</Typography>
             <Typography textAlign='center' variant='body2'>{amount}</Typography>
+            {tagline && <Box sx={{display:'flex',justifyContent:'flex-end'}}><Typography sx={{px:0.8,py:0.5,bgcolor:'#800080',borderRadius:2,color:'white'}} variant='caption'>{tagline}</Typography></Box>}
         </Card>
     )
 }
@@ -33,12 +34,19 @@ const Prizes = () => {
         {
             id:'01',
             heading:t('logoDesignPrize'),
-            amount:'Rs. 25,000'
+            amount:'Rs. 50,000'
         },
         {
             id:'02',
             heading:t('taglineContestPrize'),
-            amount:'Rs. 25,000'
+            amount:'Rs. 25,000',
+            tagline:t('englishTagline'),
+        },
+        {
+            id:'03',
+            heading:t('taglineContestPrize'),
+            amount:'Rs. 25,000',
+            tagline:t('marathiTagline'),
         }
     ]
   return (
@@ -52,7 +60,7 @@ const Prizes = () => {
     <Grid spacing={2} container sx={{'@media (min-width:768px)':{px:20},py:5}} >
         <Grid sx={{position:'relative'}} item md={6} sm={12} xs={12}>
             <Box component='img' src={bg} width={300} />
-            <Box sx={{display:'flex',gap:2,position:'absolute',top:'80%',justifyContent:'center',left:25}}>
+            <Box sx={{display:'flex',gap:1,position:'absolute',top:'60%',justifyContent:'center',left:25}}>
                 {counter.map(({type,value})=>(
  <Box key={type} sx={{borderRadius:5,border:'1px solid aqua',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
  <Typography sx={{color:'black',px:2,py:1}} variant='body1' fontWeight={700}>{value}</Typography>
@@ -62,8 +70,8 @@ const Prizes = () => {
             </Box>
         </Grid>
         <Grid item md={6} sm={12} xs={12}>
-            {cardData.map(({id,heading,amount})=>(
-                <PrizeCard key={id} heading={heading} amount={amount} />
+            {cardData.map(({id,heading,amount,tagline})=>(
+                <PrizeCard key={id} heading={heading} amount={amount} tagline={tagline} />
             ))}
             </Grid>
     </Grid>
