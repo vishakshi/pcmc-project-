@@ -21,6 +21,7 @@ import { getFormatDate } from '../utiils/dateFormatter';
 import logo from '../assets/logo.png'
 import { Container, Fab, Fade, useScrollTrigger } from '@mui/material';
 import { useThemeContext } from '../context/themeContext';
+import { pxToRem } from '../utiils/utility';
 
 const drawerWidth = 240;
 
@@ -50,7 +51,17 @@ function Navbar(props) {
   }
 
   const handleFontSize = (type) => {
-    
+    switch(type){
+      case "A+":
+        document.documentElement.style.fontSize = "1.3rem";
+        break;
+      case "A-":
+        document.documentElement.style.fontSize = "0.8rem";
+        break;
+      case "A":
+        document.documentElement.style.fontSize = "1rem";
+        break;
+    }
   }
 
   const drawer = (
@@ -130,10 +141,10 @@ function Navbar(props) {
         <Button sx={{color:'white'}} onClick={()=>handleFontSize('A+')} size='small'>A+</Button> 
         </Box>
         <Box sx={{borderRight:'2px solid #951595'}}>
-        <Button sx={{color:'white'}} size='small'>A</Button> 
+        <Button sx={{color:'white'}} onClick={()=>handleFontSize('A')} size='small'>A</Button> 
         </Box>
         <Box sx={{borderRight:'2px solid #951595'}}>
-        <Button sx={{color:'white'}} size='small'>A-</Button> 
+        <Button sx={{color:'white'}} onClick={()=>handleFontSize('A-')} size='small'>A-</Button> 
         </Box>
         </Box>
 
@@ -165,7 +176,7 @@ function Navbar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{fontSize:15,mr:2}} >
+              <Button key={item} sx={{fontSize:pxToRem(15),mr:2}} >
                 {item}
               </Button>
             ))}

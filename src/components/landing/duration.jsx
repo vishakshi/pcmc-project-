@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { LoginOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import star from '../../assets/star.png'
+import { pxToRem } from '../../utiils/utility'
 
 const Duration = () => {
     const {t} = useTranslation();
@@ -25,10 +26,10 @@ const Duration = () => {
          ))} </Typography>
          <Grid container sx={{'@media (min-width:768px)':{px:20}}} direction="row">
         <Grid sx={{display:'flex',p:5,flexDirection:'column',gap:5}} item md={6} >
-            <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>
+            <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('competitionDescription')}
             </Typography>
-            <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>
+            <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
             {t('competitionDuration')} <span style={{fontWeight:700}}> 10-08-2024 {t('to')} 15-08-2024</span>
             </Typography>
             <Box mx='auto'><Button variant='contained' onClick={handleSignIn} size="large" endIcon={<LoginOutlined/>} sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>{t('registerNow')}</Button></Box>

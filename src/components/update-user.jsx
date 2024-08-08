@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { InputLabel,TextField,Box,Grid,Button,CircularProgress, InputAdornment, IconButton, Dialog,DialogContent,DialogTitle,DialogActions } from '@mui/material';
 import { useFormik } from 'formik';
 import ApiManager from '../apiManager/apiManager';
@@ -6,7 +6,7 @@ import { updateUserSchema, userSchema } from '../utiils/validationSchema';
 import { CloseOutlined, VisibilityOffOutlined, VisibilityOutlined } from '@mui/icons-material';
 import { getDecodedToken } from '../utiils/utility';
 
-const UpdateUser = ({onOpen,onClose,recall,setAlertData}) => {
+const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
     const [isLoading,setIsLoading] = useState(false);
     
 
@@ -34,12 +34,20 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData}) => {
 
     const formik = useFormik({
         initialValues:{
-            firstName:'',
-            lastName:'',
+            firstName:data?.firstName,
+            lastName:data?.lastName,
         },
         onSubmit:handleSubmit,
         validationSchema:updateUserSchema
     })
+
+    
+    useEffect(()=>{
+      formik.setValues({
+        firstName:data?.firstName,
+        lastName:data?.lastName,
+      })
+    },[])
 
     const getErrorProps = (field) => {
         return {

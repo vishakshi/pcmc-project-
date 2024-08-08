@@ -10,6 +10,7 @@ import CustomAlert from '../../components/customAlert'
 import { useTranslation } from 'react-i18next'
 import { useFormik } from 'formik'
 import { userLoginSchema } from '../../utiils/validationSchema'
+import { pxToRem } from '../../utiils/utility'
 
 const UserLogin = () => {
     const [formData,setFormData] = useState({email:"",password:""})
@@ -109,7 +110,7 @@ const UserLogin = () => {
             {t("welcomeBack")}
           </Typography>
         </Box>
-        <Typography variant="h5" fontSize={25}>
+        <Typography variant="h5" fontSize={pxToRem(25)}>
           {t("logIntoYourAccount")}
         </Typography>
         <Typography mb={2} pr={2} color="secondary" variant="body1">

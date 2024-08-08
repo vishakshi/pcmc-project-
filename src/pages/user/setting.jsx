@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
-import { Box, Grid,Typography,Button, IconButton } from '@mui/material'
+import { Box, Grid,Typography,Button, IconButton, CircularProgress } from '@mui/material'
 import ApiManager from '../../apiManager/apiManager'
 import { BorderColorOutlined } from '@mui/icons-material'
 import UpdateUser from '../../components/update-user'
 import CustomAlert from '../../components/customAlert'
-import { getDecodedToken } from '../../utiils/utility'
+import { getDecodedToken, pxToRem } from '../../utiils/utility'
 
 const Setting = () => {
     const [isLoading,setIsLoading] = useState(true)
@@ -29,13 +29,19 @@ const Setting = () => {
           }
         })();
       },[recall])
+
+      if(isLoading){
+        return(
+          <CircularProgress/>
+        )
+      }
     
       return (
         <Box sx={{maxWidth:350,mx:'auto',display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',height:'70vh'}}>
              {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
-          <Box sx={{border:'2px solid aqua',borderRadius:5}} p={2}>
+          <Box sx={{border:'2px solid aqua',borderRadius:5,backgroundColor:'white'}} p={2}>
             <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}} >
-            <Typography variant='h5' sx={{ fontSize: 26, textDecoration: 'underline', mb: 2 }}>
+            <Typography variant='h5' sx={{ fontSize: pxToRem(26), textDecoration: 'underline', mb: 2 }}>
               Personal Details
             </Typography>
             </Box>
@@ -56,9 +62,9 @@ const Setting = () => {
           </Box>
           <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',gap:2,pt:2}}>
             <Button variant='contained' onClick={()=>setEditOpen(true)} color='info'>Edit Personal Details</Button>
-            <Button variant='contained' onClick={()=>setEditOpen(true)} color='info'>Send Reset/Change Password Link</Button>
+            {/* <Button variant='contained' onClick={()=>setEditOpen(true)} color='info'>Send Reset/Change Password Link</Button> */}
           </Box>
-          <UpdateUser onOpen={editOpen} onClose={()=>setEditOpen(false)} recall={()=>setRecall(recall + 1)} setAlertData={setAlertData} />
+          <UpdateUser data={data} onOpen={editOpen} onClose={()=>setEditOpen(false)} recall={()=>setRecall(recall + 1)} setAlertData={setAlertData} />
         </Box>
       );
 }

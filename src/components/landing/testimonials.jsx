@@ -5,6 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import bg from '../../assets/d13edit.jpg'
 import star from '../../assets/favorite.png'
+import { pxToRem } from "../../utiils/utility";
 
 const TestimonialCard = ({comment,name}) => {
     const { t } = useTranslation();
@@ -15,7 +16,7 @@ const TestimonialCard = ({comment,name}) => {
          ))}</Typography>
       <Typography variant="h4" sx={{textAlign:'center',fontWeight:700}} >{t("peopleSayAboutUs")}</Typography>
       <Box>
-        <Typography variant="body1" sx={{textAlign:'center',fontSize:22,py:3}} textAlign='center'>{comment}</Typography>
+        <Typography variant="body1" sx={{textAlign:'center',fontSize:pxToRem(22),py:3}} textAlign='center'>{comment}</Typography>
       </Box>
       <Typography variant="body1" textAlign='center'>{name} ------</Typography>
     </Box>

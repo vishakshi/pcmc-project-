@@ -7,6 +7,9 @@ import UserLogin from "../pages/user/user-login"
 import UserDashboard from "../pages/user/dashboard"
 import CompetetionDetail from "../pages/admin/competetionDetail"
 import Submission from "../pages/admin/submission"
+import UserSidebar from "../pages/user/sidebar"
+import UserCompetition from "../pages/user/competetion"
+import Setting from "../pages/user/setting"
 
 export const adminRoutes = [
     {
@@ -30,6 +33,10 @@ export const adminRoutes = [
 export const userRoutes = [
     {
         path:'/dashboard',
-        element:<UserDashboard/>,
+        element:<UserSidebar><UserCompetition/></UserSidebar>,
+    },
+    {
+        path:'/setting',
+        element:<UserSidebar><Setting/></UserSidebar>,
     },
 ]

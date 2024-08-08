@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import { pxToRem } from "../utiils/utility";
 
 export const theme = createTheme({
   palette: {
@@ -22,7 +23,7 @@ export const theme = createTheme({
   typography:{
     fontFamily:'Roboto',
     body2:{
-      fontSize:18,
+      fontSize:pxToRem(18),
       fontWeight:600
     }
   },components:{
@@ -50,7 +51,7 @@ export const theme = createTheme({
         styleOverrides:{
             root:()=>({
                 fontWeight:'600',
-                fontSize:20,
+                fontSize:pxToRem(20),
                 paddingTop:10,
                 paddingBottom:10,
                 paddingLeft:15,

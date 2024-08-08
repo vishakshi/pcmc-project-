@@ -16,7 +16,7 @@ export default function Breadcrumb({ pages, currentPage }) {
       <Breadcrumbs aria-label="breadcrumb">
       <Link
           underline="hover"
-          to={'/dashboard'}
+          to={'/'}
           style={{textDecoration:'none'}}
           color="inherit"
         >

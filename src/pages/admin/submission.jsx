@@ -3,13 +3,18 @@ import { Typography,Box, CircularProgress,InputLabel, Autocomplete, TextField } 
 import Breadcrumb from '../../components/breadCrumb'
 import SubmissionCard from '../../components/submissionCard';
 import ApiManager from '../../apiManager/apiManager';
+import DialogLoader from '../../components/DialogLoader';
+import CustomAlert from '../../components/customAlert';
 
 const Submission = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   const [contestData,setContestData] = useState([])
+  const [singleContestData,setSingleContestData] = useState([])
   const [isLoading,setIsLoading] = useState(true);
   const [isDataLoading,setIsDataLoading] = useState(false)
   const [recall,setRecall] = useState(1);
+  const [selectedValue,setSelectedValue] = useState("");
+  const [alertData,setAlertData] = React.useState({severity:'',message:''});
 
   useEffect(() => {
     (async () => {
@@ -26,26 +31,38 @@ const Submission = () => {
         setIsLoading(false);
       }
     })();
-  }, [recall]);
-  if(isLoading){
-    return <CircularProgress/>
-  }
+  }, []);
 
   const handleChange  = async (_,selectedVal) => {
     if(selectedVal){
-      console.log(selectedVal)
+      setSelectedValue(selectedVal);
+      setSingleContestData(()=>[]);  
+      console.log(selectedVal?._id)
       setIsDataLoading(true);
-  const response = await ApiManager.getSubmissionByContest(selectedVal?._id);
+  // const response = await ApiManager.getSubmissionByContest(selectedVal?._id);
+  const response = await ApiManager.getCompetetionDetail(selectedVal?._id);
   if (response.data?.status) {
-    setData(response.data?.data);
-    console.log(response.data?.data);
+    setData(()=>(response.data?.data));
+    setSingleContestData(()=>(response.data?.data?.submissions));
+    console.log('Single Contest',response.data?.data?.submissions,singleContestData);
   }
   setIsDataLoading(false);
     }
   }
 
+
+  useEffect(()=>{
+    handleChange("",selectedValue);
+  },[recall])
+
+  if(isLoading){
+    return <CircularProgress/>
+  }
+
   return (
     <Box mb={5}>
+      {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
+    <DialogLoader isLoading={isDataLoading} />
     <Typography variant='h4' fontWeight='700'>Participants</Typography>
     <Breadcrumb currentPage="Participants"/>
     <Box my={3}>
@@ -59,11 +76,11 @@ const Submission = () => {
       onChange={handleChange}
     />
     </Box>
-      {isDataLoading ? <CircularProgress/> : <Box>
-    {data.map((data,index)=>(
-        <SubmissionCard serialNo={index+1} data={data} key={data?._id}/>
+      <Box >
+    {singleContestData && singleContestData?.map((cardData,index)=>(
+        <SubmissionCard recall={()=>setRecall(recall + 1)} competetionData={data} setAlertData={setAlertData} serialNo={index+1} data={cardData} key={data?._id}/>
       ))}
-      </Box>}
+      </Box>
     </Box>
   )
 }

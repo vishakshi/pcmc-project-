@@ -5,6 +5,7 @@ import bg from '../../assets/contest.jpg'
 import { LoginOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import star from '../../assets/star.png'
+import { pxToRem } from '../../utiils/utility'
 
 const Notice = () => {
     const {t} = useTranslation();
@@ -28,10 +29,10 @@ const Notice = () => {
         <Box width={'50%'} sx={{'@media (max-width:768px)':{display:'none'}}}><Box sx={{borderRadius:10,objectFit:'contain'}} component='img' height={500} width={'100%'} src={bg} /></Box>
         <Box sx={{width:{xs:'100%',md:'50%'}}}>
             <Box sx={{display:'flex',alignItems:'center',flexDirection:'column',paddingX:10,gap:5,mt:5}}>
-            <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>
+            <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('noticeForWinners')}
             </Typography>
-            <Typography variant='body1' sx={{fontSize:18,textAlign:'center'}}>
+            <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('freeEntryNotice')}
             </Typography>
             <Button variant='contained' onClick={handleSignIn} size="large" sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}} endIcon={<LoginOutlined/>}>{t('registerNow')}</Button>

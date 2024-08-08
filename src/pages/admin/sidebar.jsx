@@ -21,6 +21,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import  Collapse  from '@mui/material/Collapse';
 import { Home,ChevronRight,Logout,KeyboardArrowDown,DashboardOutlined,AdminPanelSettingsOutlined,CurrencyRupeeOutlined,PaymentOutlined,ArrowOutwardOutlined,PaymentsOutlined, LocalMallOutlined, ContentCutOutlined, EmojiEventsOutlined, PeopleAltOutlined} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo.png'
 
 const drawerWidth = 220;
 
@@ -135,7 +136,7 @@ export default function Sidebar({children}) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar variant="outlined" sx={{border:'none',background:'#F2F4F6', ...(open ? {width: { sm: `calc(100% - ${drawerWidth}px)` }}:{width: { sm: `calc(100% - ${70}px)` }})
+      <AppBar variant="outlined" sx={{border:'none',background:'#03A9F4', ...(open ? {width: { sm: `calc(100% - ${drawerWidth}px)` }}:{width: { sm: `calc(100% - ${70}px)` }})
          }} color="inherit">
         <Toolbar>
           <IconButton
@@ -152,12 +153,17 @@ export default function Sidebar({children}) {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}   sx={{
-            '& .MuiDrawer-paper': { backgroundColor:"#1F2937",color:'white' },
+            '& .MuiDrawer-paper': { backgroundColor:"#2A323C",color:'white' },
           }}>
         <DrawerHeader>
-          <Typography variant='h6'>{open ? "Admin Panel" : "A.P"}</Typography>
+          {/* <Typography variant='h6'>{open ? "Admin Panel" : "A.P"}</Typography> */}
+          <Typography variant="h6" sx={{ my: 3 }}>
+        {open ? <Typography component='img' src={logo} alt='Logo' height={open ? 50 : 20} /> : 
+        <Typography color="#006ACD" variant='h6'>{"PCMC"}</Typography> }
+      </Typography>
         </DrawerHeader>
-        <Box sx={{display:'flex',flexDirection:'column',justifyContent:'space-between',height:'100%'}}>
+        <Divider />
+        <Box sx={{pt:5,display:'flex',flexDirection:'column',justifyContent:'space-between',height:'100%'}}>
         <List disablePadding>
           {menuItems.map((item, index) => (
             <ListItem
@@ -177,14 +183,14 @@ export default function Sidebar({children}) {
                 //     pl: 2.5,
                 //     pr:1
                 //   }}
-                sx={{ borderRadius: '10px', mx: 1,py:0.4, my: 0.3,'&:hover':{backgroundColor: '#374151'}, ...(currentRoute === item.route && { backgroundColor: '#374151' }) }}
+                sx={{ borderRadius: '10px', mx: 1,py:0.4, my: 0.3,'&:hover':{backgroundColor: '#03A9F4'}, ...(currentRoute === item.route && { backgroundColor: '#03A9F4' }) }}
                 >
                   <ListItemIcon
                    sx={{
                     minWidth: 0,
                     mr: open ? 3 : "auto",
                     justifyContent: "center",
-                    color: "#9CA3AF",
+                    color: "white",
                   }}
                   >
                     {item.icon}
@@ -223,14 +229,14 @@ export default function Sidebar({children}) {
                 //     px: 2.5,
                 //     pl:4
                 //   }}
-                sx={{ borderRadius: '10px',m:0, py:0.4, my: 0.3, ...(open && {m:1} ),'&:hover':{backgroundColor: '#374151'}, ...(currentRoute === subItem.route && { backgroundColor: '#374151' }) }}
+                sx={{ borderRadius: '10px',m:0, py:0.4, my: 0.3, ...(open && {m:1} ), ...(currentRoute === subItem.route && { backgroundColor: '#03A9F4' }) }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
                       mr: open ? 3 : "auto",
                       justifyContent: "center",
-                      color: "#9CA3AF",
+                      color: "white",
                       visibility:'hidden'
                     }}
                   >
@@ -255,14 +261,14 @@ export default function Sidebar({children}) {
                 //     justifyContent: open ? "initial" : "center",
                 //     px: 2.5,
                 //   }}
-                  sx={{ borderRadius: '10px',py:0.4, m: 1, my: 0.3,'&:hover':{backgroundColor: '#374151'}, ...(currentRoute === item.route && { backgroundColor: '#374151' }) }}
+                  sx={{ py:1, my: 0.3, ...(currentRoute === item.route && { backgroundColor: '#03A9F4','&:hover':{backgroundColor:'#03A9F4'} }) }}
                 >
                   <ListItemIcon
                     sx={{
                       minWidth: 0,
                       mr: open ? 3 : "auto",
                       justifyContent: "center",
-                      color: "#9CA3AF",
+                      color: "white",
                     }}
                   >
                     {item.icon}
@@ -304,7 +310,7 @@ export default function Sidebar({children}) {
         </List>
         </Box>
       </Drawer>
-      <Box component="main" sx={{width:`calc(100% - ${drawerWidth}px)`, flexGrow: 1,px:3 }}>
+      <Box component="main" sx={{width:`calc(100% - ${drawerWidth}px)`, flexGrow: 1,px:3,pt:2 }}>
         <DrawerHeader />
        {children}
       </Box>

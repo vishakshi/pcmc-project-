@@ -66,9 +66,9 @@ const Table = ({ rowData, isLoading }) => {
           <IconButton size="small" onClick={() => console.log(row._id)}>
             <EditOutlined fontSize="small" />
           </IconButton>
-          <IconButton LinkComponent={Link} to={`/competition/${row._id}`} size="small" onClick={() => console.log(row._id)}>
+          {/* <IconButton LinkComponent={Link} to={`/competition/${row._id}`} size="small" onClick={() => console.log(row._id)}>
           <RemoveRedEyeOutlined fontSize="small" />
-        </IconButton>
+        </IconButton> */}
         </>
       ),
     },

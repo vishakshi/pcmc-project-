@@ -28,7 +28,7 @@ const Competetion = () => {
   }
   return (
     <div>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justifyContent='center' alignItems='center'>
       {data.map((data, index) => (
         <CompetitionCard recall={()=>setRecall(recall + 1)} key={data?._id} data={data} />
       ))}

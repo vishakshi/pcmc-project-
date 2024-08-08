@@ -7,6 +7,7 @@ import { VisibilityOffOutlined, VisibilityOutlined } from '@mui/icons-material';
 import CustomAlert from './customAlert';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { pxToRem } from '../utiils/utility';
 
 const SignUpForm = () => {
     const [isLoading,setIsLoading] = useState(false);
@@ -61,7 +62,7 @@ const SignUpForm = () => {
         <Typography variant="h4" fontWeight='700' >
             {t("welcome")}
           </Typography>
-        <Typography variant="h5" fontSize={22}>
+        <Typography variant="h5" fontSize={pxToRem(22)}>
           {t("enterYourDetailsToSignup")}
         </Typography>
     <form autoComplete='off' onSubmit={formik.handleSubmit}> 

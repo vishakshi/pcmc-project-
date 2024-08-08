@@ -22,12 +22,22 @@ export default function CompetitionCard({data,recall}) {
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
     const [isSubmitting,setIsSubmitting] = React.useState(false);
+    const [error,setError] = React.useState()
 
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
     
     console.log(data,userData,data?.participants.includes(userData?._id))
 
     const handleSubmit = async () => {
+      const SUPPORTED_FORMATS = ['image/png', 'image/jpg', 'image/jpeg'];
+      if(!image){
+        setError('Field is required')
+        return
+      }else if(!SUPPORTED_FORMATS.includes(image?.type)){
+        setError('Upload type must be PNG, JPEG or JPG')
+        return
+      }
+      console.log(image)
         const formData = new FormData();
         formData.append('image',image)
         formData.append('contest',data?._id);
@@ -96,7 +106,7 @@ export default function CompetitionCard({data,recall}) {
         <Grid container spacing={1} >
           <Grid item sm={6}>
           <InputLabel>Icon</InputLabel>
-          <TextField accept=".png, .jpg, .jpeg" fullWidth type="file" size='small' onChange={(event)=>setImage(event.currentTarget.files[0])} />
+          <TextField inputProps={{ accept: "image/png, image/jpeg" }} fullWidth type="file" size='small' error={error} helperText={error} onChange={(event)=>setImage(event.currentTarget.files[0])} />
           </Grid>
         </Grid>
       </DialogContent>
