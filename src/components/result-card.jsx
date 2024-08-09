@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
-
+import certificate from '../assets/sample-certificate.jpg'
 export default function ResultCard({data}) {
     console.log("Card Data",data);
     const getPosition = (type) => {
@@ -21,22 +21,6 @@ export default function ResultCard({data}) {
             return ""
         }
       }
-      const handleDownload = async () => {
-        try {
-            const response = await fetch('https://androcoders.in/pcmc/sample%20certificate.jpg');
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'sample-certificate.jpg'); // Set the desired file name
-            document.body.appendChild(link);
-            link.click();
-            link.parentNode.removeChild(link); // Clean up
-            window.URL.revokeObjectURL(url); // Clean up the object URL
-        } catch (error) {
-            console.error('Error downloading the file', error);
-        }
-    };
   return (
     <Grid md={3.9} xs={12}>
     <Card >
@@ -57,8 +41,9 @@ export default function ResultCard({data}) {
         </Typography>
       </CardContent>
       <CardActions sx={{justifyContent:'flex-end'}}>
-        
-        <Button size="small" variant='contained' onClick={handleDownload} color='info'>Download Certificate</Button>
+        <a href={certificate} download='certificate.jpg'>
+        <Button size="small" variant='contained'  color='info'>Download Certificate</Button>
+        </a>
       </CardActions>
     </Card>
     </Grid>
