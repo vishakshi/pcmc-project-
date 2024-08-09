@@ -1,113 +1,3 @@
-// import React from "react";
-// import PropTypes from "prop-types";
-// import Tabs from "@mui/material/Tabs";
-// import Tab from "@mui/material/Tab";
-// import Typography from "@mui/material/Typography";
-// import Box from "@mui/material/Box";
-// import { Button } from "@mui/material";
-// import { EmojiEventsOutlined, Logout, Settings } from "@mui/icons-material";
-// import { useNavigate } from "react-router-dom";
-// import Competetion from "./competetion";
-// import UpdateUser from "../../components/update-user";
-// import Setting from "./setting";
-
-// function TabPanel(props) {
-//   const { children, value, index, ...other } = props;
-
-//   return (
-//     <div
-//       role="tabpanel"
-//       style={{flex:1}}
-//       hidden={value !== index}
-//       id={`vertical-tabpanel-${index}`}
-//       aria-labelledby={`vertical-tab-${index}`}
-//       {...other}
-//     >
-//       {value === index && <Box sx={{ p: 3, }}>{children}</Box>}
-//     </div>
-//   );
-// }
-
-// TabPanel.propTypes = {
-//   children: PropTypes.node,
-//   index: PropTypes.number.isRequired,
-//   value: PropTypes.number.isRequired,
-// };
-
-// function a11yProps(index) {
-//   return {
-//     id: `vertical-tab-${index}`,
-//     "aria-controls": `vertical-tabpanel-${index}`,
-//   };
-// }
-
-// const Sidebar = () => {
-//   const [value, setValue] = React.useState(0);
-//   const navigate = useNavigate();
-//   const handleChange = (event, newValue) => {
-//     setValue(newValue);
-//   };
-//   const handleLogout = () => {
-//     sessionStorage.clear();
-//     navigate("/user-login", { replace: true });
-//   };
-
-//   return (
-//     <Box
-//       sx={{
-//         flexGrow: 1,
-//         bgcolor: "background.paper",
-//         display: "flex",
-//         height: "100vh",
-//       }}
-//     >
-//       <Box
-//         sx={{
-//           display: "flex",
-//           alignItems: "center",
-//           borderRight: 1,
-//           borderColor: "divider",
-//           flexDirection: "column",
-//           justifyContent: "space-between",
-//         }}
-//       >
-//         <Box></Box>
-//         <Tabs
-//           orientation="vertical"
-//           variant="scrollable"
-//           value={value}
-//           onChange={handleChange}
-//           aria-label="Vertical tabs example"
-//         >
-//           <Tab
-//             icon={<EmojiEventsOutlined />}
-//             label="Competetion"
-//             {...a11yProps(0)}
-//           />
-//           <Tab icon={<Settings />} label="Setting" {...a11yProps(1)} />
-//         </Tabs>
-//         <Box>
-//           <Button
-//             size="medium"
-//             sx={{ border: 0, ":hover": { border: 0 } }}
-//             onClick={handleLogout}
-//             endIcon={<Logout />}
-//             variant="outlined"
-//           ></Button>
-//         </Box>
-//       </Box>
-//       <TabPanel value={value} index={0}>
-//         <Competetion />
-//       </TabPanel>
-//       <TabPanel value={value} index={1}>
-//         <Setting />
-//       </TabPanel>
-//     </Box>
-//   );
-// };
-
-// export default Sidebar;
-
 import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -125,7 +15,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import  Collapse  from '@mui/material/Collapse';
-import { Home,ChevronRight,Logout, EmojiEventsOutlined,  Settings, HomeOutlined, AccountCircle, AccountCircleOutlined,} from '@mui/icons-material';
+import { Home,ChevronRight,Logout, EmojiEventsOutlined,  Settings, HomeOutlined, AccountCircle, AccountCircleOutlined, MilitaryTechOutlined,} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import { Avatar, Menu, MenuItem, Tooltip } from '@mui/material';
@@ -235,6 +125,12 @@ export default function UserSidebar({children}) {
     },
     {
       id:2,
+      title:"Result",
+      icon:<MilitaryTechOutlined/>,
+      route:'/result',
+  },
+    {
+      id:3,
       title:"Setting",
       icon:<Settings/>,
       route:'/setting',
@@ -244,7 +140,7 @@ export default function UserSidebar({children}) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar variant="outlined" sx={{border:'none',background:'#03A9F4', ...(open ? {width: { sm: `calc(100% - ${drawerWidth}px)` }}:{width: { sm: `calc(100% - ${70}px)` }})
+      <AppBar variant="outlined" sx={{border:'none',background:'#800080', ...(open ? {width: { sm: `calc(100% - ${drawerWidth}px)` }}:{width: { sm: `calc(100% - ${70}px)` }})
          }} color="inherit">
         <Toolbar >
           <IconButton
@@ -254,15 +150,16 @@ export default function UserSidebar({children}) {
             edge="start"
             sx={{
               marginRight: 5,
+              color:'white'
             }}
           >
             <MenuIcon />
           </IconButton>
           <Typography sx={{flexGrow:1}}></Typography>
           <Box >
-            <Tooltip title="Open Profile">
+            <Tooltip title="Profile">
               {/* <IconButton onClick={(event) => setAnchorElUser(event.currentTarget)} sx={{ p: 0 }}> */}
-              <IconButton sx={{ p: 0 }}>
+              <IconButton sx={{ p: 0,color:'white' }}>
                 <AccountCircleOutlined fontSize='large' />
               </IconButton>
             </Tooltip>
@@ -449,7 +346,7 @@ export default function UserSidebar({children}) {
         </List>
         </Box>
       </Drawer>
-      <Box component="main" sx={{width:`calc(100% - ${drawerWidth}px)`, flexGrow: 1,px:3,pt:2 }}>
+      <Box component="main" sx={{width:`calc(100% - ${drawerWidth}px)`, flexGrow: 1,px:3,pt:2,pb:3 }}>
         <DrawerHeader />
        {children}
       </Box>

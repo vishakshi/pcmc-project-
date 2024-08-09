@@ -136,7 +136,7 @@ export default function Sidebar({children}) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar variant="outlined" sx={{border:'none',background:'#03A9F4', ...(open ? {width: { sm: `calc(100% - ${drawerWidth}px)` }}:{width: { sm: `calc(100% - ${70}px)` }})
+      <AppBar variant="outlined" sx={{border:'none',background:'#800080', ...(open ? {width: { sm: `calc(100% - ${drawerWidth}px)` }}:{width: { sm: `calc(100% - ${70}px)` }})
          }} color="inherit">
         <Toolbar>
           <IconButton
@@ -146,6 +146,7 @@ export default function Sidebar({children}) {
             edge="start"
             sx={{
               marginRight: 5,
+              color:'white'
             }}
           >
             <MenuIcon />

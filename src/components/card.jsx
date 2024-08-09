@@ -85,8 +85,8 @@ export default function CompetitionCard({data,recall}) {
             Prize Money: <span style={{fontWeight:700}}> ₹{data?.prizeValue}</span>
           </Typography>
         </CardContent>
-        <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1,pr:1 }}>
-         <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} fullWidth variant='contained'>Participate</Button>
+        <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:'flex-end', pl: 1, pb: 1,pr:1 }}>
+         <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>
         </Box>
       </Box>
     </Card>

@@ -55,11 +55,11 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
   const getPosition = (type) => {
     switch(type){
       case 1:
-        return "1st Position Declared"
+        return "1st Position for Logo Winner"
       case 2:
-        return "2nd Position Declared"
+        return "2nd Position for Tagline Winner"
       case 3:
-        return "3rd Position Declared"
+        return "3rd Position for Tagline Winner"
       default:
         return ""
     }
@@ -129,11 +129,11 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
         <Grid xs={12} sm={6} md={4}>
         <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',flexGrow:1,gap:2}}>
           <Button variant='contained' disabled={data?.position || competetionData?.positionOne} color='success' onClick={()=>handleClick(1)} >Give 1st Position</Button>
-          <Button variant='contained' disabled={data?.position || competetionData?.positionTwo} color='warning' onClick={()=>handleClick(2)}>Give 2nd Position</Button>
-          <Button variant='contained' disabled={data?.position || competetionData?.positionThree} color='info' onClick={()=>handleClick(3)}>Give 3rd Position</Button>
+          <Button variant='contained' disabled={data?.position || competetionData?.positionTwo} color='warning' onClick={()=>handleClick(2)}>Give 2nd Tagline Position</Button>
+          <Button variant='contained' disabled={data?.position || competetionData?.positionThree} color='info' onClick={()=>handleClick(3)}>Give 3rd Tagline Position</Button>
           <Typography variant="body2">{getPosition(data?.position)}</Typography>
           <Box width={'100%'}>
-          <InputLabel>Result</InputLabel>
+          <InputLabel>Remark</InputLabel>
           <TextField multiline placeholder='Describe details...' value={resultData} onChange={(e)=>setResultData(e.target.value)} inputProps={{style:{padding:0}}} fullWidth rows={3} />
           </Box>
           <Button variant='contained' color='info' onClick={handleUpdate} size="small" sx={{alignSelf:'flex-end'}} >Update Result</Button>

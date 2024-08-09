@@ -10,6 +10,7 @@ const PATHS = {
     GET_SUBMISSIONS: '/submissions',
     GET_USER_DETAIL: '/user',
     UPDATE_WINNER: '/submission-winner',
-    GET_SUBMISSIONS_NY_CONTEST: '/submissions-by-contest'
+    GET_SUBMISSIONS_NY_CONTEST: '/submissions-by-contest',
+    GET_SUBMISSIONS_BY_USER: '/submission-by-user',
 }
 export default PATHS;

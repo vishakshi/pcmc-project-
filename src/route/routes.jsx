@@ -10,6 +10,7 @@ import Submission from "../pages/admin/submission"
 import UserSidebar from "../pages/user/sidebar"
 import UserCompetition from "../pages/user/competetion"
 import Setting from "../pages/user/setting"
+import Result from "../pages/user/result"
 
 export const adminRoutes = [
     {
@@ -38,5 +39,9 @@ export const userRoutes = [
     {
         path:'/setting',
         element:<UserSidebar><Setting/></UserSidebar>,
+    },
+    {
+        path:'/result',
+        element:<UserSidebar><Result/></UserSidebar>,
     },
 ]

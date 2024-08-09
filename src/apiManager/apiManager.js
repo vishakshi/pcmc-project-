@@ -1,8 +1,8 @@
 import axios from "axios";
 import PATHS from "./apiEndPoints";
 
-// const BASE_URL = "http://localhost:3000";
-const BASE_URL = "https://api.pcmcdivyangbhavan.org";
+const BASE_URL = "http://localhost:3000";
+// const BASE_URL = "https://api.pcmcdivyangbhavan.org";
 
 const getHeaders = () => {
     const authToken = sessionStorage.getItem("@authToken");
@@ -159,6 +159,16 @@ class ApiManager {
       try {
         const url = BASE_URL + PATHS.ADD_IN_CONTEST;
         const response = await axios.patch(`${url}/${id}`,data,getHeaders());
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
+    static getSubmissionsByUser = async (id) => {
+      try {
+        const url = BASE_URL + PATHS.GET_SUBMISSIONS_BY_USER;
+        const response = await axios.get(`${url}/${id}`,getHeaders());
         return response;
       } catch (error) {
         console.log(error);
