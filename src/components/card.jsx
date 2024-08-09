@@ -11,14 +11,17 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 import { getFormatDate } from '../utiils/dateFormatter';
-import { CircularProgress, Grid,IconButton,InputLabel,TextField } from '@mui/material';
+import { CircularProgress, Grid,IconButton,InputLabel,MenuItem,Select,TextField } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import ApiManager from '../apiManager/apiManager';
 import CustomAlert from './customAlert';
 import { getDecodedToken } from "../utiils/utility";
+import { useFormik } from 'formik';
+import { addContestSchema } from '../utiils/validationSchema';
 
 export default function CompetitionCard({data,recall}) {
     const [image,setImage] = React.useState("")
+    const [type,setType] = React.useState("");
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
     const [isSubmitting,setIsSubmitting] = React.useState(false);
@@ -41,23 +44,40 @@ export default function CompetitionCard({data,recall}) {
         const formData = new FormData();
         formData.append('image',image)
         formData.append('contest',data?._id);
-        try {
-            setIsSubmitting(true);
-            const response = await ApiManager.addInCompetetion(formData);
-            console.log(response)
-            if(response.data?.status){
-              setAlertData({severity:'success',message:response?.data?.message});
-            recall();
-            }else{
-              setAlertData({severity:'error',message:response?.data?.message});
-            }
-        } catch (error) {
-            console.log(error)
-        }finally{
-          setIsSubmitting(false)
-          setOpen(false)
-        }
+        // try {
+        //     setIsSubmitting(true);
+        //     const response = await ApiManager.addInCompetetion(formData);
+        //     console.log(response)
+        //     if(response.data?.status){
+        //       setAlertData({severity:'success',message:response?.data?.message});
+        //     recall();
+        //     }else{
+        //       setAlertData({severity:'error',message:response?.data?.message});
+        //     }
+        // } catch (error) {
+        //     console.log(error)
+        // }finally{
+        //   setIsSubmitting(false)
+        //   setOpen(false)
+        // }
     }
+
+    const formik = useFormik({
+      initialValues:{
+          image:'',
+          contest:'',
+          type:'',
+      },
+      onSubmit:handleSubmit,
+      validationSchema:addContestSchema
+  })
+
+  const getErrorProps = (field) => {
+    return {
+      helperText: formik.touched[field] && formik.errors[field],
+      error: formik.touched[field] && Boolean(formik.errors[field])
+    };
+  };
 
   return (
     <>
@@ -92,7 +112,7 @@ export default function CompetitionCard({data,recall}) {
     </Card>
     </Grid>
     <Dialog
-     maxWidth="sm"
+     maxWidth="xs"
      fullWidth
       open={open}
       onClose={()=>setOpen(false)}
@@ -104,9 +124,24 @@ export default function CompetitionCard({data,recall}) {
       <form autoComplete='off' > 
       <DialogContent>
         <Grid container spacing={1} >
-          <Grid item sm={6}>
+          <Grid item sm={12} md={12}>
+          <InputLabel>Participation Type</InputLabel>
+          <Select
+            
+            required
+            fullWidth
+            size='small'
+            displayEmpty
+            onChange={(event)=>formik.setFieldValue("type",event.target.value)}
+          >
+          <MenuItem value="" disabled={true}><em>Select participation type</em></MenuItem>  
+          <MenuItem value="logo">Logo</MenuItem>
+          <MenuItem value="tagline">Tagline</MenuItem>
+          </Select>
+          </Grid>
+          <Grid item sm={12} md={12}>
           <InputLabel>Icon</InputLabel>
-          <TextField inputProps={{ accept: "image/png, image/jpeg" }} fullWidth type="file" size='small' error={error} helperText={error} onChange={(event)=>setImage(event.currentTarget.files[0])} />
+          <TextField inputProps={{ accept: "image/png, image/jpeg" }} {...getErrorProps("icon")} fullWidth type="file" size='small' onChange={(event)=>formik.setFieldValue("image",event.currentTarget.files[0])} />
           </Grid>
         </Grid>
       </DialogContent>

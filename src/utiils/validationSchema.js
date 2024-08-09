@@ -34,3 +34,8 @@ export const userLoginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email address').required(fieldRequired),
     password:Yup.string().required(fieldRequired).min(6, 'Password must be at least 6 characters'),
 })
+
+export const addContestSchema = Yup.object().shape({
+    image: Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUPPORTED_FORMATS.includes(value.type))),
+    type:Yup.string().required(fieldRequired),
+})
