@@ -7,8 +7,10 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import certificate from '../assets/sample-certificate.jpg'
+import { getFormatDate, isTwoDaysEarlier } from '../utiils/dateFormatter';
 export default function ResultCard({data}) {
     console.log("Card Data",data);
+    console.log(isTwoDaysEarlier("2024-08-06T10:00:00.000Z"))
     const getPosition = (type) => {
         switch(type){
           case 1:
@@ -34,17 +36,20 @@ export default function ResultCard({data}) {
           {data?.contest?.name || ""}
         </Typography>
         <Typography variant="body1" fontWeight={700} color="text.secondary">
-          <span style={{ color: "grey" }}>Remarks: </span>{data?.result || "Not Declared"}
+          <span style={{ color: "grey" }}>Duration: </span>{getFormatDate(data?.contest?.startDate) || " - "} to {getFormatDate(data?.contest?.endDate) || ""}
         </Typography>
         <Typography variant="body1" fontWeight={700} color="text.secondary">
-          <span style={{ color: "grey" }}>Position: </span>{getPosition(data?.position) || "Not Declared"}
+          <span style={{ color: "grey" }}>Remarks: </span>{data?.result ? data?.result : data?.position ? "Thank you for the participation" : isTwoDaysEarlier(data?.contest?.endDate) ? "Thank you for the participation" : "Waiting for the result" }
+        </Typography>
+        <Typography variant="body1" fontWeight={700} color="text.secondary">
+          <span style={{ color: "grey" }}>Position: </span>{data?.position ? getPosition(data?.position) : data?.result ? "Thank you for the participation" : isTwoDaysEarlier(data?.contest?.endDate) ? "Thank you for the participation" : "Waiting for the result" }
         </Typography>
       </CardContent>
-      <CardActions sx={{justifyContent:'flex-end'}}>
+      {(isTwoDaysEarlier(data?.contest?.endDate) || data?.position || data?.result) && <CardActions sx={{justifyContent:'flex-end'}}>
         <a href={certificate} download='certificate.jpg'>
         <Button size="small" variant='contained'  color='info'>Download Certificate</Button>
         </a>
-      </CardActions>
+      </CardActions>}
     </Card>
     </Grid>
   );

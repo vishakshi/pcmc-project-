@@ -43,6 +43,8 @@ const SignUpForm = () => {
         initialValues:{
             firstName:'',
             lastName:'',
+            countryCode:'+91',
+            mobileNo:'',
             email:'',
             password:''
         },
@@ -74,6 +76,14 @@ const SignUpForm = () => {
           <Grid item sm={6} xs={12}>
           <InputLabel>{t('lastName')}</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("lastName")} {...getErrorProps("lastName")} />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+          <InputLabel>{t('countryCode')}</InputLabel>
+          <TextField fullWidth size='small' InputProps={{readOnly:true}} {...formik.getFieldProps("countryCode")} {...getErrorProps("countryCode")} />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+          <InputLabel>{t('phoneNumber')}</InputLabel>
+          <TextField fullWidth size='small' {...formik.getFieldProps("mobileNo")} {...getErrorProps("mobileNo")} />
           </Grid>
           <Grid item sm={12} xs={12}>
           <InputLabel>{t('email')}</InputLabel>

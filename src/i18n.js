@@ -74,6 +74,8 @@ i18next.use(initReactI18next).init({
                 minutes: 'minutes',
                 seconds: 'seconds',
                 august: 'August',
+                phoneNumber: 'Phone Number',
+                countryCode: 'Country Code',
             },
         },
         mt:{
@@ -143,6 +145,8 @@ i18next.use(initReactI18next).init({
                 minutes: 'मिनिटे',
                 seconds: 'सेकंद',
                 august: 'ऑगस्ट',
+                phoneNumber: 'फोन नंबर',
+                countryCode: 'देश कोड',
             }
         }
     }

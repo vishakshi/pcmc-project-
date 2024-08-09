@@ -45,7 +45,7 @@ const Setting = () => {
               Personal Details
             </Typography>
             </Box>
-            <Grid container spacing={2}>
+            <Grid container spacing={3}>
               <Grid item md={6} sm={12}>
                 <Typography variant='body1'>First Name</Typography>
                 <Typography variant='body2'>{data?.firstName}</Typography>
@@ -57,6 +57,10 @@ const Setting = () => {
               <Grid item md={6} sm={12}>
                 <Typography variant='body1'>Email</Typography>
                 <Typography variant='body2'>{data?.email}</Typography>
+              </Grid>
+              <Grid item md={6} sm={12}>
+                <Typography variant='body1'>Phone Number</Typography>
+                <Typography variant='body2'>{data?.countryCode +"-"+ data?.mobileNo}</Typography>
               </Grid>
             </Grid>
           </Box>

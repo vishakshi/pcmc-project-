@@ -18,3 +18,10 @@ export const getRemainingTime = (targetDate) => {
 
     return timeValues;
 }
+
+export const isTwoDaysEarlier = (date) => {
+    const endDate = moment(date).startOf('day')
+    const twoDaysEarlier = moment().subtract(2,'days').startOf('day')
+    console.log(twoDaysEarlier.format(),endDate.format())
+     return endDate.isBefore(twoDaysEarlier);
+}

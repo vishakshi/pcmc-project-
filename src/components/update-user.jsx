@@ -36,6 +36,8 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
         initialValues:{
             firstName:data?.firstName,
             lastName:data?.lastName,
+            mobileNo:data?.mobileNo,
+            countryCode:data?.countryCode
         },
         onSubmit:handleSubmit,
         validationSchema:updateUserSchema
@@ -46,6 +48,8 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
       formik.setValues({
         firstName:data?.firstName,
         lastName:data?.lastName,
+        mobileNo:data?.mobileNo,
+        countryCode:data?.countryCode
       })
     },[])
 
@@ -77,6 +81,14 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
           <Grid item sm={6} xs={12}>
           <InputLabel>Last Name</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("lastName")} {...getErrorProps("lastName")} />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+          <InputLabel>Country Code</InputLabel>
+          <TextField fullWidth size='small' InputProps={{readOnly:true}} {...formik.getFieldProps("countryCode")} {...getErrorProps("countryCode")} />
+          </Grid>
+          <Grid item sm={6} xs={12}>
+          <InputLabel>Phone Number</InputLabel>
+          <TextField fullWidth size='small' {...formik.getFieldProps("mobileNo")} {...getErrorProps("mobileNo")} />
           </Grid>
         </Grid>
     </DialogContent>
