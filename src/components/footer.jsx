@@ -3,7 +3,9 @@ import { Box, Grid, IconButton, Typography } from "@mui/material";
 import { Call, EmailOutlined, FacebookRounded, LocationCityOutlined, PhoneAndroidOutlined, Twitter } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import logo from '../assets/logo.png'
-import twitter from '../assets/twitter.png'
+import youtube from '../assets/youtube.png'
+import instagram from '../assets/instagram.png'
+import linkedin from '../assets/linkedin.png'
 import facebook from '../assets/facebook.png'
 const Footer = () => {
     const {t} = useTranslation()
@@ -18,11 +20,17 @@ const Footer = () => {
             <Typography sx={{mb:1}} variant="body1">{t("callNow")}: +91 123-4567890</Typography>
             <Typography sx={{mb:1}} variant="body1">
               {t("connectWithUs")}
-              <IconButton>
-                <Typography component='img' src={facebook} height={18} />
+              <IconButton component='a' href="https://www.facebook.com/profile.php?id=61563587007236" target="_blank">
+                <Typography component='img' src={facebook} height={20} />
               </IconButton>
-              <IconButton>
-              <Typography component='img' src={twitter} height={18} />
+              <IconButton component='a' href="https://www.instagram.com/divyang_bhavan_pcmc/" target="_blank">
+                <Typography component='img' src={instagram} height={20} />
+              </IconButton>
+              <IconButton component='a' href="https://linkedin.com/company/divyang-bhavan-pcmc" target="_blank">
+                <Typography component='img' src={linkedin} height={20} />
+              </IconButton>
+              <IconButton component='a' href="https://www.youtube.com/@DivyangBhavanPCMC" target="_blank">
+                <Typography component='img' src={youtube} height={20} />
               </IconButton>
             </Typography>
           </Box>

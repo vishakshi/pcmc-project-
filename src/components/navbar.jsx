@@ -30,7 +30,7 @@ function Navbar(props) {
     const navigate = useNavigate()
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { t, i18n } = useTranslation();
-    const navItems = [t('home'), t('aboutUs'), t('contactUs')];
+    const navItems = [t('home'), t('contactUs')];
     const {theme:nameva} = useThemeContext();
   const handleChangeLanguage = () => {
     const languageCode = i18n.language === "mt" ? "en" : "mt"

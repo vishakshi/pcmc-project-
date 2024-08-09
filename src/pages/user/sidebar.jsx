@@ -219,7 +219,7 @@ export default function UserSidebar({children}) {
                 //     pl: 2.5,
                 //     pr:1
                 //   }}
-                sx={{ borderRadius: '10px', mx: 1,py:0.4, my: 0.3,'&:hover':{backgroundColor: '#03A9F4'}, ...(currentRoute === item.route && { backgroundColor: '#03A9F4' }) }}
+                sx={{ borderRadius: '10px', mx: 1,py:0.4, my: 0.3,'&:hover':{backgroundColor: '#800080'}, ...(currentRoute === item.route && { backgroundColor: '#800080' }) }}
                 >
                   <ListItemIcon
                    sx={{
@@ -265,7 +265,7 @@ export default function UserSidebar({children}) {
                 //     px: 2.5,
                 //     pl:4
                 //   }}
-                sx={{ borderRadius: '10px',m:0, py:0.4, my: 0.3, ...(open && {m:1} ), ...(currentRoute === subItem.route && { backgroundColor: '#03A9F4' }) }}
+                sx={{ borderRadius: '10px',m:0, py:0.4, my: 0.3, ...(open && {m:1} ), ...(currentRoute === subItem.route && { backgroundColor: '#800080' }) }}
                 >
                   <ListItemIcon
                     sx={{
@@ -297,7 +297,7 @@ export default function UserSidebar({children}) {
                 //     justifyContent: open ? "initial" : "center",
                 //     px: 2.5,
                 //   }}
-                  sx={{ py:1, my: 0.3, ...(currentRoute === item.route && { backgroundColor: '#03A9F4','&:hover':{backgroundColor:'#03A9F4'} }) }}
+                  sx={{ py:1, my: 0.3, ...(currentRoute === item.route && { backgroundColor: '#800080','&:hover':{backgroundColor:'#800080'} }) }}
                 >
                   <ListItemIcon
                     sx={{
