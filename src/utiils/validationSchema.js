@@ -3,6 +3,8 @@ import * as Yup from 'yup';
 const fieldRequired = 'Field is required';
 const SUPPORTED_FORMATS = ['image/png', 'image/jpg', 'image/jpeg'];
 
+const SUBMISSION_SUPPORTED_FORMATS = ['image/png', 'image/jpg', 'image/jpeg'];
+
 export const competitionSchema = Yup.object().shape({
     name:Yup.string().required(fieldRequired),
     startDate:Yup.date().required(fieldRequired),
@@ -42,6 +44,15 @@ export const userLoginSchema = Yup.object().shape({
 })
 
 export const addContestSchema = Yup.object().shape({
-    image: Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUPPORTED_FORMATS.includes(value.type))),
     type:Yup.string().required(fieldRequired),
+    image:Yup.mixed().when('type',{
+        is:(type) => type === 'logo',
+        then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUBMISSION_SUPPORTED_FORMATS.includes(value.type))),
+        otherwise:()=>Yup.mixed().notRequired(),
+    }),
+    tagline:Yup.string().when('type',{
+        is:(type) => type === 'tagline',
+        then:()=>Yup.string().min(3, 'Minimum 3 characters are required').required(fieldRequired),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
 })

@@ -5,79 +5,29 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
-import { getFormatDate } from '../utiils/dateFormatter';
+import { getFormatDate, todayDate } from '../utiils/dateFormatter';
 import { CircularProgress, Grid,IconButton,InputLabel,MenuItem,Select,TextField } from '@mui/material';
-import { CloseOutlined } from '@mui/icons-material';
-import ApiManager from '../apiManager/apiManager';
 import CustomAlert from './customAlert';
 import { getDecodedToken } from "../utiils/utility";
-import { useFormik } from 'formik';
-import { addContestSchema } from '../utiils/validationSchema';
+import Participate from './participate';
+import ConfirmDialog from './confirmDialog';
 
 export default function CompetitionCard({data,recall}) {
-    const [image,setImage] = React.useState("")
-    const [type,setType] = React.useState("");
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
-    const [isSubmitting,setIsSubmitting] = React.useState(false);
-    const [error,setError] = React.useState()
+    const [successDialog,setSuccessDialog] = React.useState(false);
+    const [successData,setSuccessData] = React.useState("Hey, Mohd Saqlain You have successfully participated in the competetion")
 
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
-    
-    console.log(data,userData,data?.participants.includes(userData?._id))
 
-    const handleSubmit = async () => {
-      const SUPPORTED_FORMATS = ['image/png', 'image/jpg', 'image/jpeg'];
-      if(!image){
-        setError('Field is required')
-        return
-      }else if(!SUPPORTED_FORMATS.includes(image?.type)){
-        setError('Upload type must be PNG, JPEG or JPG')
-        return
-      }
-      console.log(image)
-        const formData = new FormData();
-        formData.append('image',image)
-        formData.append('contest',data?._id);
-        // try {
-        //     setIsSubmitting(true);
-        //     const response = await ApiManager.addInCompetetion(formData);
-        //     console.log(response)
-        //     if(response.data?.status){
-        //       setAlertData({severity:'success',message:response?.data?.message});
-        //     recall();
-        //     }else{
-        //       setAlertData({severity:'error',message:response?.data?.message});
-        //     }
-        // } catch (error) {
-        //     console.log(error)
-        // }finally{
-        //   setIsSubmitting(false)
-        //   setOpen(false)
-        // }
+    const handleConfirmation = (data) => {
+      const name = data?.firstName || "" + " " + data?.lastName || "";
+      const message = `Hey, ${name}! You have successfully participated in the ${data?.name || ""} competetion on ${todayDate()}`;
+      setSuccessData(message);
+      setSuccessDialog(true);
+      console.log(data)
     }
-
-    const formik = useFormik({
-      initialValues:{
-          image:'',
-          contest:'',
-          type:'',
-      },
-      onSubmit:handleSubmit,
-      validationSchema:addContestSchema
-  })
-
-  const getErrorProps = (field) => {
-    return {
-      helperText: formik.touched[field] && formik.errors[field],
-      error: formik.touched[field] && Boolean(formik.errors[field])
-    };
-  };
 
   return (
     <>
@@ -111,45 +61,8 @@ export default function CompetitionCard({data,recall}) {
       </Box>
     </Card>
     </Grid>
-    <Dialog
-     maxWidth="xs"
-     fullWidth
-      open={open}
-      onClose={()=>setOpen(false)}
-    >
-      <DialogTitle>
-        <>Add Submission</>
-        <IconButton onClick={()=>setOpen(false)}><CloseOutlined/></IconButton>
-      </DialogTitle>
-      <form autoComplete='off' > 
-      <DialogContent>
-        <Grid container spacing={1} >
-          <Grid item sm={12} md={12}>
-          <InputLabel>Participation Type</InputLabel>
-          <Select
-            
-            required
-            fullWidth
-            size='small'
-            displayEmpty
-            onChange={(event)=>formik.setFieldValue("type",event.target.value)}
-          >
-          <MenuItem value="" disabled={true}><em>Select participation type</em></MenuItem>  
-          <MenuItem value="logo">Logo</MenuItem>
-          <MenuItem value="tagline">Tagline</MenuItem>
-          </Select>
-          </Grid>
-          <Grid item sm={12} md={12}>
-          <InputLabel>Icon</InputLabel>
-          <TextField inputProps={{ accept: "image/png, image/jpeg" }} {...getErrorProps("icon")} fullWidth type="file" size='small' onChange={(event)=>formik.setFieldValue("image",event.currentTarget.files[0])} />
-          </Grid>
-        </Grid>
-      </DialogContent>
-      <DialogActions>
-        <Button variant='contained' color='info' onClick={handleSubmit} disabled={isSubmitting} >{isSubmitting ? <CircularProgress size={22}/> : "Submit"}</Button>
-      </DialogActions>
-      </form>
-    </Dialog>
+   {open && <Participate onOpen={open} handleConfirmation={handleConfirmation} onClose={()=>setOpen(false)} setAlertData={setAlertData} contestId={data?._id} recall={recall}/>}
+   <ConfirmDialog onOpen={successDialog} onClose={()=>setSuccessDialog(false)} onConfirm={()=>setSuccessDialog(false)} title="Success Confirmation" message={successData}/>
     </>
   );
 }

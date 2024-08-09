@@ -115,7 +115,7 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
         </Box>
         </Grid>
         <Grid xs={12} sm={6} md={4}>
-        <Box>
+        {data?.type !== "tagline" ? <Box>
           <Box display={'flex'} sx={{flexWrap:'wrap'}} columnGap={5} >
             <Typography sx={{ color: "grey" }}>
               Uploaded Image:
@@ -124,7 +124,18 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
             <Box component='img' width={250} src={data?.image} />
             </Box>
           </Box>
-        </Box>
+        </Box> : <Box>
+          <Box display={'flex'} sx={{flexWrap:'wrap'}} columnGap={5} >
+            <Typography sx={{ color: "grey" }}>
+              Uploaded Tagline:
+            </Typography>
+            <Box sx={{border:'5px dashed aqua',p:1,borderRadius:5}}>
+            <Typography gutterBottom variant="h5" component="div">
+          {data?.tagline}
+        </Typography>
+            </Box>
+          </Box>
+        </Box>}
         </Grid>
         <Grid xs={12} sm={6} md={4}>
         <Box sx={{display:'flex',flexDirection:'column',alignItems:'center',flexGrow:1,gap:2}}>
