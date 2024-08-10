@@ -12,13 +12,17 @@ const Rule = () => {
     
   return (
     <Box sx={{backgroundColor:'#fff',pb:3,pt:7}}>
-         <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{Array.from({length:3}).map(()=>(
+         {/* <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
          ))} {t('termsAndConditions')} {Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
-         ))} </Typography>
+         ))} </Typography> */}
          <Grid container sx={{'@media (min-width:768px)':{px:20}}} direction="row">
         <Grid sx={{display:'flex',p:5,flexDirection:'column',gap:2}} item md={6} >
+        <Typography sx={{fontWeight:700}} variant='h6'>{t('honorCompetition')} {Array.from({length:3}).map(()=>(
+          <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
+         ))} </Typography>  
+        <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{t('termsAndConditions')} </Typography>
            {['logoSize','highResolution','acceptedFormats'].map((item)=>{
             return(
                 <>

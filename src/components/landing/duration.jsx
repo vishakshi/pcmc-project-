@@ -19,13 +19,21 @@ const Duration = () => {
     }
   return (
     <Box sx={{backgroundColor:'#fff',py:3}}>
-         <Typography sx={{textAlign:'center',fontWeight:700}} variant='h4'>{Array.from({length:3}).map(()=>(
+         {/* <Typography sx={{textAlign:'center',fontWeight:700}} variant='h4'>{Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
          ))} {t('competitionDuration')} {Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
-         ))} </Typography>
+         ))} </Typography> */}
          <Grid container sx={{'@media (min-width:768px)':{px:20}}} direction="row">
         <Grid sx={{display:'flex',p:5,flexDirection:'column',gap:5}} item md={6} >
+
+          <Box>
+        <Typography sx={{fontWeight:700,pb:2}} variant='h6'>{t('empoweredDisabled')} {Array.from({length:3}).map(()=>(
+          <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
+         ))} </Typography>  
+        <Typography sx={{textAlign:'center',fontWeight:700}} variant='h4'>{t('competitionDuration')} </Typography>
+        </Box>
+
             <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('competitionDescription')}
             </Typography>
@@ -34,7 +42,7 @@ const Duration = () => {
             </Typography>
             <Box mx='auto'><Button variant='contained' onClick={handleSignIn} size="large" endIcon={<LoginOutlined/>} sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>{t('registerNow')}</Button></Box>
         </Grid>
-        <Grid sx={{display:'flex',justifyContent:{xs:'center',sm:'end'}}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5}} width={300} component='img' src={bg} /></Grid>
+        <Grid sx={{display:'flex',justifyContent:{xs:'center',sm:'end'}}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5,objectFit:'contain',width:{xs:300,sm:300,md:400}}}  component='img' src={bg} /></Grid>
     </Grid>
     </Box>
   )

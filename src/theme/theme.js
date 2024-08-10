@@ -16,7 +16,8 @@ export const theme = createTheme({
       default: '#f2f4f6',
     },
     text: {
-      primary: '#2c2932',
+      // primary: '#2c2932',
+      primary: '#04072E',
       secondary: '#37475B',
     },
   },

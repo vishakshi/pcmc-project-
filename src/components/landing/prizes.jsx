@@ -52,19 +52,26 @@ const Prizes = () => {
     ]
   return (
     <Box sx={{backgroundColor:'#fff',py:3}}>
-    <Typography sx={{textAlign:'center',fontWeight:700,py:2}} variant='h4'>{Array.from({length:3}).map(()=>(
-          <Typography component='img' height={12} src={star} />
-         ))} {t('prizes')} {Array.from({length:3}).map(()=>(
-            <Typography component='img' height={12} src={star} />
+    <Typography sx={{textAlign:'center',fontWeight:700,py:2}} variant='h6'>{Array.from({length:3}).map(()=>(
+          <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
+         ))} {t('winPrizes')} {Array.from({length:3}).map(()=>(
+            <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
            ))}</Typography>
-    <Typography sx={{textAlign:'center',color:'#727289',width:300,mx:'auto'}} variant='body1'>{t('participateDescription')}</Typography>
+             <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{t('prizes')}</Typography>
+    <Typography sx={{textAlign:'center',color:'#727289',width:{xs:350,md:400},mx:'auto',fontWeight:700}} variant='body1'>{t('participateDescription')}</Typography>
     <Grid spacing={2} container sx={{'@media (min-width:768px)':{px:20},py:5}} >
-        <Grid sx={{position:'relative'}} item md={6} sm={12} xs={12}>
-            <Box component='img' src={bg} sx={{width:{xs:350,md:400}}} />
-            <Box sx={{display:'flex',gap:1,position:'absolute',top:'70%',justifyContent:'center',left:20}}>
+        <Grid item md={6} sx={{position:'relative'}} sm={12} xs={12}>
+            <Box component='img' src={bg} sx={{width:{xs:350,md:600}}} />
+            <Box sx={{ display: 'flex',
+      gap: 1,
+      position: 'absolute',
+      top: '90%', 
+      left: '50%', 
+      transform: 'translate(-50%, -50%)', 
+      justifyContent: 'center',}}>
                 {counter.map(({type,value})=>(
  <Box key={type} sx={{borderRadius:5,border:'1px solid aqua',display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
- <Typography sx={{color:'black',px:2,py:1}} variant='body1' fontWeight={700}>{value}</Typography>
+ <Typography sx={{color:'black',px:2,py:1}} variant='body2' fontWeight={700}>{value}</Typography>
  <Typography sx={{color:'black',backgroundColor:'aqua',px:2,py:1,borderRadius:'0  0 20px 20px'}} variant='body1'>{t(type)}</Typography>
  </Box>
                 ))}

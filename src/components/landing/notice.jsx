@@ -20,14 +20,19 @@ const Notice = () => {
     }
   return (
    <Box sx={{backgroundColor:'#fff',pb:5,pt:0}}>
-    <Typography sx={{textAlign:'center',fontWeight:700,py:2}} variant='h4'>{Array.from({length:3}).map(()=>(
+    {/* <Typography sx={{textAlign:'center',fontWeight:700,py:2}} variant='h4'>{Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
          ))} {t('importantNoticeForContestants')} {Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
-         ))}</Typography>
+         ))}</Typography> */}
     <Box sx={{display:'flex'}}>
         <Box width={'50%'} sx={{'@media (max-width:768px)':{display:'none'}}}><Box sx={{borderRadius:10,objectFit:'cover'}} component='img' height={500} width={'100%'} src={bg} /></Box>
         <Box sx={{width:{xs:'100%',md:'50%'}}}>
+        <Typography sx={{fontWeight:700,pb:2}} variant='h6'>{t('participationHonor')} {Array.from({length:3}).map(()=>(
+          <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
+         ))} </Typography>  
+        <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{t('importantNoticeForContestants')} </Typography>
+
             <Box sx={{display:'flex',alignItems:'center',flexDirection:'column',paddingX:10,gap:5,mt:5}}>
             <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('noticeForWinners')}

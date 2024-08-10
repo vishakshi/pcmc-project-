@@ -61,7 +61,16 @@ const Testimonials = () => {
         },
     ]
   return (
-    <Box py={15} sx={{ px:{md:20,xs:2},backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',backgroundSize:'cover'}}>
+    <Box py={15} sx={{ px:{md:25,xs:2},backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',backgroundSize:'cover',position:'relative',
+    '::before': {
+      backgroundColor: '#04072eb3',
+      content: '""', // Content should be an empty string or a valid string
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+    },}}>
       <Carousel
         swipeable={true}
         slidesToSlide={1}
