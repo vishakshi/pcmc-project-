@@ -23,7 +23,7 @@ const Rule = () => {
           <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
          ))} </Typography>  
         <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{t('termsAndConditions')} </Typography>
-           {['logoSize','highResolution','acceptedFormats'].map((item)=>{
+           {['logoSize','highResolution','acceptedFormats','noAIForLogoTagline','oneLogoPerParticipant'].map((item)=>{
             return(
                 <>
                 <Typography key={item} variant='body1' sx={{fontSize:pxToRem(16)}}>

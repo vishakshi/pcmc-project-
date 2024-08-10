@@ -34,10 +34,12 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
 
     const formik = useFormik({
         initialValues:{
-            firstName:data?.firstName,
-            lastName:data?.lastName,
-            mobileNo:data?.mobileNo,
-            countryCode:data?.countryCode
+          firstName:data?.firstName || "",
+        lastName:data?.lastName || "",
+        companyName:data?.companyName || "",
+        mobileNo:data?.mobileNo || "",
+        countryCode:data?.countryCode || "",
+        userType:data?.userType || "",
         },
         onSubmit:handleSubmit,
         validationSchema:updateUserSchema
@@ -46,10 +48,12 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
     
     useEffect(()=>{
       formik.setValues({
-        firstName:data?.firstName,
-        lastName:data?.lastName,
-        mobileNo:data?.mobileNo,
-        countryCode:data?.countryCode
+        firstName:data?.firstName || "",
+        lastName:data?.lastName || "",
+        companyName:data?.companyName || "",
+        mobileNo:data?.mobileNo || "",
+        countryCode:data?.countryCode || "",
+        userType:data?.userType || "",
       })
     },[])
 
@@ -59,6 +63,7 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
           error: formik.touched[field] && Boolean(formik.errors[field])
         };
       };
+      console.log(formik.errors)
   return (
     <Dialog
     maxWidth="sm"
@@ -73,15 +78,19 @@ const UpdateUser = ({onOpen,onClose,recall,setAlertData,data}) => {
     <Box>
     <form autoComplete='off' onSubmit={formik.handleSubmit}> 
     <DialogContent>
-    <Grid container spacing={1} mt={2} >
-          <Grid item sm={6} xs={12}>
+    <Grid container spacing={1} >
+
+          {data?.userType === "company" ? <Grid item sm={12} xs={12}>
+          <InputLabel>Company Name</InputLabel>
+          <TextField fullWidth size='small' {...formik.getFieldProps("companyName")} {...getErrorProps("companyName")} />
+          </Grid> :<> <Grid item sm={6} xs={12}>
           <InputLabel>First Name</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("firstName")} {...getErrorProps("firstName")} />
           </Grid>
           <Grid item sm={6} xs={12}>
           <InputLabel>Last Name</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("lastName")} {...getErrorProps("lastName")} />
-          </Grid>
+          </Grid></>}
           <Grid item sm={6} xs={12}>
           <InputLabel>Country Code</InputLabel>
           <TextField fullWidth size='small' InputProps={{readOnly:true}} {...formik.getFieldProps("countryCode")} {...getErrorProps("countryCode")} />

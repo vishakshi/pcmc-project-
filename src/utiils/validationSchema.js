@@ -18,21 +18,53 @@ export const competitionSchema = Yup.object().shape({
 })
 
 export const userSchema = Yup.object().shape({
-    firstName: Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
-  lastName: Yup.string().min(3, 'Minimum 3 characters are required')
-    .required(fieldRequired),
+    userType: Yup.string().required(fieldRequired),
+    // firstName: Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
+    firstName:Yup.string().when('userType',{
+        is:(userType) => userType === 'personal',
+        then:()=>Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
+    lastName: Yup.string().when('userType',{
+        is:(userType) => userType === 'personal',
+        then:()=>Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
+    companyName:Yup.string().when('userType',{
+        is:(userType) => userType === 'company',
+        then:()=>Yup.string().required(fieldRequired).min(4, 'Minimum 4 characters are required'),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
     countryCode: Yup.string().required(fieldRequired),
     mobileNo: Yup.string().required(fieldRequired).matches(/^\d+$/, 'Mobile number must contain only digits').min(10, 'Mobile number must be at least 10 digits').max(10, 'Mobile number cannot exceed 10 digits'),
     email: Yup.string().email('Invalid email address').required(fieldRequired),
-    password:Yup.string().required(fieldRequired).min(6, 'Password must be at least 6 characters'),
+    password: Yup.string()
+.required('Password is required')
+.min(6, 'Password must be at least 6 characters long'),
+passwordConfirm: Yup.string()
+.required('Please confirm your password')
+.oneOf([Yup.ref('password'), null], 'Passwords must match'),
 })
 
+
+
 export const updateUserSchema = Yup.object().shape({
-    firstName: Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required')
-    .matches(/^[A-Za-z]+$/, 'First name cannot contain numbers or special characters'),
-  lastName: Yup.string().min(3, 'Minimum 3 characters are required')
-    .required(fieldRequired)
-    .matches(/^[A-Za-z]+$/, 'Last name cannot contain numbers or special characters'),
+    userType: Yup.string().required(fieldRequired),
+    firstName:Yup.string().when('userType',{
+        is:(userType) => userType === 'personal',
+        then:()=>Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
+    lastName: Yup.string().when('userType',{
+        is:(userType) => userType === 'personal',
+        then:()=>Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
+    companyName:Yup.string().when('userType',{
+        is:(userType) => userType === 'company',
+        then:()=>Yup.string().required(fieldRequired).min(4, 'Minimum 4 characters are required'),
+        otherwise:()=>Yup.string().notRequired(),
+    }),
     mobileNo: Yup.string().required(fieldRequired).matches(/^\d+$/, 'Mobile number must contain only digits').min(10, 'Mobile number must be at least 10 digits').max(10, 'Mobile number cannot exceed 10 digits'),
 })
 

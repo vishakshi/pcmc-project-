@@ -52,18 +52,20 @@ const UserSignUp = () => {
         display: "flex",
         justifyContent: 'space-evenly',
         alignItems: "center",
-        height: "100vh",
+        my:5,
         width: "100%",
         "@media (max-width:476px)": {
             backgroundColor: "#ECECEC",
-          }
+          },
       }}
     >
         <Box component='img' sx={{
           "@media (max-width:476px)": {
             display: "none",
           },
-        }} height='100vh' src={bg} />
+          width:600,
+          borderRadius:5
+        }} src={bg} />
       <Box
         sx={{
           display: "flex",

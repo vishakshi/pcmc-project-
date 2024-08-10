@@ -37,7 +37,7 @@ const Setting = () => {
       }
     
       return (
-        <Box sx={{maxWidth:350,mx:'auto',display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',height:'70vh'}}>
+        <Box sx={{minWidth:350,mx:'auto',display:'flex',justifyContent:'center',flexDirection:'column',alignItems:'center',height:'70vh'}}>
              {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
           <Box sx={{border:'2px solid aqua',borderRadius:5,backgroundColor:'white'}} p={2}>
             <Box sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}} >
@@ -45,7 +45,12 @@ const Setting = () => {
               Personal Details
             </Typography>
             </Box>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
+              {data?.userType === "company" ?
+               <Grid item md={12} sm={12}>
+                <Typography variant='body1'>Company Name</Typography>
+                <Typography variant='body2'>{data?.companyName}</Typography>
+              </Grid> : <> 
               <Grid item md={6} sm={12}>
                 <Typography variant='body1'>First Name</Typography>
                 <Typography variant='body2'>{data?.firstName}</Typography>
@@ -53,7 +58,7 @@ const Setting = () => {
               <Grid item md={6} sm={12}>
                 <Typography variant='body1'>Last Name</Typography>
                 <Typography variant='body2'>{data?.lastName}</Typography>
-              </Grid>
+              </Grid></>}
               <Grid item md={6} sm={12}>
                 <Typography variant='body1'>Email</Typography>
                 <Typography variant='body2'>{data?.email}</Typography>
