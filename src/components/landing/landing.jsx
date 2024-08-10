@@ -9,6 +9,7 @@ import DivyangAbout from './divyangAbout'
 import Navbar from '../navbar'
 import Testimonials from './testimonials'
 import Rule from './rule'
+import Support from './supportUs'
 
 const Landing = () => {
   return (
@@ -18,6 +19,7 @@ const Landing = () => {
         <Rule />
         <Notice/>
         <Duration/>
+        <Support/>
         <Prizes />
         <CompetenceCard/>
         <Testimonials/>

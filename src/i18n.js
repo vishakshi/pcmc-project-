@@ -91,6 +91,10 @@ i18next.use(initReactI18next).init({
                 participationHonor: 'Participation in competition, honoring creativity',
                 empoweredDisabled: 'Empowered disabled, prosperous society!',
                 winPrizes: 'Win attractive prizes!',
+                divyangBhavanFoundation: 'Divyang Bhavan Foundation',
+                supportInspiration: 'Your support will inspire us',
+                supportEmpowerment: 'Your support, our inspiration; Let\'s open a new direction for the empowerment of the disabled!',
+                watchVideo: 'Watch the video',
             },
         },
         mt:{
@@ -178,6 +182,10 @@ i18next.use(initReactI18next).init({
                 participationHonor: 'स्पर्धेत सहभाग, सर्जनशीलतेचा सन्मान',
                 empoweredDisabled: 'सशक्त दिव्यांग, समृद्ध समाज!',
                 winPrizes: 'आकर्षक बक्षिसे जिंका!',
+                divyangBhavanFoundation: 'दिव्यांग भवन फाउंडेशन',
+                supportInspiration: 'आपला पाठिंबा आम्हाला प्रेरणा देईल',
+                supportEmpowerment: 'आपला पाठिंबा, आमची प्रेरणा; दिव्यांगांच्या सशक्तीकरणासाठी एक नवीन दिशा उघडूया!',
+                watchVideo: 'व्हिडिओ पहा',
             }
         }
     }
