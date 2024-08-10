@@ -18,11 +18,9 @@ export const competitionSchema = Yup.object().shape({
 })
 
 export const userSchema = Yup.object().shape({
-    firstName: Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required')
-    .matches(/^[A-Za-z]+$/, 'First name cannot contain numbers or special characters'),
+    firstName: Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
   lastName: Yup.string().min(3, 'Minimum 3 characters are required')
-    .required(fieldRequired)
-    .matches(/^[A-Za-z]+$/, 'Last name cannot contain numbers or special characters'),
+    .required(fieldRequired),
     countryCode: Yup.string().required(fieldRequired),
     mobileNo: Yup.string().required(fieldRequired).matches(/^\d+$/, 'Mobile number must contain only digits').min(10, 'Mobile number must be at least 10 digits').max(10, 'Mobile number cannot exceed 10 digits'),
     email: Yup.string().email('Invalid email address').required(fieldRequired),
