@@ -87,6 +87,10 @@ i18next.use(initReactI18next).init({
                 uniqueDescription: 'The logo should be original and not similar to any other organization\'s logo.',
                 relevance: 'Relevance',
                 relevanceDescription: 'The design should be relevant to the work of Divyang Bhawan Foundation.',
+                honorCompetition: 'Honor competition, follow the rules!',
+                participationHonor: 'Participation in competition, honoring creativity',
+                empoweredDisabled: 'Empowered disabled, prosperous society!',
+                winPrizes: 'Win attractive prizes!',
             },
         },
         mt:{
@@ -122,7 +126,7 @@ i18next.use(initReactI18next).init({
                 importantNoticeForContestants: 'स्पर्धकांसाठी महत्त्वाची सूचना',
                 noticeForWinners: 'स्पर्धेतील जे स्पर्धक विजेते होतील अशांकडून त्यांचे लोगो व टॅगलाईन ट्रेड मार्क व विजेत्या कडून Trade Mark व बौध्दीक संपदा (IP) हक्क कायदा याअनुसार करार करून ते सी.डी. आर फॉरमॅटमध्ये कंपनीसाठी घेण्यात येतील.',
                 freeEntryNotice: 'स्पर्धेमध्ये सहभाग घेण्यासाठी प्रवेश मोफत असून प्रत्येक सहभागी स्पर्धकाला पिंपरी चिंचवड महानगरपालिका दिव्यांग भवन फाउंडेशन कंपनी द्वारे सहभागाचे प्रमाणपत्र देण्यात येईल.',
-                competitionDuration: 'स्पर्धेची कालावधी',
+                competitionDuration: 'स्पर्धेचा कालावधी',
                 competitionDescription: 'दिव्यांग भवन फाउंडेशनसाठी लोगो आणि टॅगलाइन डिझाइन स्पर्धा! सर्जनशील व्यक्तींना सहभागी होण्यासाठी आमंत्रण. आपल्या अद्वितीय कल्पनांसह दिव्यांग व्यक्तींच्या सक्षमीकरणाचा संदेश पसरवा.',
                 to:'ते',
                 prizes: 'बक्षिसे',
@@ -170,6 +174,10 @@ i18next.use(initReactI18next).init({
                 uniqueDescription: 'लोगो मौलिक असावा आणि इतर कोणत्याही संस्थेच्या लोगोशी साम्य नसावा.',
                 relevance: 'संबंध',
                 relevanceDescription: 'डिझाईन दिव्यांग भवन फाउंडेशनच्या कार्याशी संबंधित असावे.',
+                honorCompetition: 'स्पर्धेचा सन्मान करा, नियमांचे पालन करा!',
+                participationHonor: 'स्पर्धेत सहभाग, सर्जनशीलतेचा सन्मान',
+                empoweredDisabled: 'सशक्त दिव्यांग, समृद्ध समाज!',
+                winPrizes: 'आकर्षक बक्षिसे जिंका!',
             }
         }
     }
