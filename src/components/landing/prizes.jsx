@@ -76,6 +76,7 @@ const Prizes = () => {
             ))}
             </Grid>
     </Grid>
+    <Typography variant='body1' sx={{fontStyle:'italic',textAlign:'center',fontWeight:600}}>{t('participationCertificate')}</Typography>
     </Box>
   )
 }
