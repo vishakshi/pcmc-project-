@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import d1 from "../../assets/d1.png"
 import d2 from "../../assets/d2.jpg"
 import d3 from "../../assets/d3.jpg"
-import d4 from "../../assets/d4.jpg"
+import d4 from "../../assets/d4.jpeg"
 import d1En from "../../assets/d1_en.png"
 import d2En from "../../assets/d2_en.png"
 import d3En from "../../assets/d3_en.jpg"

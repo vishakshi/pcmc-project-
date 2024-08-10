@@ -20,7 +20,6 @@ import Footer from './footer';
 import { getFormatDate } from '../utiils/dateFormatter';
 import logo from '../assets/logo.png'
 import { Container, Fab, Fade, useScrollTrigger } from '@mui/material';
-import { useThemeContext } from '../context/themeContext';
 import { pxToRem } from '../utiils/utility';
 
 const drawerWidth = 240;
@@ -31,7 +30,6 @@ function Navbar(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { t, i18n } = useTranslation();
     const navItems = [t('home'), t('contactUs')];
-    const {theme:nameva} = useThemeContext();
   const handleChangeLanguage = () => {
     const languageCode = i18n.language === "mt" ? "en" : "mt"
     i18n.changeLanguage(languageCode)
@@ -132,7 +130,7 @@ function Navbar(props) {
       
       <AppBar component="nav" sx={{backgroundColor:'white',color:'black'}}>
 
-      <Box sx={{backgroundColor:'#800080',display:'flex',justifyContent:'space-between',alignItems:'center',}}>
+      <Box sx={{backgroundColor:'#800080',display:'flex',justifyContent:'space-between',alignItems:'center',px:{xs:0,sm:10}}}>
         <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
         <Box sx={{borderRight:'2px solid #951595'}}>
         <Button sx={{color:'white'}} size='small' onClick={handleChangeLanguage}>{i18n.language === "en" ? "Marathi" : "English"}</Button> 

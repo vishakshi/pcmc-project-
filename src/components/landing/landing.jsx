@@ -8,12 +8,14 @@ import CompetenceCard from '../competenceCard'
 import DivyangAbout from './divyangAbout'
 import Navbar from '../navbar'
 import Testimonials from './testimonials'
+import Rule from './rule'
 
 const Landing = () => {
   return (
    <Navbar>
       <MyCarousel/>
         <Slider/>
+        <Rule />
         <Notice/>
         <Duration/>
         <Prizes />

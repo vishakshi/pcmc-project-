@@ -4,10 +4,19 @@ import { adminRoutes, userRoutes } from "./route/routes";
 import { authRoutes, publicRoutes } from "./route/publicRoutes";
 import ProtectedRoute from "./route/ProtectedRoute";
 import AuthRoute from "./route/AuthRoute";
+import ApiManager from "./apiManager/apiManager";
 
 const App = () => {
   const userType = sessionStorage.getItem("@userType");
-  console.log(userType);
+  // useEffect(()=>{
+  //   const userType = sessionStorage.getItem("@userType");
+  //   if(userType && userType === "user"){
+  //     ;(async ()=>{
+  //       const response = await ApiManager.getUserDetails();
+        
+  //     })();
+  //   }
+  // },[])
   return (
     <Routes>
       {publicRoutes.map(({ element, path }) => (

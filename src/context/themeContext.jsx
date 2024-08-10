@@ -1,18 +1,18 @@
 import { createContext, useContext, useState } from "react";
 
-const MyThemeContext = createContext();
+const UserContext = createContext();
 
-export const ThemeContextProvider = ({children}) => {
-    const [theme,setTheme] = useState("saqlain");
+export const UserProvider = ({children}) => {
+    const [userDetails,setUserDetails] = useState({});
     return(
-        <MyThemeContext.Provider value={{theme}}>
+        <UserContext.Provider value={{}}>
             {children}
-        </MyThemeContext.Provider>
+        </UserContext.Provider>
     )
 }
 
-export const useThemeContext = () => {
-    return useContext(MyThemeContext);
+export const useUserContext = () => {
+    return useContext(UserContext);
 }
 
 
