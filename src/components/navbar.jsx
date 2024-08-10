@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 import Footer from './footer';
 import { getFormatDate } from '../utiils/dateFormatter';
 import logo from '../assets/logo.png'
+import shivajiLogo from '../assets/shivaji-logo.png'
 import { Container, Fab, Fade, useScrollTrigger } from '@mui/material';
 import { pxToRem } from '../utiils/utility';
 
@@ -151,7 +152,7 @@ function Navbar(props) {
         </Box>
       </Box>
       <Container maxWidth='lg'>
-        <Toolbar>
+        <Toolbar sx={{display:'flex',justifyContent:'space-between'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -164,11 +165,10 @@ function Navbar(props) {
           <Typography variant="h6" sx={{ display:{xs:"flex",md:'none'},position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}>
         <Typography component='img' src={logo} alt='Logo' height={50} />
       </Typography>
-          
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } ,py:2}}
+            sx={{  display: { xs: 'none', sm: 'block' },py:2 }}
           >
             <Typography component='img' src={logo} alt='Logo' height={50} />
           </Typography>
@@ -183,6 +183,13 @@ function Navbar(props) {
              {t('registerNow')}
             </Button>
           </Box>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{  display: { xs: 'none', sm: 'block' }, }}
+          >
+            <Typography component='img' src={shivajiLogo} alt='Logo' width={120} />
+          </Typography>
         </Toolbar>
         </Container>
       </AppBar>
