@@ -46,6 +46,9 @@ export default function CompetitionCard({data,recall}) {
             {data?.name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
+            Competetion Type: <span style={{fontWeight:700,textTransform:'capitalize'}}> {data?.contestType}</span>
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary" component="div">
             Start Date: <span style={{fontWeight:700}}>{getFormatDate(data?.startDate)}</span>
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
@@ -61,7 +64,7 @@ export default function CompetitionCard({data,recall}) {
       </Box>
     </Card>
     </Grid>
-   {open && <Participate onOpen={open} handleConfirmation={handleConfirmation} onClose={()=>setOpen(false)} setAlertData={setAlertData} contestId={data?._id} recall={recall}/>}
+   {open && <Participate onOpen={open} handleConfirmation={handleConfirmation} onClose={()=>setOpen(false)} setAlertData={setAlertData} contestId={data?._id} recall={recall} competetionType={data?.contestType || "logo"}/>}
    <ConfirmDialog onOpen={successDialog} onClose={()=>setSuccessDialog(false)} onConfirm={()=>setSuccessDialog(false)} title="Success" message={successData}/>
     </>
   );

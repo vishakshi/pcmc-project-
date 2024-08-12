@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Grid from '@mui/material/Grid';
 import { DatePicker } from '@mui/x-date-pickers';
-import { InputLabel,TextField,IconButton, CircularProgress } from '@mui/material';
+import { InputLabel,TextField,IconButton, CircularProgress, FormControlLabel, Radio, RadioGroup } from '@mui/material';
 import { useFormik } from 'formik';
 import { CloseOutlined, X } from '@mui/icons-material';
 import ApiManager from '../../apiManager/apiManager';
@@ -42,7 +42,7 @@ const Add = ({onOpen,onClose,recall,setAlertData}) => {
     
     const formik = useFormik({
         initialValues:{
-          contestType:'',
+          contestType:'logo',
           name:'',
           startDate:null,
           endDate:null,
@@ -77,6 +77,17 @@ const Add = ({onOpen,onClose,recall,setAlertData}) => {
       <form autoComplete='off' onSubmit={formik.handleSubmit}> 
       <DialogContent>
         <Grid container spacing={1} >
+        <Grid item sm={12} xs={12}>
+          <InputLabel>Competition Type</InputLabel>
+          <RadioGroup
+        row
+        sx={{gap:5}}
+        {...formik.getFieldProps('contestType')}
+      >
+        <FormControlLabel value="logo" control={<Radio size='small' />} label='Logo' />
+        <FormControlLabel value="tagline" control={<Radio size='small' />} label='Tagline' />
+      </RadioGroup>
+          </Grid>
           <Grid item sm={12}>
           <InputLabel>Competition Name</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("name")} {...getErrorProps("name")} />

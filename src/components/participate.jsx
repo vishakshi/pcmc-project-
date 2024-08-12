@@ -12,7 +12,7 @@ import { CloseOutlined } from '@mui/icons-material';
 import ApiManager from '../apiManager/apiManager';
 import ConfirmDialog from './confirmDialog';
 
-const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirmation}) => {
+const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirmation,competetionType}) => {
 
     const [isSubmitting,setIsSubmitting] = useState();
 
@@ -45,8 +45,9 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
       const formik = useFormik({
         initialValues:{
             image:'',
+            logoPdf:'',
             contest:contestId,
-            type:'',
+            type:competetionType,
             tagline:'',
         },
         onSubmit:handleSubmit,
@@ -59,7 +60,7 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
         };
       };
 
-      console.log(formik.errors)
+      console.log(formik.values,formik.errors)
     
   return (
     <Dialog
@@ -75,7 +76,7 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
      <form autoComplete='off' onSubmit={formik.handleSubmit}> 
      <DialogContent>
        <Grid container spacing={1} >
-         <Grid item sm={12} md={12}>
+         {/* <Grid item sm={12} md={12}>
          <InputLabel>Participation Type</InputLabel>
          <Select
            fullWidth
@@ -90,11 +91,17 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
          </Select>
          {formik.errors.type && formik.touched.type
                       ? <Typography variant="caption" ml={2} color='red' >{formik.errors.type}</Typography> : null}
-         </Grid>
-         {formik.values.type && <>{formik.values.type === "logo" ?  <Grid item sm={12} md={12}>
-         <InputLabel>Logo</InputLabel>
+         </Grid> */}
+         {formik.values.type && <>{formik.values.type === "logo" ? <> <Grid item sm={12} md={12}>
+         <InputLabel sx={{mb:0.5}}>Logo Image</InputLabel>
          <TextField inputProps={{ accept: "image/png, image/jpeg, application/pdf" }} {...getErrorProps("image")} fullWidth type="file" size='small' onChange={(event)=>formik.setFieldValue("image",event.currentTarget.files[0])} />
-         </Grid> :
+         </Grid>
+         <Grid item sm={12} md={12}>
+         <InputLabel sx={{mb:0.5}}>Logo PDF</InputLabel>
+         <TextField inputProps={{ accept: "application/pdf" }} {...getErrorProps("logoPdf")} fullWidth type="file" size='small' onChange={(event)=>formik.setFieldValue("logoPdf",event.currentTarget.files[0])} />
+         </Grid>
+         
+          </> :
          <Grid item sm={12} md={12}>
          <InputLabel>Tagline</InputLabel>
          <TextField multiline rows={3} fullWidth size='small' {...formik.getFieldProps("tagline")} {...getErrorProps("tagline")} />

@@ -12,7 +12,7 @@ const Competetion = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await ApiManager.getCompetetions();
+        const response = await ApiManager.getActiveCompetetions();
         if (response.data?.status) {
           setData(response.data?.data);
         }

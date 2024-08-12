@@ -73,6 +73,11 @@ export const userLoginSchema = Yup.object().shape({
 
 export const addContestSchema = Yup.object().shape({
     type:Yup.string().required(fieldRequired),
+    logoPdf:Yup.mixed().when('type',{
+        is:(type) => type === 'logo',
+        then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && "application/pdf" === value.type)),
+        otherwise:()=>Yup.mixed().notRequired(),
+    }),
     image:Yup.mixed().when('type',{
         is:(type) => type === 'logo',
         then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUBMISSION_SUPPORTED_FORMATS.includes(value.type))),
