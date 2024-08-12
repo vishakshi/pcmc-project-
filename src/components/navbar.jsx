@@ -163,14 +163,14 @@ function Navbar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" sx={{ display:{xs:"flex",md:'none'},position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}>
-        <Typography component='img' src={logo} alt='Logo' height={50} />
+        <Typography component='img' src={logo} alt='Logo' height={60} />
       </Typography>
           <Typography
             variant="h6"
             component="div"
-            sx={{  display: { xs: 'none', sm: 'block' },py:2 }}
+            sx={{  display: { xs: 'none', sm: 'block' },pt:1 }}
           >
-            <Typography component='img' src={logo} alt='Logo' height={50} />
+            <Typography component='img' src={logo} alt='Logo' height={70} />
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
