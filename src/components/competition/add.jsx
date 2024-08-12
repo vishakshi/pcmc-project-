@@ -42,15 +42,14 @@ const Add = ({onOpen,onClose,recall,setAlertData}) => {
     
     const formik = useFormik({
         initialValues:{
+          contestType:'',
           name:'',
           startDate:null,
           endDate:null,
-          maxContestant:'',
           icon:'',
           prizeType:'',
           prizeValue:'',
           prizeDescription:'',
-          joiningFee:'',
         },
         onSubmit:handleSubmit,
         validationSchema:competitionSchema
@@ -90,14 +89,14 @@ const Add = ({onOpen,onClose,recall,setAlertData}) => {
           <InputLabel>End Date</InputLabel>
           <DatePicker format='DD/MM/YYYY' slotProps={{textField:{size:'small',fullWidth:true,...getErrorProps('endDate')}}} onChange={(e)=>formik.setFieldValue('endDate',e.format())} />
           </Grid>
-          <Grid item sm={6}>
+          {/* <Grid item sm={6}>
           <InputLabel>Total Contestants</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("maxContestant")} {...getErrorProps("maxContestant")} />
-          </Grid>
-          <Grid item sm={6}>
+          </Grid> */}
+          {/* <Grid item sm={6}>
           <InputLabel>Joining Fee</InputLabel>
           <TextField fullWidth size='small' {...formik.getFieldProps("joiningFee")} {...getErrorProps("joiningFee")} />
-          </Grid>
+          </Grid> */}
           <Grid item sm={12}>
           <InputLabel>Prize Description</InputLabel>
           <TextField multiline rows={2} fullWidth size='small' {...formik.getFieldProps("prizeDescription")} {...getErrorProps("prizeDescription")} />

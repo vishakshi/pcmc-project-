@@ -59,7 +59,7 @@ const Slider = () => {
       responsive={responsive}   
       infinite={true}
       autoPlay={true}
-      autoPlaySpeed={1000}
+      autoPlaySpeed={10000}
       keyBoardControl={true}
       customTransition="all .5"
       transitionDuration={1000}

@@ -27,21 +27,9 @@ const Table = ({ rowData, isLoading }) => {
       selector: (row) => getFormatDate(row.endDate),
       sortable: true,
     },
-    {
-        name: "Total Contestants",
-        selector: (row) => row.maxContestant,
-        sortable:true,
-        width:'170px'
-      },
       {
         name: "Total Applicants",
         selector: (row) => row?.participants.length,
-        sortable:true,
-        width:'170px'
-      },
-      {
-        name: "Joining Fee",
-        selector: (row) => row.joiningFee,
         sortable:true,
         width:'170px'
       },

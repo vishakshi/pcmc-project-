@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { InputLabel,TextField,Box,Grid,Button,CircularProgress, InputAdornment, IconButton, Typography, Divider, RadioGroup, FormControlLabel, Radio } from '@mui/material';
+import { InputLabel,TextField,Box,Grid,Button,CircularProgress, InputAdornment, IconButton, Typography, Divider, RadioGroup, FormControlLabel, Radio, Checkbox } from '@mui/material';
 import { useFormik } from 'formik';
 import ApiManager from '../apiManager/apiManager';
 import { userSchema } from '../utiils/validationSchema';
@@ -50,7 +50,8 @@ const SignUpForm = () => {
             mobileNo:'',
             email:'',
             password:'',
-            passwordConfirm:''
+            passwordConfirm:'',
+            isChecked:false,
         },
         onSubmit:handleSubmit,
         validationSchema:userSchema
@@ -127,8 +128,20 @@ const SignUpForm = () => {
           <InputLabel>{t('passwordConfirm')}</InputLabel>
           <TextField fullWidth placeholder={t('confirmPassword')} type={'password'} size='small' {...formik.getFieldProps("passwordConfirm")} {...getErrorProps("passwordConfirm")} />
           </Grid>
+          <Grid item sm={12} xs={12}>
+          <FormControlLabel
+          onChange={(e)=>console.log(e.target.value)}
+          control={ <Checkbox
+            checked={formik.values.isChecked}
+            onChange={(event)=>formik.setFieldValue('isChecked',event.target.checked)}
+            inputProps={{ 'aria-label': 'controlled' }}
+          />}
+          label={t('acceptTerms')}
+          labelPlacement="end"
+        />
+          </Grid>
         </Grid>
-        <Button variant="contained" type='submit' sx={{mt:2}} disabled={isLoading} fullWidth={true} >
+        <Button variant="contained" type='submit' sx={{mt:2}} disabled={!formik.values.isChecked || isLoading} fullWidth={true} >
       {isLoading ? <CircularProgress size={24} /> : t('signUp')}
     </Button>
     </form>

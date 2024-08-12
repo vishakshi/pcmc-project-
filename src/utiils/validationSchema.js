@@ -9,12 +9,10 @@ export const competitionSchema = Yup.object().shape({
     name:Yup.string().required(fieldRequired),
     startDate:Yup.date().required(fieldRequired),
     endDate:Yup.date().required(fieldRequired),
-    maxContestant:Yup.number().min(1,'Must be a positive value'),
     icon:Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUPPORTED_FORMATS.includes(value.type))),
     prizeType:Yup.string(),
     prizeValue:Yup.number().required(fieldRequired).min(1,'Must be a positive value'),
     prizeDescription:Yup.string(),
-    joiningFee:Yup.number().required(fieldRequired).min(1,'Must be a positive value'),
 })
 
 export const userSchema = Yup.object().shape({
@@ -82,7 +80,11 @@ export const addContestSchema = Yup.object().shape({
     }),
     tagline:Yup.string().when('type',{
         is:(type) => type === 'tagline',
-        then:()=>Yup.string().min(3, 'Minimum 3 characters are required').required(fieldRequired),
+        then:()=>Yup.string().min(3, 'Minimum 3 characters are required').required(fieldRequired).test('max-5-words', 'Maximum 5 words are allowed', function (value) {
+            if (!value) return true; 
+            const wordCount = value.trim().split(/\s+/).length;
+            return wordCount <= 5;
+          }),
         otherwise:()=>Yup.string().notRequired(),
     }),
 })

@@ -62,7 +62,7 @@ export default function CompetitionCard({data,recall}) {
     </Card>
     </Grid>
    {open && <Participate onOpen={open} handleConfirmation={handleConfirmation} onClose={()=>setOpen(false)} setAlertData={setAlertData} contestId={data?._id} recall={recall}/>}
-   <ConfirmDialog onOpen={successDialog} onClose={()=>setSuccessDialog(false)} onConfirm={()=>setSuccessDialog(false)} title="Success Confirmation" message={successData}/>
+   <ConfirmDialog onOpen={successDialog} onClose={()=>setSuccessDialog(false)} onConfirm={()=>setSuccessDialog(false)} title="Success" message={successData}/>
     </>
   );
 }
