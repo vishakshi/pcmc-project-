@@ -6,6 +6,7 @@ import ConfirmDialog from './confirmDialog'
 import DialogLoader from './DialogLoader'
 import ApiManager from '../apiManager/apiManager'
 import DownloadPdf from './DownloadPdf'
+import ImageViewer from './ImageViewer'
 
 const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => {
   const [openConfirm,setOpenConfirm] = useState(false);
@@ -122,12 +123,13 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
               Uploaded Image:
             </Typography>
             <Box sx={{border:'5px dashed aqua',p:1,borderRadius:5}}>
-            <Box component='img' width={250} src={data?.image} />
+            {/* <Box component='img' width={250} src={data?.image} /> */}
+            <ImageViewer width={250} imageKey={data?.image} />
             </Box>
             {data?.logoPdf && <><Typography sx={{ color: "grey" }}>
               Uploaded PDF:
             </Typography>
-            <DownloadPdf key={data?.logoPdf}/>
+            {data?.logoPdf && <DownloadPdf imageKey={data?.logoPdf}/>}
             </>}
           </Box>
         </Box> : <Box>

@@ -1,10 +1,10 @@
-import { Button } from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import ApiManager from '../apiManager/apiManager';
 
-const DownloadPdf = ({ imageKey }) => {
+const ImageViewer = ({ imageKey,width }) => {
     const [url,setUrl] = useState("");
-    const [isLoading,setIsLoading] = useState(false);
+    const [isLoading,setIsLoading] = useState(true);
     useEffect(() => {
        const getUrl = async () => {
           try {
@@ -23,11 +23,14 @@ const DownloadPdf = ({ imageKey }) => {
             getUrl();
         }
       }, []);
-  return (<Button>
-    <a href={url} target="_blank" download>
-        View PDF
-    </a>
-  </Button>)
+      if(isLoading){
+        return(
+        <Box sx={{display:'flex',justifyContent:'center'}} width={width}>
+        <CircularProgress/>
+        </Box>
+    )
+      }
+  return (<Box component='img' width={width} src={url}  />)
 }
 
-export default DownloadPdf
+export default ImageViewer

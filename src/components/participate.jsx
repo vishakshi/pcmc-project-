@@ -21,6 +21,7 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
             const formData = new FormData();
             formData.append('type',values?.type)
             formData.append('image',values.type === "logo" ? values.image : "")
+            formData.append('logoPdf',values.logoPdf)
             formData.append('tagline',values?.type === "tagline" ? values?.tagline : "")
             formData.append('contest',contestId);
             try {
