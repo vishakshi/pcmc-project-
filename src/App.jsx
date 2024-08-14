@@ -19,6 +19,7 @@ const App = () => {
         const response = await ApiManager.getUserDetails(userId?._id);
         if(response.data.status){
           setUserDetails(response.data?.data)
+          console.log(response.data)
         }
       })();
     }

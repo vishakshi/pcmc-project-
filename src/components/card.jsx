@@ -12,18 +12,19 @@ import CustomAlert from './customAlert';
 import { getDecodedToken } from "../utiils/utility";
 import Participate from './participate';
 import ConfirmDialog from './confirmDialog';
+import { useAuthContext } from '../context/authContext';
 
 export default function CompetitionCard({data,recall}) {
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
-    const [successDialog,setSuccessDialog] = React.useState(false);
-    const [successData,setSuccessData] = React.useState("Hey, Mohd Saqlain You have successfully participated in the competetion")
-
+    const [successDialog,setSuccessDialog] = React.useState(true);
+    const {userDetails} = useAuthContext()
+    const [successData,setSuccessData] = React.useState(`Hey, ${userDetails?.firstName || "User"} You have successfully participated in the competetion`)
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
 
     const handleConfirmation = (data) => {
       const name = data?.firstName || "" + " " + data?.lastName || "";
-      const message = `Hey, ${name}! You have successfully participated in the ${data?.name || ""} competetion on ${todayDate()}`;
+      const message = `Hey, ${userDetails?.firstName || "User"}! You have successfully participated in the competetion on ${todayDate()}`;
       setSuccessData(message);
       setSuccessDialog(true);
       console.log(data)

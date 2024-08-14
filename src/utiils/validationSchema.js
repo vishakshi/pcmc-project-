@@ -9,7 +9,7 @@ export const competitionSchema = Yup.object().shape({
     name:Yup.string().required(fieldRequired),
     startDate:Yup.date().required(fieldRequired),
     endDate:Yup.date().required(fieldRequired),
-    icon:Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUPPORTED_FORMATS.includes(value.type))),
+    icon:Yup.mixed().required(fieldRequired).test('fileFormat', 'File type must be jpg, jpeg or png', value => !value || (value && SUPPORTED_FORMATS.includes(value.type))),
     prizeType:Yup.string(),
     prizeValue:Yup.number().required(fieldRequired).min(1,'Must be a positive value'),
     prizeDescription:Yup.string(),
@@ -75,12 +75,12 @@ export const addContestSchema = Yup.object().shape({
     type:Yup.string().required(fieldRequired),
     logoPdf:Yup.mixed().when('type',{
         is:(type) => type === 'logo',
-        then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && "application/pdf" === value.type)),
+        then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'File type must be pdf', value => !value || (value && "application/pdf" === value.type)).test('fileSize', 'File size must be less than 5 MB', value => !value || (value && value.size <= 5 * 1024 * 1024)),
         otherwise:()=>Yup.mixed().notRequired(),
     }),
     image:Yup.mixed().when('type',{
         is:(type) => type === 'logo',
-        then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'Unsupported Format', value => !value || (value && SUBMISSION_SUPPORTED_FORMATS.includes(value.type))),
+        then:()=>Yup.mixed().required(fieldRequired).test('fileFormat', 'File type must be jpg, jpeg or png', value => !value || (value && SUBMISSION_SUPPORTED_FORMATS.includes(value.type))).test('fileSize', 'File size must be less than 5 MB', value => !value || (value && value.size <= 5 * 1024 * 1024)),
         otherwise:()=>Yup.mixed().notRequired(),
     }),
     tagline:Yup.string().when('type',{
