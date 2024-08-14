@@ -18,12 +18,19 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Footer from './footer';
 import { getFormatDate } from '../utiils/dateFormatter';
-import logo from '../assets/logo.png'
+// import logo from '../assets/logo.png';
+
+import logoEN from '../assets/main-logo-EN.png';
+import logoMAR from '../assets/logo.png';
+
 import shivajiLogo from '../assets/shivaji-logo.png'
 import { Container, Fab, Fade, useScrollTrigger } from '@mui/material';
 import { pxToRem } from '../utiils/utility';
 
 const drawerWidth = 240;
+
+
+
 
 function Navbar(props) {
     const { window } = props;
@@ -62,6 +69,8 @@ function Navbar(props) {
         break;
     }
   }
+
+  const logo = i18n.language === "en" ? logoEN : logoMAR
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -124,6 +133,8 @@ function Navbar(props) {
   
 
   const container = window !== undefined ? () => window().document.body : undefined;
+  
+
 
   return (
     <Box sx={{ display: 'flex' }}>
