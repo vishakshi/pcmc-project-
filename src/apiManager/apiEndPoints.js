@@ -13,6 +13,8 @@ const PATHS = {
     GET_SUBMISSIONS_NY_CONTEST: '/submissions-by-contest',
     GET_SUBMISSIONS_BY_USER: '/submission-by-user',
     GET_ACTIVE_COMPETETION: '/contests-active',
-    GET_SIGNED_URL: '/signed-url'
+    GET_SIGNED_URL: '/signed-url',
+    SEND_RESET_LINK: '/reset-password',
+    CHANGE_PASSWORD: '/change-password'
 }
 export default PATHS;

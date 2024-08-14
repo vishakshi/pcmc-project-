@@ -195,6 +195,26 @@ class ApiManager {
         return error?.response
       }
     }
+    static changePassword = async (id,data) => {
+      try {
+        const url = BASE_URL + PATHS.CHANGE_PASSWORD;
+        const response = await axios.patch(`${url}/${id}`,data,getHeaders());
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
+    static sendResetLink = async (data) => {
+      try {
+        const url = BASE_URL + PATHS.SEND_RESET_LINK;
+        const response = await axios.post(url,data,getHeaders());
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
 }
 
 export default ApiManager;

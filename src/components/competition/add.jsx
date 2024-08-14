@@ -98,7 +98,7 @@ const Add = ({onOpen,onClose,recall,setAlertData}) => {
           </Grid>
           <Grid item sm={6}>
           <InputLabel>End Date</InputLabel>
-          <DatePicker format='DD/MM/YYYY' slotProps={{textField:{size:'small',fullWidth:true,...getErrorProps('endDate')}}} onChange={(e)=>formik.setFieldValue('endDate',e.format())} />
+          <DatePicker format='DD/MM/YYYY' slotProps={{textField:{size:'small',fullWidth:true,...getErrorProps('endDate')}}} onChange={(e)=>formik.setFieldValue('endDate',e.format('YYYY-MM-DDTHH:mm:ss'))} />
           </Grid>
           {/* <Grid item sm={6}>
           <InputLabel>Total Contestants</InputLabel>

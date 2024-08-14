@@ -28,6 +28,7 @@
     "react-i18next": "^15.0.0",
     "react-multi-carousel": "^2.8.5",
     "react-router-dom": "^6.25.1",
+    "sweetalert2": "^11.12.4",
     "yup": "^1.4.0"
   },
   "devDependencies": {

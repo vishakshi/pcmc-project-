@@ -4,6 +4,8 @@ import UserLogin from "../pages/user/user-login"
 import UserSignUp from "../pages/user/user-signup"
 import LandingPage from "../pages/landing"
 import ResetPassword from "../pages/user/reset-password"
+import ResetPassRequest from "../pages/user/resetPass"
+import PrivacyPolicy from "../pages/user/privacy-policy"
 
 export const publicRoutes = [
     {
@@ -17,7 +19,16 @@ export const publicRoutes = [
     {
         path:'/reset-password/:token',
         element:<ResetPassword/>
-    }
+    },
+    {
+        path:'/reset-password',
+        element:<ResetPassRequest/>
+    },
+    {
+        path:'/privacy-policy',
+        element:<PrivacyPolicy/>
+    },
+    
 ]
 
 export const authRoutes = [

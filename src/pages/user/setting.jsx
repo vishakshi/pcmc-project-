@@ -5,13 +5,35 @@ import { BorderColorOutlined } from '@mui/icons-material'
 import UpdateUser from '../../components/update-user'
 import CustomAlert from '../../components/customAlert'
 import { getDecodedToken, pxToRem } from '../../utiils/utility'
+import { useAuthContext } from '../../context/authContext'
 
 const Setting = () => {
     const [isLoading,setIsLoading] = useState(true)
+    const [isPasswordLoading,setIsPasswordLoading] = useState(false);
     const [data,setData] = useState([]);
     const [recall,setRecall] = useState(1);
     const [editOpen,setEditOpen] = useState(false)
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
+
+    const {userDetails} = useAuthContext();
+
+    console.log('User Details',userDetails);
+
+    const handleChangePassword = async () => {
+      setIsPasswordLoading(true);
+    try {
+      const response = await ApiManager.sendResetLink({email:data?.email || ""})
+      if(response.data?.status){
+        setAlertData({severity:'success',message:response?.data?.message});
+      }else{
+        setAlertData({severity:'error',message:response?.data?.message});
+      }
+    } catch (error) {
+      
+    }finally{
+      setIsPasswordLoading(false);
+    }
+    }
 
     useEffect(()=>{
         (async ()=>{
@@ -65,13 +87,19 @@ const Setting = () => {
               </Grid>
               <Grid item md={6} sm={12}>
                 <Typography variant='body1'>Phone Number</Typography>
-                <Typography variant='body2'>{data?.countryCode +"-"+ data?.mobileNo}</Typography>
+                <Typography variant='body2'>{data?.mobileNo ||  ""}</Typography>
               </Grid>
             </Grid>
           </Box>
           <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',gap:2,pt:2}}>
             <Button variant='contained' onClick={()=>setEditOpen(true)} color='info'>Edit Personal Details</Button>
-            {/* <Button variant='contained' onClick={()=>setEditOpen(true)} color='info'>Send Reset/Change Password Link</Button> */}
+            <Box sx={{position:'relative'}}>
+            {/* <Button variant='contained' onClick={handleChangePassword} disabled={isPasswordLoading} color='info'>Send Reset/Change Password Link</Button> */}
+            {isPasswordLoading && (
+               <CircularProgress size={24} sx={{position:'absolute',top:'50%',left:'50%',marginTop:'-12px',marginLeft:'-12px'}} />
+            )
+            }
+            </Box>
           </Box>
           <UpdateUser data={data} onOpen={editOpen} onClose={()=>setEditOpen(false)} recall={()=>setRecall(recall + 1)} setAlertData={setAlertData} />
         </Box>

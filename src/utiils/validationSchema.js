@@ -93,3 +93,16 @@ export const addContestSchema = Yup.object().shape({
         otherwise:()=>Yup.string().notRequired(),
     }),
 })
+
+export const resetPasswordSchema = Yup.object().shape({
+    password: Yup.string()
+.required('Password is required')
+.min(6, 'Password must be at least 6 characters long'),
+passwordConfirm: Yup.string()
+.required('Please confirm your password')
+.oneOf([Yup.ref('password'), null], 'Passwords must match'),
+})
+
+export const emailSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email address').required(fieldRequired),
+})

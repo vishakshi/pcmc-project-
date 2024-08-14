@@ -8,8 +8,10 @@ import App from "./App.jsx";
 import "./index.css";
 import "./i18n.js";
 import { theme } from "./theme/theme.js";
+import { AuthProvider } from "./context/authContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
+  <AuthProvider>
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <BrowserRouter>
@@ -17,4 +19,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </BrowserRouter>
       </LocalizationProvider>
     </ThemeProvider>
+  </AuthProvider>
 );

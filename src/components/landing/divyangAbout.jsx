@@ -20,7 +20,7 @@ const DivyangAbout = () => {
         container
         sx={{ "@media (min-width:768px)": { px: 20 }, py: 5 }}
       >
-        <Box sx={{height:400,px:2,py:4,borderRadius:5,position: 'relative',
+        <Box sx={{minHeight:400,px:2,py:4,borderRadius:5,position: 'relative',
     '::before': {
       content: '""',
       position: 'absolute',

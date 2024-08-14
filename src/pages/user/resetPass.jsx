@@ -1,30 +1,29 @@
 import React,{useState} from 'react'
 import { Box,Typography,TextField,InputAdornment,Button,CircularProgress, InputLabel } from '@mui/material'
-import { Lock,Mail } from '@mui/icons-material'
+import { ChevronLeftOutlined, Lock,Mail } from '@mui/icons-material'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import CustomAlert from '../../components/customAlert'
 import ApiManager from '../../apiManager/apiManager'
 import { useTranslation } from 'react-i18next'
 import { useFormik } from 'formik';
-import { resetPasswordSchema } from '../../utiils/validationSchema'
+import { emailSchema } from '../../utiils/validationSchema'
 import { getTokenValue } from '../../utiils/utility'
+import Swal from 'sweetalert2'
 
-const ResetPassword = () => {
+const ResetPassRequest = () => {
     // const [formData,setFormData] = useState({userName:"",password:""})
     const [isLoading,setIsLoading] = useState(false);
     const [alertData,setAlertData] = useState({severity:'',message:''});
     const navigate = useNavigate();
-    const {token} = useParams(); 
     const {t} = useTranslation();
 
     const handleSubmit = async (values) => {
+        console.log(values)
       setIsLoading(true);
       try {
-      const tokenValue = getTokenValue(token)
-      const response = await ApiManager.changePassword(tokenValue?._id,{password:values.password,token:token})
+      const response = await ApiManager.sendResetLink(values);
       if(response.data?.status){
         setAlertData({severity:'success',message:response?.data?.message});
-        setTimeout(()=>navigate('/user-login',{replace:true}),3000)
       }else{
         setAlertData({severity:'error',message:response?.data?.message});
       }
@@ -37,11 +36,10 @@ const ResetPassword = () => {
 
     const formik = useFormik({
       initialValues:{
-          password:'',
-          passwordConfirm:''
+          email:''
           },
       onSubmit:handleSubmit,
-      validationSchema:resetPasswordSchema
+      validationSchema:emailSchema
   })
 
   const getErrorProps = (field) => {
@@ -77,38 +75,36 @@ const ResetPassword = () => {
         <form autoComplete='off' onSubmit={formik.handleSubmit}>
         <Box display="flex" alignItems="center" justifyContent='center'>
           {/* <img src={'logo'} style={{ width: "2rem" }} /> */}
-          <Typography variant="h4" pb={2} fontWeight='700' >
-            {t('resetPassword')}
+          <Typography variant="h4" pb={1} fontWeight='700' >
+            {t('forgotPassword')}
           </Typography>
         </Box>
+        <Box sx={{mb:2}}>
+        <Typography variant="caption" color='grey'  fontWeight='700' >
+            {t('noWorriesResetInstructions')}
+          </Typography>
+          </Box>
         <InputLabel>
-          {t('enterPassword')}
+          {t("email")}
         </InputLabel>
         <TextField
           sx={{ display: "block", mb: 2 }}
           fullWidth
           size="small"
-          placeholder={t('enterPassword')}
-          {...formik.getFieldProps("password")} {...getErrorProps("password")}
-        />
-        <InputLabel>
-          {t('reEnterPassword')}
-        </InputLabel>
-        <TextField
-          sx={{ display: "block", mb: 2 }}
-          fullWidth
-          size="small"
-          placeholder={t('confirmPassword')}
-          {...formik.getFieldProps("passwordConfirm")} {...getErrorProps("passwordConfirm")}
+          placeholder={t("enterEmail")}
+          {...formik.getFieldProps("email")} {...getErrorProps("email")}
         />
         <Button variant="contained" type='submit' disabled={isLoading} fullWidth={true} >
           {isLoading ? <CircularProgress size={24} /> : t("reset")}
         </Button>
         </form>
+        <Box sx={{display:'flex',justifyContent:'center',mt:2}}>
+      <Button LinkComponent={Link} startIcon={<ChevronLeftOutlined/>} to='/user-login'>{t('backToLogin')}</Button>
+      </Box>
       </Box>
     </Box>
   </Box>
   )
 }
 
-export default ResetPassword
+export default ResetPassRequest

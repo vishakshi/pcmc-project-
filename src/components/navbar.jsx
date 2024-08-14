@@ -183,13 +183,13 @@ function Navbar(props) {
              {t('registerNow')}
             </Button>
           </Box>
-          <Typography
+          {/* <Typography
             variant="h6"
             component="div"
             sx={{  display: { xs: 'none', sm: 'block' }, }}
           >
             <Typography component='img' src={shivajiLogo} alt='Logo' width={120} />
-          </Typography>
+          </Typography> */}
         </Toolbar>
         </Container>
       </AppBar>

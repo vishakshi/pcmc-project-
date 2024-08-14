@@ -155,7 +155,11 @@ const UserLogin = () => {
         <Button variant='outlined' onClick={handleGoogleLogin}  startIcon={<Google/>} fullWidth>
             Sign in with Google
         </Button>
-        <Typography variant='caption' sx={{float:'right',mt:1}}>{t("dontHaveAnAccount")} <span style={{color:'blue',cursor:'pointer'}}><Link style={{textDecoration:'none'}} to='/user-signup'>{t("signUp")}</Link></span></Typography>
+        <Box>
+        <Typography variant='caption' sx={{display:'flex',justifyContent:'flex-end',mt:1}}>{t("dontHaveAnAccount")} <span style={{color:'blue',cursor:'pointer'}}><Link style={{textDecoration:'none'}} to='/user-signup'>{t("signUp")}</Link></span></Typography>
+        <Divider sx={{my:1}}/>
+        {/* <Typography variant='caption' sx={{display:'flex',justifyContent:'center'}}><span style={{color:'blue',cursor:'pointer'}}><Link style={{textDecoration:'none'}} to='/reset-password'>{t('forgotPassword')}</Link></span></Typography> */}
+        </Box>
         </Box>
       </Box>
       <Box

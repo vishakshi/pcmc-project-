@@ -59,6 +59,16 @@ const Testimonials = () => {
             comment:t("extraordinaryEfforts"),
             name:t("amitKumar"),
         },
+        {
+            id:'04',
+            comment:t("testimonial4"),
+            name:t("akshaylata"),
+        },
+        {
+          id:'05',
+          comment:t("testimonial5"),
+          name:t("nandkumarphule"),
+        },
     ]
   return (
     <Box py={15} sx={{ px:{md:25,xs:2},backgroundImage:`url(${bg})`,backgroundRepeat: "no-repeat",width:'100%',backgroundSize:'cover',position:'relative',
@@ -79,7 +89,7 @@ const Testimonials = () => {
         responsive={responsive}
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={5000}
+        autoPlaySpeed={10000}
         keyBoardControl={true}
         customTransition="all .5"
         transitionDuration={1000}

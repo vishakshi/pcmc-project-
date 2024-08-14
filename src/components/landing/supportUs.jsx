@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import bg from '../../assets/d11.jpg'
 import bgHand from '../../assets/d12.jpg'
 import { LoginOutlined, PlayCircleFilled } from '@mui/icons-material'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import star from '../../assets/star.png'
 import { pxToRem } from '../../utiils/utility'
 
@@ -52,7 +52,7 @@ const Support = () => {
             <Typography variant='h4' sx={{textAlign:'center',fontFamily:'Kalam'}}>
                 {t('watchVideo')}
             </Typography>
-            <IconButton sx={{backgroundColor:'white',p:0,':hover':{backgroundColor:'white'}}}>
+            <IconButton LinkComponent={Link} to='https://youtu.be/2sVtWQpNDF8' target="_blank" sx={{backgroundColor:'white',p:0,':hover':{backgroundColor:'white'}}}>
                 <PlayCircleFilled sx={{color:'#800080',fontSize:100,m:0}}/>
             </IconButton>
             </Box>
