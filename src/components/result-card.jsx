@@ -8,7 +8,9 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 import certificate from '../assets/sample-certificate.jpg'
 import { getFormatDate, isTwoDaysEarlier } from '../utiils/dateFormatter';
+import Certificate from './certificate/certificate';
 export default function ResultCard({data}) {
+  const [open,setOpen] = React.useState(false);
     console.log("Card Data",data);
     console.log(isTwoDaysEarlier("2024-08-06T10:00:00.000Z"))
     const getPosition = (type) => {
@@ -50,11 +52,12 @@ export default function ResultCard({data}) {
         </Typography>
       </CardContent>
       {(isTwoDaysEarlier(data?.contest?.endDate) || data?.position || data?.result) && <CardActions sx={{justifyContent:'flex-end'}}>
-        <a href={certificate} download='certificate.jpg'>
-        <Button size="small" variant='contained'  color='info'>Download Certificate</Button>
-        </a>
+        {/* <a href={certificate} download='certificate.jpg'> */}
+        <Button size="small" variant='contained' onClick={()=>setOpen(true)} color='info'>Download Certificate</Button>
+        {/* </a> */}
       </CardActions>}
     </Card>
+    <Certificate onOpen={open} onClose={()=>setOpen(false)}/>
     </Grid>
   );
 }
