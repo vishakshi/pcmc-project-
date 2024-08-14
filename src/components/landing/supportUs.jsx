@@ -14,7 +14,8 @@ const Support = () => {
   return (
    <Box sx={{
     backgroundColor:'transparent',
-    p:15,
+    py:15,
+    px:{xs:5,md:5},
     position: 'relative',
     '::before': {
       content: '""',
