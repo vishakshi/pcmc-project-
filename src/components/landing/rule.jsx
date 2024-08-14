@@ -1,14 +1,20 @@
 import React from 'react'
 import { Box,Typography,Button, Grid, Divider } from '@mui/material'
-import bg from '../../assets/rule.png'
+//import bg from '../../assets/rule.png'
 import { useTranslation } from 'react-i18next'
 import { LoginOutlined } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
 import star from '../../assets/star.png'
 import { pxToRem } from '../../utiils/utility'
 
+import ruleEN from '../../assets/rule.png'
+import ruleMAR from '../../assets/rule1.png'
+
+
 const Rule = () => {
-    const {t} = useTranslation();
+    const {t,i18n} = useTranslation();
+    const bg = i18n.language === "en" ? ruleEN : ruleMAR
+
     
   return (
     <Box sx={{backgroundColor:'#fff',pb:3,pt:7}}>

@@ -98,7 +98,8 @@ const Footer = () => {
                 </Typography>
 
               </Box>
-              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}>< PhoneAndroid fontSize='large' sx={{paddingRight:'10px'}}/> +919145190231 </Typography>
+              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}>< PhoneAndroid fontSize='large' sx={{paddingRight:'10px'}}/>  +919604810938 </Typography>
+              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}>< PhoneAndroid fontSize='large' sx={{paddingRight:'10px'}}/> +918007182510 </Typography>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <MailOutlineIcon fontSize='large' sx={{paddingRight:'10px'}}/>divyang.bhavan@pcmc.gov.in</Typography>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <BusinessIcon fontSize='large' sx={{paddingRight:'10px'}}/> {t('pcmcAddress')}</Typography>
                
