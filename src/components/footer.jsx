@@ -99,7 +99,7 @@ const Footer = () => {
 
               </Box>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}>< PhoneAndroid fontSize='large' sx={{paddingRight:'10px'}}/> +919145190231 </Typography>
-              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <MailOutlineIcon fontSize='large' sx={{paddingRight:'10px'}}/>admin@pcmcdivyangbhavan.org</Typography>
+              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <MailOutlineIcon fontSize='large' sx={{paddingRight:'10px'}}/>divyang.bhavan@pcmc.gov.in</Typography>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <BusinessIcon fontSize='large' sx={{paddingRight:'10px'}}/> {t('pcmcAddress')}</Typography>
                
             </Grid>

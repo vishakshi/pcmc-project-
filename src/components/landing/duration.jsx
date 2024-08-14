@@ -46,7 +46,7 @@ const Duration = () => {
                 {t('competitionDescription')}
             </Typography>
             <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
-            {t('competitionDuration')} <span style={{fontWeight:700}}> 10-08-2024 {t('to')} 15-08-2024</span>
+            {t('competitionDuration')} <span style={{fontWeight:700}}> 15-08-2024 {t('to')} 31-08-2024</span>
             </Typography>
             <Box mx='auto'><Button variant='contained' onClick={handleSignIn} size="large" endIcon={<LoginOutlined/>} sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>{t('registerNow')}</Button></Box>
         </Grid>

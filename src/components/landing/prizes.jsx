@@ -27,7 +27,7 @@ const Prizes = () => {
     const {t} = useTranslation();
     const [counter,setCounter] = useState([]);
     useEffect(()=>{
-        const id = setInterval(()=>{setCounter(getRemainingTime('2024-08-15T10:00:00'))},[1000]);
+        const id = setInterval(()=>{setCounter(getRemainingTime('2024-08-31T10:00:00'))},[1000]);
         return ()=>clearInterval(id);
     },[])
 

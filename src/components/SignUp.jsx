@@ -129,16 +129,35 @@ const SignUpForm = () => {
           <TextField fullWidth placeholder={t('confirmPassword')} type={'password'} size='small' {...formik.getFieldProps("passwordConfirm")} {...getErrorProps("passwordConfirm")} />
           </Grid>
           <Grid item sm={12} xs={12}>
-          <FormControlLabel
+          {/* <FormControlLabel
           onChange={(e)=>console.log(e.target.value)}
           control={ <Checkbox
             checked={formik.values.isChecked}
             onChange={(event)=>formik.setFieldValue('isChecked',event.target.checked)}
             inputProps={{ 'aria-label': 'controlled' }}
           />}
-          label={t('acceptTerms')}
+          label={t('acceptTerms')}          
           labelPlacement="end"
-        />
+        /> */}
+
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={formik.values.isChecked}
+                    onChange={(event) => {
+                      formik.setFieldValue('isChecked', event.target.checked);
+                      console.log(event.target.checked);
+                    }}
+                    inputProps={{ 'aria-label': 'controlled' }}
+                  />
+                }
+                label={
+                  <a href="/privacy-policy">{t('acceptTerms')}</a>
+                }
+                labelPlacement="end"
+              />
+
+
           </Grid>
         </Grid>
         <Button variant="contained" type='submit' sx={{mt:2}} disabled={!formik.values.isChecked || isLoading} fullWidth={true} >
