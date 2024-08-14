@@ -37,7 +37,11 @@ function Navbar(props) {
     const navigate = useNavigate()
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { t, i18n } = useTranslation();
-    const navItems = [t('home'), t('contactUs')];
+    const navItem = [{
+      page:'home',
+      route:'/'
+    }]
+    // const navItems = [t('home'), t('contactUs')];
   const handleChangeLanguage = () => {
     const languageCode = i18n.language === "mt" ? "en" : "mt"
     i18n.changeLanguage(languageCode)
@@ -79,13 +83,18 @@ function Navbar(props) {
       </Typography>
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {navItem.map(({route,page}) => (
+          <ListItem key={page} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={t(page)} />
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+            <ListItemButton LinkComponent='a' href='#footer' sx={{ textAlign: 'center' }}>
+              <ListItemText primary={t('contactUs')} />
+            </ListItemButton>
+          </ListItem>
         <ListItem disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
               <ListItemText primary={sessionStorage.getItem('@authToken') ? t("logout") : t("signIn")} />
@@ -184,12 +193,14 @@ function Navbar(props) {
             <Typography component='img' src={logo} alt='Logo' height={70} />
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{fontSize:pxToRem(15),mr:2}} >
-                {item}
+            {navItem.map(({route,page}) => (
+              <Button key={page} sx={{fontSize:pxToRem(15),mr:2}} >
+                {t(page)}
               </Button>
             ))}
-            
+             <Button LinkComponent='a' href='#footer' sx={{fontSize:pxToRem(15),mr:2}} >
+                {t('contactUs')}
+              </Button>
             <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
              {t('registerNow')}
             </Button>
@@ -229,7 +240,9 @@ function Navbar(props) {
       <Box component="main" sx={{ width:'100%' }}>
         <Toolbar id="back-to-top-anchor" />
      {props.children}
+     <Box id="footer">
         <Footer/>
+        </Box>
       </Box>
     </Box>
   );
