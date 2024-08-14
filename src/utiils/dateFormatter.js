@@ -28,3 +28,9 @@ export const isTwoDaysEarlier = (date) => {
 export const todayDate = () => {
     return moment().format('DD MMM YYYY');
 };
+
+export const isEndGreaterFromToday = (date) => {
+    const endDate = moment(date).startOf('day')
+    const todayDate = moment().startOf('day')
+    return endDate.isBefore(todayDate);
+}

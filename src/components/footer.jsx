@@ -17,7 +17,7 @@ const Footer = () => {
   const {t} = useTranslation();
   return (
     <Box >
-      <AppBar component={"footer"} position="static" sx={{ bgcolor: "purple", padding: '60px',paddingBottom:'20px' }}>
+      <AppBar component={"footer"} position="static" sx={{ bgcolor: "purple", paddingY:'60px',paddingX:{xs:'20px',md:'60px'},paddingBottom:'20px' }}>
         <Toolbar>
           <Grid container spacing={2}>
 
@@ -100,7 +100,7 @@ const Footer = () => {
               </Box>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}>< PhoneAndroid fontSize='large' sx={{paddingRight:'10px'}}/>  +919604810938 </Typography>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}>< PhoneAndroid fontSize='large' sx={{paddingRight:'10px'}}/> +918007182510 </Typography>
-              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <MailOutlineIcon fontSize='large' sx={{paddingRight:'10px'}}/>divyang.bhavan@pcmc.gov.in</Typography>
+              <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <MailOutlineIcon fontSize='large' sx={{paddingRight:'10px'}}/>divyang.bhavan@pcmcindia.gov.in</Typography>
               <Typography variant="body1" sx={{ marginTop: '10px',display:'flex',alignItems:'center' }}> <BusinessIcon fontSize='large' sx={{paddingRight:'10px'}}/> {t('pcmcAddress')}</Typography>
                
             </Grid>

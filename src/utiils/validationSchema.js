@@ -84,7 +84,7 @@ export const addContestSchema = Yup.object().shape({
         otherwise:()=>Yup.mixed().notRequired(),
     }),
     tagline:Yup.string().when('type',{
-        is:(type) => type === 'tagline',
+        is:(type) => type === 'marathiTagline' || type === 'englishTagline',
         then:()=>Yup.string().min(3, 'Minimum 3 characters are required').required(fieldRequired).test('max-5-words', 'Maximum 5 words are allowed', function (value) {
             if (!value) return true; 
             const wordCount = value.trim().split(/\s+/).length;

@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { getFormatDate, todayDate } from '../utiils/dateFormatter';
+import { getFormatDate, isEndGreaterFromToday, todayDate } from '../utiils/dateFormatter';
 import { CircularProgress, Grid,IconButton,InputLabel,MenuItem,Select,TextField } from '@mui/material';
 import CustomAlert from './customAlert';
 import { getDecodedToken } from "../utiils/utility";
@@ -17,30 +17,30 @@ import { useAuthContext } from '../context/authContext';
 export default function CompetitionCard({data,recall}) {
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
-    const [successDialog,setSuccessDialog] = React.useState(true);
+    const [successDialog,setSuccessDialog] = React.useState(false);
     const {userDetails} = useAuthContext()
     const [successData,setSuccessData] = React.useState(`Hey, ${userDetails?.firstName || "User"} You have successfully participated in the competetion`)
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
 
-    const handleConfirmation = (data) => {
-      const name = data?.firstName || "" + " " + data?.lastName || "";
-      const message = `Hey, ${userDetails?.firstName || "User"}! You have successfully participated in the competetion on ${todayDate()}`;
+    const getCompetetionType = (type) => {
+      switch(type){
+       case "logo":
+         return "Logo";
+       case "englishTagline":
+         return "English tagline"
+       case "marathiTagline":
+         return "Marathi tagline"
+       default:
+         return "NA" 
+      } 
+     }
+
+    const handleConfirmation = (responseData) => {
+      const name = responseData?.firstName || "" + " " + responseData?.lastName || "";
+      const message = `Hey, ${userDetails?.firstName || "User"}! You have successfully participated in the ${getCompetetionType(data?.contestType)} competetion on ${todayDate()}`;
       setSuccessData(message);
       setSuccessDialog(true);
-      console.log(data)
-    }
-
-    const getCompetetionType = (type) => {
-     switch(type){
-      case "logo":
-        return "Logo";
-      case "englishTagline":
-        return "English tagline"
-      case "marathiTagline":
-        return "Marathi tagline"
-      default:
-        return "NA" 
-     } 
+      console.log(responseData)
     }
 
   return (
@@ -73,7 +73,7 @@ export default function CompetitionCard({data,recall}) {
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:'flex-end', pl: 1, pb: 1,pr:1 }}>
-         <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>
+         {isEndGreaterFromToday(data?.endDate) ? <Button color='error'>Competetion has been ended</Button> : <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>}
         </Box>
       </Box>
     </Card>

@@ -52,12 +52,12 @@ export default function ResultCard({data}) {
         </Typography>
       </CardContent>
       {(isTwoDaysEarlier(data?.contest?.endDate) || data?.position || data?.result) && <CardActions sx={{justifyContent:'flex-end'}}>
-        {/* <a href={certificate} download='certificate.jpg'> */}
-        <Button size="small" variant='contained' onClick={()=>setOpen(true)} color='info'>Download Certificate</Button>
-        {/* </a> */}
+        <a href={certificate} download='certificate.jpg'>
+        <Button size="small" variant='contained'  color='info'>Download Certificate</Button>
+        </a>
       </CardActions>}
     </Card>
-    <Certificate onOpen={open} onClose={()=>setOpen(false)}/>
+    {/* <Certificate onOpen={open} onClose={()=>setOpen(false)}/> */}
     </Grid>
   );
 }
