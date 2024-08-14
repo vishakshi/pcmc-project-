@@ -117,7 +117,8 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
         </Box>
         </Grid>
         <Grid xs={12} sm={6} md={4}>
-        {data?.type !== "tagline" ? <Box>
+        {data?.type === "logo" ?
+         <Box>
           <Box display={'flex'} sx={{flexWrap:'wrap'}} columnGap={5} rowGap={2} >
             <Typography sx={{ color: "grey" }}>
               Uploaded Image:

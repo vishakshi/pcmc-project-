@@ -29,6 +29,19 @@ export default function CompetitionCard({data,recall}) {
       console.log(data)
     }
 
+    const getCompetetionType = (type) => {
+     switch(type){
+      case "logo":
+        return "Logo";
+      case "englishTagline":
+        return "English tagline"
+      case "marathiTagline":
+        return "Marathi tagline"
+      default:
+        return "NA" 
+     } 
+    }
+
   return (
     <>
     {alertData.message && <CustomAlert severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
@@ -46,7 +59,7 @@ export default function CompetitionCard({data,recall}) {
             {data?.name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            Competetion Type: <span style={{fontWeight:700,textTransform:'capitalize'}}> {data?.contestType}</span>
+            Competetion Type: <span style={{fontWeight:700,textTransform:'capitalize'}}> {getCompetetionType(data?.contestType)}</span>
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
             Start Date: <span style={{fontWeight:700}}>{getFormatDate(data?.startDate)}</span>

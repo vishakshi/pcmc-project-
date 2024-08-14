@@ -27,7 +27,7 @@ export default function ResultCard({data}) {
   return (
     <Grid md={3.9} xs={12}>
     <Card  sx={{minHeight:340}} >
-      {data?.type !== "tagline" &&  <CardMedia
+      {data?.type === "logo" &&  <CardMedia
         sx={{ height: 140 }}
         image={data?.image}
         title="green iguana"
@@ -36,9 +36,9 @@ export default function ResultCard({data}) {
         <Typography gutterBottom variant="h5" component="div">
           {data?.contest?.name || ""}
         </Typography>
-        {data?.type === "tagline" &&  <Typography gutterBottom variant="h6" component="div">
+        {(data?.type === "marathiTagline" || data?.type === "englishTagline") &&  (<Typography gutterBottom variant="h6" component="div">
           <span style={{ color: "grey" }}>Uploaded Tagline: </span>{data?.tagline || ""}
-        </Typography>}
+        </Typography>)}
         <Typography variant="body1" fontWeight={700} color="text.secondary">
           <span style={{ color: "grey" }}>Duration: </span>{getFormatDate(data?.contest?.startDate) || " - "} to {getFormatDate(data?.contest?.endDate) || ""}
         </Typography>

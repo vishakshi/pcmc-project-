@@ -22,7 +22,7 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
             formData.append('type',values?.type)
             formData.append('image',values.type === "logo" ? values.image : "")
             formData.append('logoPdf',values.logoPdf)
-            formData.append('tagline',values?.type === "tagline" ? values?.tagline : "")
+            formData.append('tagline',values?.tagline)
             formData.append('contest',contestId);
             try {
                 setIsSubmitting(true);
@@ -104,7 +104,7 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
          
           </> :
          <Grid item sm={12} md={12}>
-         <InputLabel>Tagline</InputLabel>
+         <InputLabel>{formik.values.type === "englishTagline" ? "English tagline" : "Marathi tagline"}</InputLabel>
          <TextField multiline rows={3} fullWidth size='small' {...formik.getFieldProps("tagline")} {...getErrorProps("tagline")} />
          </Grid>} </>}
        </Grid>

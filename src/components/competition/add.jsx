@@ -85,7 +85,8 @@ const Add = ({onOpen,onClose,recall,setAlertData}) => {
         {...formik.getFieldProps('contestType')}
       >
         <FormControlLabel value="logo" control={<Radio size='small' />} label='Logo' />
-        <FormControlLabel value="tagline" control={<Radio size='small' />} label='Tagline' />
+        <FormControlLabel value="englishTagline" control={<Radio size='small' />} label='English Tagline' />
+        <FormControlLabel value="marathiTagline" control={<Radio size='small' />} label='Marathi Tagline' />
       </RadioGroup>
           </Grid>
           <Grid item sm={12}>
