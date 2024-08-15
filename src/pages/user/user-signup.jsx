@@ -60,7 +60,7 @@ const UserSignUp = () => {
       }}
     >
         <Box component='img' sx={{
-          "@media (max-width:476px)": {
+          "@media (max-width:1000px)": {
             display: "none",
           },
           width:600,
