@@ -85,15 +85,15 @@ const UserSignUp = () => {
           <SignUpForm />
 
 
-          {/* <Box mt={2}>
-            <Button
+          <Box mt={2}>
+            {/* <Button
               variant="outlined"
               onClick={handleGoogleLogin}
               startIcon={<Google />}
               fullWidth
             >
               Sign in with Google
-            </Button>
+            </Button> */}
             <Typography variant="caption" sx={{ float: "right", mt: 1 }}>
               {t('alreadyHaveAnAccount')} 
               <span style={{ color: "blue", cursor: "pointer" }}>
@@ -102,9 +102,9 @@ const UserSignUp = () => {
                 </Link>
               </span>
             </Typography>
-          </Box> */}
+          </Box>
 
-
+          
         </Box>
 
 
