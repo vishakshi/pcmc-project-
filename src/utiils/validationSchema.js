@@ -103,6 +103,18 @@ passwordConfirm: Yup.string()
 .oneOf([Yup.ref('password'), null], 'Passwords must match'),
 })
 
+export const forgotPasswordSchema = Yup.object().shape({
+    otp: Yup.string()
+        .required('OTP is required')
+        .matches(/^\d{4}$/, 'OTP must be a 4-digit number'),
+    password: Yup.string()
+.required('Password is required')
+.min(6, 'Password must be at least 6 characters long'),
+passwordConfirm: Yup.string()
+.required('Please confirm your password')
+.oneOf([Yup.ref('password'), null], 'Passwords must match'),
+})
+
 export const emailSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email address').required(fieldRequired),
 })

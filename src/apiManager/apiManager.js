@@ -215,6 +215,26 @@ class ApiManager {
         return error?.response
       }
     }
+    static sendOtp = async (data) => {
+      try {
+        const url = BASE_URL + PATHS.SEND_OTP;
+        const response = await axios.patch(url,data,getHeaders());
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
+    static forgotPassword = async (data) => {
+      try {
+        const url = BASE_URL + PATHS.FORGOT_PASSWORD;
+        const response = await axios.patch(url,data,getHeaders());
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
 }
 
 export default ApiManager;

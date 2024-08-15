@@ -6,6 +6,7 @@ import LandingPage from "../pages/landing"
 import ResetPassword from "../pages/user/reset-password"
 import ResetPassRequest from "../pages/user/resetPass"
 import PrivacyPolicy from "../pages/user/privacy-policy"
+import ForgotPassword from "../pages/forgotPassword"
 
 export const publicRoutes = [
     {
@@ -17,12 +18,8 @@ export const publicRoutes = [
         element:<div>404 Page Not Found</div>
     },
     {
-        path:'/reset-password/:token',
-        element:<ResetPassword/>
-    },
-    {
-        path:'/reset-password',
-        element:<ResetPassRequest/>
+        path:'/forgot-password',
+        element:<ForgotPassword/>
     },
     {
         path:'/privacy-policy',

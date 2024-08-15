@@ -129,6 +129,9 @@ i18next.use(initReactI18next).init({
                 noWorriesResetInstructions: "No worries, we'll send you reset instructions.",
                 forgotPassword: 'Forgot Password ?',
                 backToLogin: 'Back to Login',
+                enterOTP: 'Enter OTP',
+                enter4DigitOTP: 'Enter 4 digit OTP',
+                sendOTP: 'Send OTP',
             },
         },
         mt:{
@@ -253,6 +256,9 @@ i18next.use(initReactI18next).init({
                 noWorriesResetInstructions: 'काळजी करू नका, आम्ही तुम्हाला रीसेट करण्याच्या सूचना पाठवू.',
                 forgotPassword: 'पासवर्ड विसरलात ?',
                 backToLogin: 'लॉगिनवर परत जा',
+                enterOTP: 'ओटीपी प्रविष्ट करा',
+                enter4DigitOTP: '4 अंकी ओटीपी प्रविष्ट करा',
+                sendOTP: 'ओटीपी पाठवा',
             }
         }
     }

@@ -15,6 +15,8 @@ const PATHS = {
     GET_ACTIVE_COMPETETION: '/contests-active',
     GET_SIGNED_URL: '/signed-url',
     SEND_RESET_LINK: '/reset-password',
-    CHANGE_PASSWORD: '/change-password'
+    CHANGE_PASSWORD: '/change-password',
+    SEND_OTP: '/send-otp',
+    FORGOT_PASSWORD: '/forgot-password',
 }
 export default PATHS;
