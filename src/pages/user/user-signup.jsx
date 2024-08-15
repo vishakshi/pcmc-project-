@@ -79,9 +79,13 @@ const UserSignUp = () => {
           width:500,
         }}
       >
+
+
         <Box>
           <SignUpForm />
-          <Box mt={2}>
+
+
+          {/* <Box mt={2}>
             <Button
               variant="outlined"
               onClick={handleGoogleLogin}
@@ -98,8 +102,13 @@ const UserSignUp = () => {
                 </Link>
               </span>
             </Typography>
-          </Box>
+          </Box> */}
+
+
         </Box>
+
+
+
       </Box>
     </Box>
   );
