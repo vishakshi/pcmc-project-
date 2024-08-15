@@ -218,7 +218,7 @@ class ApiManager {
     static sendOtp = async (data) => {
       try {
         const url = BASE_URL + PATHS.SEND_OTP;
-        const response = await axios.patch(url,data,getHeaders());
+        const response = await axios.patch(url,data);
         return response;
       } catch (error) {
         console.log(error);
@@ -228,7 +228,7 @@ class ApiManager {
     static forgotPassword = async (data) => {
       try {
         const url = BASE_URL + PATHS.FORGOT_PASSWORD;
-        const response = await axios.patch(url,data,getHeaders());
+        const response = await axios.patch(url,data);
         return response;
       } catch (error) {
         console.log(error);
