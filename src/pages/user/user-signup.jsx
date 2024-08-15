@@ -60,7 +60,7 @@ const UserSignUp = () => {
       }}
     >
         <Box component='img' sx={{
-          "@media (max-width:476px)": {
+          "@media (max-width:1000px)": {
             display: "none",
           },
           width:600,
@@ -79,17 +79,21 @@ const UserSignUp = () => {
           width:500,
         }}
       >
+
+
         <Box>
           <SignUpForm />
+
+
           <Box mt={2}>
-            <Button
+            {/* <Button
               variant="outlined"
               onClick={handleGoogleLogin}
               startIcon={<Google />}
               fullWidth
             >
               Sign in with Google
-            </Button>
+            </Button> */}
             <Typography variant="caption" sx={{ float: "right", mt: 1 }}>
               {t('alreadyHaveAnAccount')} 
               <span style={{ color: "blue", cursor: "pointer" }}>
@@ -99,7 +103,12 @@ const UserSignUp = () => {
               </span>
             </Typography>
           </Box>
+
+          
         </Box>
+
+
+
       </Box>
     </Box>
   );
