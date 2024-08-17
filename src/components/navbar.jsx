@@ -96,8 +96,8 @@ function Navbar(props) {
             </ListItemButton>
           </ListItem>
         <ListItem disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={sessionStorage.getItem('@authToken') ? t("logout") : t("signIn")} />
+            <ListItemButton onClick={handleSignIn} sx={{textAlign:'center'}}>
+              <ListItemText primary={t('registerNow')} />
             </ListItemButton>
           </ListItem>
       </List>
@@ -183,7 +183,7 @@ function Navbar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" sx={{ display:{xs:"flex",md:'none'},position:'absolute',top:'50%',left:'50%',transform: 'translate(-50%, -50%)'}}>
-        <Typography component='img' src={logo} alt='Logo' height={60} />
+        <Typography component='img' src={logo} alt='Logo' height={55} />
       </Typography>
           <Typography
             variant="h6"

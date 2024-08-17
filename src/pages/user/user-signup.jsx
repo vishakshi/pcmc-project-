@@ -52,7 +52,7 @@ const UserSignUp = () => {
         display: "flex",
         justifyContent: 'space-evenly',
         alignItems: "center",
-        my:5,
+        py:5,
         width: "100%",
         "@media (max-width:476px)": {
             backgroundColor: "#ECECEC",
@@ -72,10 +72,10 @@ const UserSignUp = () => {
           justifyContent: "space-evenly",
           alignItems: "center",
           backgroundColor: "white",
-          paddingX: 5,
-          paddingY: 2,
+          paddingX: {md:5,xs:2},
+          paddingY: {md:2,xs:3},
           borderRadius: 5,
-          marginX:5,
+          marginX:{md:5,xs:1},
           width:500,
         }}
       >
