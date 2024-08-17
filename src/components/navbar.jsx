@@ -168,7 +168,7 @@ function Navbar(props) {
         </Box>
 
         <Box>
-        <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center',color:'white',gap:1}} mr={1}><CalendarMonthOutlined/> {getFormatDate(new Date())}</Typography> 
+        <Typography sx={{display:'flex',alignItems:'center',justifyContent:'center',color:'white',gap:1,fontSize:15}} mr={1}><CalendarMonthOutlined sx={{display:{xs:'none',md:'block'}}}/> {getFormatDate(new Date())}</Typography> 
         </Box>
       </Box>
       <Container maxWidth='lg'>

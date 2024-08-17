@@ -38,7 +38,7 @@ const CompetetionDetail = () => {
           Competition Details
         </Typography>
         <Breadcrumb
-          pages={[{ name: "Competetion", path: "/competition" }]}
+          pages={[{ name: "Competition", path: "/competition" }]}
           currentPage="Competition Details"
         />
       </Box>

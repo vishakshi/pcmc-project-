@@ -119,7 +119,7 @@ export default function UserSidebar({children}) {
     },
     {
         id:1,
-        title:"Competetion",
+        title:"Competition",
         icon:<EmojiEventsOutlined/>,
         route:'/dashboard',
     },

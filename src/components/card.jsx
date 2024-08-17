@@ -19,7 +19,7 @@ export default function CompetitionCard({data,recall}) {
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
     const [successDialog,setSuccessDialog] = React.useState(false);
     const {userDetails} = useAuthContext()
-    const [successData,setSuccessData] = React.useState(`Hey, ${userDetails?.firstName || "User"} You have successfully participated in the competetion`)
+    const [successData,setSuccessData] = React.useState(`Hey, ${userDetails?.firstName || "User"} You have successfully participated in the Competition`)
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
 
     const getCompetetionType = (type) => {
@@ -37,7 +37,7 @@ export default function CompetitionCard({data,recall}) {
 
     const handleConfirmation = (responseData) => {
       const name = responseData?.firstName || "" + " " + responseData?.lastName || "";
-      const message = `Hey, ${userDetails?.firstName || "User"}! You have successfully participated in the ${getCompetetionType(data?.contestType)} competetion on ${todayDate()}`;
+      const message = `Hey, ${userDetails?.firstName || "User"}! You have successfully participated in the ${getCompetetionType(data?.contestType)} Competition on ${todayDate()}`;
       setSuccessData(message);
       setSuccessDialog(true);
       console.log(responseData)
@@ -60,7 +60,7 @@ export default function CompetitionCard({data,recall}) {
             {data?.name}
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
-            Competetion Type: <span style={{fontWeight:700,textTransform:'capitalize'}}> {getCompetetionType(data?.contestType)}</span>
+           Competition Type: <span style={{fontWeight:700,textTransform:'capitalize'}}> {getCompetetionType(data?.contestType)}</span>
           </Typography>
           <Typography variant="subtitle1" color="text.secondary" component="div">
             Start Date: <span style={{fontWeight:700}}>{getFormatDate(data?.startDate)}</span>
@@ -73,7 +73,7 @@ export default function CompetitionCard({data,recall}) {
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:'flex-end', pl: 1, pb: 1,pr:1 }}>
-         {isEndGreaterFromToday(data?.endDate) ? <Button color='error'>Competetion has been ended</Button> : <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>}
+         {isEndGreaterFromToday(data?.endDate) ? <Button color='error'>Competition has been ended</Button> : <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>}
         </Box>
       </Box>
     </Card>

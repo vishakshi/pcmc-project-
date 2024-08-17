@@ -72,7 +72,7 @@ const Submission = () => {
       getOptionLabel={(option)=>option?.name}
       fullWidth
       size='small'
-      renderInput={(params) => <TextField {...params} placeholder='Please select competetion' />}
+      renderInput={(params) => <TextField {...params} placeholder='Please select Competition' />}
       onChange={handleChange}
     />
     </Box>
