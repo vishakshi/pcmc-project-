@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ThemeProvider theme={theme}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <BrowserRouter>
-          {/* <App /> */}
+          <App />
         </BrowserRouter>
       </LocalizationProvider>
     </ThemeProvider>
