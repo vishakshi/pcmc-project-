@@ -97,6 +97,7 @@ export default function UserSidebar({children}) {
   React.useEffect(() => {
     // When the route changes, update the current route state
     setCurrentRoute(location.pathname);
+    setOpen(window.screen.width > 476 ? true : false);
     console.log(location.pathname)
   }, [location.pathname]);
 

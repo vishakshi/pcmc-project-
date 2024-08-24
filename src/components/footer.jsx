@@ -9,11 +9,25 @@ import instagram from '../assets/instagram.png';
 import linkedin from '../assets/linkedin.png';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import ApiManager from '../apiManager/apiManager';
 
 // import MessageForm from './MessageForm';
 
 
 const Footer = () => {
+  const [data,setData] = React.useState(0);
+  React.useEffect(()=>{
+    (async ()=>{
+      try {
+        const response = await ApiManager.visitCounter();
+        if(response.data?.status){
+          setData(response.data?.data);
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    })();
+  },[])
   const {t} = useTranslation();
   return (
     <Box >
@@ -122,6 +136,9 @@ const Footer = () => {
                 ></iframe>
               </Box>
               {/* <MessageForm/> */}
+              <Typography variant="body1" gutterBottom>
+              {t('siteVisits')}: {data}
+              </Typography>
             </Grid>
            
           </Grid>

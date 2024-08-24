@@ -235,6 +235,16 @@ class ApiManager {
         return error?.response
       }
     }
+    static visitCounter = async () => {
+      try {
+        const url = BASE_URL + PATHS.VISIT_COUNTER;
+        const response = await axios.post(url);
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response
+      }
+    }
 }
 
 export default ApiManager;

@@ -9,10 +9,15 @@ import { Grid } from '@mui/material';
 import certificate from '../assets/sample-certificate.jpg'
 import { getFormatDate, isTwoDaysEarlier } from '../utiils/dateFormatter';
 import Certificate from './certificate/certificate';
+import ConfirmDialog from './confirmDialog';
 export default function ResultCard({data}) {
   const [open,setOpen] = React.useState(false);
+  const [winnerOpen,setWinnerOpen] = React.useState(data?.position && !localStorage.getItem(data?._id) ? true :false)
     console.log("Card Data",data);
-    console.log(isTwoDaysEarlier("2024-08-06T10:00:00.000Z"))
+    const handleWinnerClose = () => {
+      localStorage.setItem(data?._id,true);
+      setWinnerOpen(false);
+    }
     const getPosition = (type) => {
         switch(type){
           case 1:
@@ -27,6 +32,7 @@ export default function ResultCard({data}) {
       }
 
   return (
+    <>
     <Grid md={3.9} xs={12}>
     <Card  sx={{minHeight:340}} >
       {data?.type === "logo" &&  <CardMedia
@@ -44,20 +50,30 @@ export default function ResultCard({data}) {
         <Typography variant="body1" fontWeight={700} color="text.secondary">
           <span style={{ color: "grey" }}>Duration: </span>{getFormatDate(data?.contest?.startDate) || " - "} to {getFormatDate(data?.contest?.endDate) || ""}
         </Typography>
-        <Typography variant="body1" fontWeight={700} color="text.secondary">
+        {/* <Typography variant="body1" fontWeight={700} color="text.secondary">
           <span style={{ color: "grey" }}>Remarks: </span>{data?.result ? data?.result : data?.position ? "Thank you for the participation" : isTwoDaysEarlier(data?.contest?.endDate) ? "Thank you for the participation" : "Waiting for the result" }
+        </Typography> */}
+        <Typography variant="body1" fontWeight={700} color="text.secondary">
+          <span style={{ color: "grey" }}>Remarks: </span>{data?.result ? data?.result : data?.position ? "Thank you for the participation" : data?.contest?.positionOne ? "Thank you for the participation" : "Waiting for the result" }
         </Typography>
         <Typography variant="body1" fontWeight={700} color="text.secondary">
-          <span style={{ color: "grey" }}>Position: </span>{data?.position ? getPosition(data?.position) : data?.result ? "Thank you for the participation" : isTwoDaysEarlier(data?.contest?.endDate) ? "Thank you for the participation" : "Waiting for the result" }
+          <span style={{ color: "grey" }}>Position: </span>{data?.position ? getPosition(data?.position) : data?.result ? "Thank you for the participation" : data?.contest?.positionOne ? "Thank you for the participation" : "Waiting for the result" }
         </Typography>
       </CardContent>
-      {(isTwoDaysEarlier(data?.contest?.endDate) || data?.position || data?.result) && <CardActions sx={{justifyContent:'flex-end'}}>
+      {/* {(isTwoDaysEarlier(data?.contest?.endDate) || data?.position || data?.result) && <CardActions sx={{justifyContent:'flex-end'}}>
         <a href={certificate} download='certificate.jpg'>
         <Button size="small" variant='contained'  color='info'>Download Certificate</Button>
         </a>
+      </CardActions>} */}
+      {data?.contest?.positionOne && <CardActions sx={{justifyContent:'flex-end'}}>
+        {/* <a href={certificate} download='certificate.jpg'> */}
+        <Button onClick={()=>setOpen(true)} size="small" variant='contained'  color='info'>Download Certificate PDF</Button>
+        {/* </a> */}
       </CardActions>}
     </Card>
-    {/* <Certificate onOpen={open} onClose={()=>setOpen(false)}/> */}
+    <Certificate contestName={data?.contest.name || ""} onOpen={open} onClose={()=>setOpen(false)}/>
     </Grid>
+    <ConfirmDialog onOpen={winnerOpen} onClose={handleWinnerClose} message={`Congratulation For winning ${data?.contest.name || "Competetion"}`} title='Notification 🎉' onConfirm={handleWinnerClose} />
+    </>
   );
 }

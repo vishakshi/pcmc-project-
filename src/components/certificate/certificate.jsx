@@ -1,9 +1,11 @@
 import React, { useRef } from 'react'
 import './certificate.css'
 import pcmc from '../../assets/shivaji-logo.png'
+import pcmc2 from '../../assets/sample-certificate.jpg'
 import { Dialog,Box,DialogTitle,IconButton,DialogContent,DialogActions,Button } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import generatePDF, { Resolution, Margin } from 'react-to-pdf';
+import { useAuthContext } from '../../context/authContext';
 
 const options = {
     // default is `save`
@@ -40,8 +42,9 @@ const options = {
     },
  };
 
-function Certificate({onOpen,onClose}) {
+function Certificate({onOpen,onClose,contestName}) {
     const targetRef = useRef();
+    const {userDetails} = useAuthContext();
   return (
     <Dialog
     maxWidth="lg"
@@ -60,37 +63,41 @@ function Certificate({onOpen,onClose}) {
     <div  ref={targetRef} className='continer'>
       <div className='top'>
       <div className='logo-left'>
-        <p style={{fontWeight:"800",textAlign:"center"}}>PCMC Divyang Bhavan Foundation</p>
+        <p style={{fontWeight:"800",textAlign:"center",color:'#1B3360'}}>PCMC Divyang Bhavan Foundation</p>
       </div>
       <div className='logo-right'>
-        <img src={pcmc} style={{height:'80px',width:'80px'}} />
+        <img src={pcmc} style={{height:'70px'}} />
       </div>
       </div>
       <div className='title'>
-        <p>Certificate</p>
-        <p style={{fontFamily:"monospace",fontSize:"30px",color:"black"}}>of appriciation</p>
+        <p style={{color:'#1B3360'}}>Certificate</p>
+        <p style={{fontFamily:"monospace",fontSize:"30px",color:"black",fontWeight:500,letterSpacing:'normal'}}>of appriciation</p>
       </div>
       <div className='midtext'>
         <p>This certificate is presented to</p>
       </div>
      
       <div className='name'>
-        <p style={{fontSize:"40px",fontStyle:"italic"}}>  Karan Dhole</p>
-        <p>_____________________________________________________________________</p>
+        <p style={{fontSize:"40px",fontStyle:"italic"}}> {userDetails?.userType === "company" ? (userDetails?.companyName || "") : ((userDetails?.firstName || "") + " " + (userDetails?.lastName || "")) } </p>
+        <p style={{letterSpacing:'-1.5px'}}>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
       </div>
       <div className='content'>
-        <p>For participating successfully in "the LOGO Design competition" by <br/> Divyang Bhavan Foundation on 15th August 2024, 
-            and sharing new invention of art with us,<br/> we appreciate your talent and honor your art</p>
+        <p>For participating successfully in "the <span style={{fontWeight:800}}>{contestName || "Competition"}"</span> by <span style={{fontWeight:800}}>Divyang Bhavan Foundation</span> on 15th August 2024, and <br/>sharing new invention of art with us, we appreciate your <br /> talent and honor your art.</p>
       </div>
       <div className='footer'>
         <div className='date'>
-            <p> 15th August 2024</p>
-            <p>____________________</p>
+            <p style={{fontWeight:800}}> 15 August 2024</p>
+            <p style={{borderBottom:'3px solid black',width:'200px',marginTop:'12px',marginBottom:'12px'}}></p>
             <p>DATE</p>
+            <p style={{color:'white'}}>.</p>
+            <p style={{color:'white'}}>.</p>
+            <p style={{color:'white'}}>.</p>
         </div>
         <div className='sign'>
-        <p>___________________</p>
-        <p>SIGNATURE</p>
+            <p style={{borderBottom:'3px solid black',width:'200px',marginTop:'12px',marginBottom:'12px'}}></p>
+            <p>Omprakash Deshmukh</p>
+            <p style={{fontWeight:700,fontSize:'17px'}}>(Retd. I.A.S)</p>
+            <p style={{fontWeight:700,fontSize:'17px'}}>Managing Director</p>
         </div>
         
       </div>

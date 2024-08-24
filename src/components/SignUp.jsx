@@ -5,7 +5,7 @@ import ApiManager from '../apiManager/apiManager';
 import { userSchema } from '../utiils/validationSchema';
 import { VisibilityOffOutlined, VisibilityOutlined } from '@mui/icons-material';
 import CustomAlert from './customAlert';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { pxToRem } from '../utiils/utility';
 
@@ -152,7 +152,7 @@ const SignUpForm = () => {
                   />
                 }
                 label={
-                  <a href="/privacy-policy">{t('acceptTerms')}</a>
+                  <Link to="/privacy-policy">{t('acceptTerms')}</Link>
                 }
                 labelPlacement="end"
               />
