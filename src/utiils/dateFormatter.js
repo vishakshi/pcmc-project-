@@ -3,17 +3,17 @@ import moment from "moment";
 export const getFormatDate = date => date ? moment(date).format("DD-MM-YYYY") : "NA";
 
 export const getRemainingTime = (targetDate) => {
-
     const now = moment();
     const target = moment(targetDate);
 
     const duration = moment.duration(target.diff(now));
 
+    // Ensure duration is not negative
     const timeValues = [
-        { type: 'days', value: duration.days() < 0 ? 0 : duration.hours()},
-        { type: 'hours', value: duration.hours() < 0 ? 0 : duration.hours()},
-        { type: 'minutes', value: duration.minutes() < 0 ? 0 : duration.minutes() },
-        { type: 'seconds', value: duration.seconds() < 0 ? 0 : duration.seconds() }
+        { type: 'days', value: Math.max(0, duration.days()) },
+        { type: 'hours', value: Math.max(0, duration.hours()) },
+        { type: 'minutes', value: Math.max(0, duration.minutes()) },
+        { type: 'seconds', value: Math.max(0, duration.seconds()) }
     ];
 
     return timeValues;

@@ -59,7 +59,7 @@ function Certificate({onOpen,onClose,contestName}) {
      </DialogTitle>
      <DialogContent>
     <Box pt={5}>
-    
+    <Box >
     <div  ref={targetRef} className='continer'>
       <div className='top'>
       <div className='logo-left'>
@@ -102,6 +102,7 @@ function Certificate({onOpen,onClose,contestName}) {
         
       </div>
     </div>
+    </Box>
     </Box>
     </DialogContent>
     <DialogActions sx={{borderTop:'1px solid #EFE7EB'}} >

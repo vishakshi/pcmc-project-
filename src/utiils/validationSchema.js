@@ -118,3 +118,9 @@ passwordConfirm: Yup.string()
 export const emailSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email address').required(fieldRequired),
 })
+
+export const enquirySchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email address').required(fieldRequired),
+    name:Yup.string().required(fieldRequired).min(3, 'Minimum 3 characters are required'),
+    message:Yup.string().required(fieldRequired).min(5, 'Minimum 5 characters are required'),
+})

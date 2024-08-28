@@ -1,4 +1,4 @@
-import { Box,Card,Typography,Grid } from '@mui/material'
+import { Box,Card,Typography,Grid,Container } from '@mui/material'
 import React,{useEffect, useMemo, useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import bg from '../../assets/d10.jpg'
@@ -59,9 +59,10 @@ const Prizes = () => {
            ))}</Typography>
              <Typography sx={{textAlign:'center',fontWeight:700,pb:2}} variant='h4'>{t('prizes')}</Typography>
     <Typography sx={{textAlign:'center',color:'#727289',width:{xs:350,md:400},mx:'auto',fontWeight:700}} variant='body1'>{t('participateDescription')}</Typography>
-    <Grid spacing={2} container sx={{'@media (min-width:768px)':{px:20},py:5}} >
+    <Container maxWidth='lg'>
+    <Grid spacing={2} container sx={{py:5}} >
         <Grid item md={6} sx={{position:'relative'}} sm={12} xs={12}>
-            <Box component='img' src={bg} sx={{width:{xs:350,md:600}}} />
+            <Box component='img' src={bg} sx={{width:{xs:350,md:450,lg:550}}} />
             <Box sx={{ display: 'flex',
       gap: 1,
       position: 'absolute',
@@ -83,6 +84,7 @@ const Prizes = () => {
             ))}
             </Grid>
     </Grid>
+    </Container>
     <Typography variant='body1' sx={{fontStyle:'italic',textAlign:'center',fontWeight:600}}>{t('participationCertificate')}</Typography>
     </Box>
   )

@@ -20,9 +20,7 @@ const Footer = () => {
     (async ()=>{
       try {
         const response = await ApiManager.visitCounter();
-        if(response.data?.status){
-          setData(response.data?.data);
-        }
+          setData(response.data?.count || 115);
       } catch (error) {
         console.log(error)
       }
@@ -88,7 +86,9 @@ const Footer = () => {
                 <Typography variant="body1" sx={{ marginTop: '8px' }}>
                    {t('aboutUs')}</Typography>
                 <Typography variant="body1" sx={{ marginTop: '8px' }}>
+                <Link to='/contact-us' style={{textDecoration:'none',color:'white'}}>
                    {t('contactUs')}
+                   </Link>
                 </Typography>
                 <Typography variant="body1" sx={{ marginTop: '8px' }}>
                   <Link to='/privacy-policy' style={{textDecoration:'none',color:'white'}}>

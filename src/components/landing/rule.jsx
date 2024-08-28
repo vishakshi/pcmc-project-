@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box,Typography,Button, Grid, Divider } from '@mui/material'
+import { Box,Typography,Button, Grid, Divider,Container } from '@mui/material'
 //import bg from '../../assets/rule.png'
 import { useTranslation } from 'react-i18next'
 import { LoginOutlined } from '@mui/icons-material'
@@ -23,8 +23,9 @@ const Rule = () => {
          ))} {t('termsAndConditions')} {Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
          ))} </Typography> */}
-         <Grid container sx={{'@media (min-width:768px)':{px:20}}} direction="row">
-        <Grid sx={{display:'flex',p:5,flexDirection:'column',gap:2}} item md={6} >
+         <Container maxWidth='lg'>
+         <Grid container  direction="row">
+        <Grid sx={{display:'flex',py:5,px:2,flexDirection:'column',gap:2}} item md={6} >
         <Typography sx={{fontWeight:700}} variant='h6'>{t('honorCompetition')} {Array.from({length:3}).map(()=>(
           <Typography component='img' height={10} sx={{objectFit:'cover',ml:0.5}} src={star} />
          ))} </Typography>  
@@ -53,6 +54,7 @@ const Rule = () => {
         </Grid>
         <Grid sx={{display:{xs:'none',sm:'flex'},justifyContent:{xs:'center',sm:'end'}}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5,objectFit:'cover'}} height={500} component='img' src={bg} /></Grid>
     </Grid>
+    </Container>
     </Box>
   )
 }

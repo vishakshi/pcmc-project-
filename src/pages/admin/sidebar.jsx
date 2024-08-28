@@ -19,7 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import  Collapse  from '@mui/material/Collapse';
-import { Home,ChevronRight,Logout,KeyboardArrowDown,DashboardOutlined,AdminPanelSettingsOutlined,CurrencyRupeeOutlined,PaymentOutlined,ArrowOutwardOutlined,PaymentsOutlined, LocalMallOutlined, ContentCutOutlined, EmojiEventsOutlined, PeopleAltOutlined} from '@mui/icons-material';
+import { Home,ChevronRight,Logout,KeyboardArrowDown,DashboardOutlined,AdminPanelSettingsOutlined,CurrencyRupeeOutlined,PaymentOutlined,ArrowOutwardOutlined,PaymentsOutlined, LocalMallOutlined, ContentCutOutlined, EmojiEventsOutlined, PeopleAltOutlined, QueryStatsOutlined} from '@mui/icons-material';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 
@@ -131,6 +131,12 @@ export default function Sidebar({children}) {
       icon:<PeopleAltOutlined/>,
       route:'/submission',
   },
+  {
+    id:3,
+    title:"Feedback",
+    icon:<QueryStatsOutlined/>,
+    route:'/feedback',
+}
   ]
 
   return (

@@ -14,7 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { CalendarMonthOutlined, KeyboardArrowUp, LoginOutlined, Logout } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Footer from './footer';
 import { getFormatDate } from '../utiils/dateFormatter';
@@ -40,6 +40,9 @@ function Navbar(props) {
     const navItem = [{
       page:'home',
       route:'/'
+    },{
+      page:'contactUs',
+      route:'/contact-us'
     }]
     // const navItems = [t('home'), t('contactUs')];
   const handleChangeLanguage = () => {
@@ -85,16 +88,11 @@ function Navbar(props) {
       <List>
         {navItem.map(({route,page}) => (
           <ListItem key={page} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton LinkComponent={Link} to={route} sx={{ textAlign: 'center' }}>
               <ListItemText primary={t(page)} />
             </ListItemButton>
           </ListItem>
         ))}
-        <ListItem disablePadding>
-            <ListItemButton LinkComponent='a' href='#footer' sx={{ textAlign: 'center' }}>
-              <ListItemText primary={t('contactUs')} />
-            </ListItemButton>
-          </ListItem>
         <ListItem disablePadding>
             <ListItemButton onClick={handleSignIn} sx={{textAlign:'center'}}>
               <ListItemText primary={t('registerNow')} />
@@ -194,13 +192,10 @@ function Navbar(props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItem.map(({route,page}) => (
-              <Button key={page} sx={{fontSize:pxToRem(15),mr:2}} >
+              <Button LinkComponent={Link} to={route} key={page} sx={{fontSize:pxToRem(15),mr:2}} >
                 {t(page)}
               </Button>
             ))}
-             <Button LinkComponent='a' href='#footer' sx={{fontSize:pxToRem(15),mr:2}} >
-                {t('contactUs')}
-              </Button>
             <Button onClick={handleSignIn} endIcon={<LoginOutlined/>} sx={{fontSize:15,color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>
              {t('registerNow')}
             </Button>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box,Typography,Button, Grid } from '@mui/material'
+import { Box,Typography,Button, Grid,Container } from '@mui/material'
 import bg from '../../assets/d9.jpg'
 import { useTranslation } from 'react-i18next'
 import { LoginOutlined } from '@mui/icons-material'
@@ -32,8 +32,9 @@ const Duration = () => {
          ))} {t('competitionDuration')} {Array.from({length:3}).map(()=>(
           <Typography component='img' height={12} src={star} />
          ))} </Typography> */}
-         <Grid container sx={{'@media (min-width:768px)':{px:20}}} direction="row">
-        <Grid sx={{display:'flex',p:5,flexDirection:'column',gap:5}} item md={6} >
+         <Container maxWidth="lg">
+         <Grid container direction="row">
+        <Grid sx={{display:'flex',py:5,px:2,flexDirection:'column',gap:5}} item md={6} >
 
           <Box>
         <Typography sx={{fontWeight:700,pb:2}} variant='h6'>{t('empoweredDisabled')} {Array.from({length:3}).map(()=>(
@@ -52,6 +53,7 @@ const Duration = () => {
         </Grid>
         <Grid sx={{display:'flex',justifyContent:{xs:'center',sm:'end'}}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5,objectFit:'contain',width:{xs:300,sm:300,md:400}}}  component='img' src={image} /></Grid>
     </Grid>
+    </Container>
     </Box>
   )
 }

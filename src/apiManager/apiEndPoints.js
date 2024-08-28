@@ -18,6 +18,8 @@ const PATHS = {
     CHANGE_PASSWORD: '/change-password',
     SEND_OTP: '/send-otp',
     FORGOT_PASSWORD: '/forgot-password',
-    VISIT_COUNTER: '/increment'
+    VISIT_COUNTER: '/increment',
+    CREATE_FEEDBACK: '/feedback',
+    GET_FEEDBACKS: '/feedbacks'
 }
 export default PATHS;

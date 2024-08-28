@@ -7,6 +7,8 @@ import ResetPassword from "../pages/user/reset-password"
 import ResetPassRequest from "../pages/user/resetPass"
 import PrivacyPolicy from "../pages/user/privacy-policy"
 import ForgotPassword from "../pages/forgotPassword"
+import Contact from "../pages/contact"
+import Navbar from "../components/navbar"
 
 export const publicRoutes = [
     {
@@ -25,7 +27,10 @@ export const publicRoutes = [
         path:'/privacy-policy',
         element:<PrivacyPolicy/>
     },
-    
+    {
+        path:'/contact-us',
+        element:<Navbar><Contact/></Navbar>
+    },    
 ]
 
 export const authRoutes = [

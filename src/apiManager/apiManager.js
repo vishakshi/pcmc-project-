@@ -245,6 +245,26 @@ class ApiManager {
         return error?.response
       }
     }
+    static createFeedback = async (data) => {
+      try {
+        const url = BASE_URL + PATHS.CREATE_FEEDBACK;
+        const response = await axios.post(url, data);
+        return response;
+      } catch (error) {
+        console.log(error);
+        return error?.response;
+      }
+  };
+  static getFeedbacks = async () => {
+    try {
+      const url = BASE_URL + PATHS.GET_FEEDBACKS;
+      const response = await axios.get(url);
+      return response;
+    } catch (error) {
+      console.log(error);
+      return error?.response;
+    }
+};
 }
 
 export default ApiManager;
