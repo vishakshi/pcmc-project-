@@ -8,12 +8,14 @@ import { useFormik } from 'formik';
 import { enquirySchema } from '../utiils/validationSchema';
 import CustomAlert from '../components/customAlert';
 import ApiManager from '../apiManager/apiManager';
+import { useTranslation } from 'react-i18next';
 
 
 function Contact() {
   const [isLoading,setIsLoading] = useState({feedback:false,message:false});
   const [alertData,setAlertData] = useState({severity:'',message:''});
   const [feedback,setFeedback] = useState("")
+  const {t} = useTranslation();
     const handleSubmit = async (values) => {
         console.log(values);
         setIsLoading({...isLoading,message:true});
@@ -36,6 +38,7 @@ function Contact() {
         setAlertData({severity:'error',message:'Message is required'});
         return;
       }
+      setIsLoading({...isLoading,feedback:true});
       try {
         const response = await ApiManager.createFeedback({message:feedback});
         console.log(response)
@@ -48,7 +51,7 @@ function Contact() {
       } catch (error) {
         
       }finally{
-        setIsLoading({...isLoading,message:false});
+        setIsLoading({...isLoading,feedback:false});
       }
     }
     const formik = useFormik({
@@ -70,7 +73,7 @@ function Contact() {
     <Container maxWidth="md" sx={{ mt: 5,pb:10,pt:5 }}>
       {alertData.message && <CustomAlert position='center' severity={alertData.severity} onOpen={Boolean(alertData.message)} onClose={()=>setAlertData({...alertData,message:null})} message={alertData.message}/>}
       <Typography variant="h4" component="h1" sx={{color:'purple',fontWeight:'600'}} gutterBottom>
-        Contact Us
+        {t('contactUs2')}
       </Typography>
 
       <Box
@@ -83,19 +86,19 @@ function Contact() {
       >
         <Paper elevation={3} sx={{ p: 3, flex: 2 }}>
           <Typography variant="h6" component="h2" gutterBottom>
-          Enquiry Form
+          {t('enquiryForm')}
           </Typography>
           <form onSubmit={formik.handleSubmit} autoComplete="off">
             <TextField
               fullWidth
-              label="Name"
+              label={t('name')}
               variant="outlined"
               margin="normal"
               {...formik.getFieldProps("name")} {...getErrorProps("name")}
             />
             <TextField
               fullWidth
-              label="Email"
+              label={t('email')}
               variant="outlined"
               margin="normal"
               type="email"
@@ -103,7 +106,7 @@ function Contact() {
             />
             <TextField
               fullWidth
-              label="Message"
+              label={t('message')}
               variant="outlined"
               margin="normal"
               multiline
@@ -113,7 +116,7 @@ function Contact() {
             <Box mt={2}>
               <Button variant="contained" type='submit' disabled={isLoading.message} sx={{ color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}, }} fullWidth>
               {isLoading.message && <CircularProgress size={24} sx={{position:'absolute',top:'20%',left:'45%'}}/>}
-                Send Message
+              {t('sendMessage')}
               </Button>
             </Box>
           </form>
@@ -121,15 +124,14 @@ function Contact() {
 
         <Paper elevation={3} sx={{ p: 3, flex: 1 }}>
         <Typography variant="h6" component="h2" gutterBottom>
-            Contact Information
+        {t('contactInformation')}
           </Typography>
         <List>
             <ListItem>
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
-              <ListItemText primary="In front of Shraddha Heritage, Behind City One Mall,
-               Morwadi, Pimpri Colony, Pimpri-Chinchwad, Maharashtra - 411018" />
+              <ListItemText primary={t('pcmcAddress')} />
             </ListItem>
             <ListItem>
               <ListItemIcon>
@@ -146,11 +148,11 @@ function Contact() {
           </List>
          
           <Typography variant="h6" component="h2" gutterBottom>
-            Please Give Us Your Feedback !!
+          {t('pleaseGiveUsYourFeedback')}
           </Typography>
           <TextField
               fullWidth
-              label="Message"
+              label= {t('message')}
               variant="outlined"
               margin="normal"
               multiline
@@ -161,7 +163,7 @@ function Contact() {
             <Box mt={2}>
               <Button variant="contained" onClick={handleFeedbackSubmit} disabled={isLoading.feedback} sx={{ color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'},position:'relative' }} >
               {isLoading.feedback && <CircularProgress size={24} sx={{position:'absolute',top:'20%',left:'40%'}}/>}
-                Send Feedback
+              {t('sendFeedback')}
               </Button>
             </Box>
         </Paper>

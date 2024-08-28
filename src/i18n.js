@@ -133,6 +133,14 @@ i18next.use(initReactI18next).init({
                 enter4DigitOTP: 'Enter 4 digit OTP',
                 sendOTP: 'Send OTP',
                 siteVisits: 'Site Visits',
+                contactInformation: 'Contact Information',
+                enquiryForm: 'Enquiry Form',
+                pleaseGiveUsYourFeedback: 'Please Give Us Your Feedback !!',
+                sendMessage: 'Send Message',
+                sendFeedback: 'Send Feedback',
+                message: 'Message',
+                name: 'Name',
+                contactUs2: 'Contact Us',
             },
         },
         mt:{
@@ -261,6 +269,14 @@ i18next.use(initReactI18next).init({
                 enter4DigitOTP: '4 अंकी ओटीपी प्रविष्ट करा',
                 sendOTP: 'ओटीपी पाठवा',
                 siteVisits: 'साइट भेटी',
+                contactInformation: 'संपर्क माहिती',
+                enquiryForm: 'चौकशी फॉर्म',
+                pleaseGiveUsYourFeedback: 'कृपया आम्हाला तुमचा अभिप्राय द्या !!',
+                sendMessage: 'संदेश पाठवा',
+                sendFeedback: 'अभिप्राय पाठवा',
+                message: 'संदेश',
+                name: 'नाव',
+                contactUs2: 'आम्हाला संपर्क करा',
             }
         }
     }
