@@ -19,7 +19,6 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
   }
 
   const handleConfirm = async () => {
-    console.log(position);
     setIsLoading(true);
     try {
       const response = await ApiManager.updateWinner(data?._id,{position:position})
