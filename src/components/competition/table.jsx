@@ -29,7 +29,7 @@ const Table = ({ rowData, isLoading }) => {
     },
       {
         name: "Total Applicants",
-        selector: (row) => row?.participants.length,
+        selector: (row) => row?.submissionCount,
         sortable:true,
         width:'170px'
       },

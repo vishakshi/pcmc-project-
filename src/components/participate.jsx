@@ -27,11 +27,10 @@ const Participate = ({onOpen,onClose,setAlertData,recall,contestId,handleConfirm
             try {
                 setIsSubmitting(true);
                 const response = await ApiManager.addInCompetetion(formData);
-                console.log(response)
                 if(response.data?.status){
                   setAlertData({severity:'success',message:response?.data?.message});
                   handleConfirmation(response.data?.data)
-                recall();
+                  recall();
                 }else{
                   setAlertData({severity:'error',message:response?.data?.message});
                 }

@@ -14,13 +14,17 @@ import Participate from './participate';
 import ConfirmDialog from './confirmDialog';
 import { useAuthContext } from '../context/authContext';
 
-export default function CompetitionCard({data,recall}) {
+export default function CompetitionCard({data,recall,submissionData}) {
     const [open,setOpen] = React.useState(false);
     const [alertData,setAlertData] = React.useState({severity:'',message:''});
     const [successDialog,setSuccessDialog] = React.useState(false);
     const {userDetails} = useAuthContext()
     const [successData,setSuccessData] = React.useState(`Hey, ${userDetails?.firstName || "User"} You have successfully participated in the Competition`)
     const userData = React.useMemo(()=>getDecodedToken(),[]) 
+    
+    // console.log(submissionData,data)
+    const isApplied = React.useMemo(()=>Array.isArray(submissionData) ? submissionData?.find(submission=>submission?.contest?._id === data?._id) : undefined,[recall])
+
 
     const getCompetetionType = (type) => {
       switch(type){
@@ -73,7 +77,7 @@ export default function CompetitionCard({data,recall}) {
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:'flex-end', pl: 1, pb: 1,pr:1 }}>
-         {isEndGreaterFromToday(data?.endDate) ? <Button color='error'>Competition has been ended</Button> : <Button color='info' disabled={data?.participants.includes(userData?._id)} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>}
+         {isEndGreaterFromToday(data?.endDate) ? <Button color='error'>Competition has been ended</Button> : <Button color='info' disabled={isApplied} onClick={()=>setOpen(true)} sx={{px:5}} variant='contained'>Participate</Button>}
         </Box>
       </Box>
     </Card>
