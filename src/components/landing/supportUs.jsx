@@ -53,7 +53,7 @@ const Support = () => {
             <Typography variant='h4' sx={{textAlign:'center',fontFamily:'Kalam'}}>
                 {t('watchVideo')}
             </Typography>
-            <IconButton LinkComponent={Link} to='https://youtu.be/46AxrINk_I0' target="_blank" sx={{backgroundColor:'white',p:0,':hover':{backgroundColor:'white'}}}>
+            <IconButton LinkComponent={Link} to='https://youtu.be/ML76DRU-c6U' target="_blank" sx={{backgroundColor:'white',p:0,':hover':{backgroundColor:'white'}}}>
                 <PlayCircleFilled sx={{color:'#800080',fontSize:100,m:0}}/>
             </IconButton>
             </Box>

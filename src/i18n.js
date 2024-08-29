@@ -141,6 +141,7 @@ i18next.use(initReactI18next).init({
                 message: 'Message',
                 name: 'Name',
                 contactUs2: 'Contact Us',
+                job1:'More information about Vacancies in Divyang Bhavan Foundation - Download from Here'
             },
         },
         mt:{
@@ -277,6 +278,7 @@ i18next.use(initReactI18next).init({
                 message: 'संदेश',
                 name: 'नाव',
                 contactUs2: 'आम्हाला संपर्क करा',
+                job1:'दिव्यांग भवन फाऊंडेशन मध्ये रिक्त जागा भरण्या बाबत अधिक तपशील - डाउनलोड करा'
             }
         }
     }

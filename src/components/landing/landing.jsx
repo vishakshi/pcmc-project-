@@ -10,6 +10,7 @@ import Navbar from '../navbar'
 import Testimonials from './testimonials'
 import Rule from './rule'
 import Support from './supportUs'
+import Jobs from './jobs'
 
 const Landing = () => {
   return (
@@ -24,6 +25,7 @@ const Landing = () => {
         <CompetenceCard/>
         <Testimonials/>
         <DivyangAbout/>
+        <Jobs/>
    </Navbar>
   )
 }
