@@ -9,6 +9,7 @@ import PrivacyPolicy from "../pages/user/privacy-policy"
 import ForgotPassword from "../pages/forgotPassword"
 import Contact from "../pages/contact"
 import Navbar from "../components/navbar"
+import Carrier from "../pages/carrier"
 
 export const publicRoutes = [
     {
@@ -30,7 +31,11 @@ export const publicRoutes = [
     {
         path:'/contact-us',
         element:<Navbar><Contact/></Navbar>
-    },    
+    }, 
+    {
+        path:'/career',
+        element:<Navbar><Carrier/></Navbar>
+    }   
 ]
 
 export const authRoutes = [

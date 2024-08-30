@@ -43,7 +43,10 @@ function Navbar(props) {
     },{
       page:'contactUs',
       route:'/contact-us'
-    }]
+    },{
+      page:'career',
+      route:'/career'
+    },]
     // const navItems = [t('home'), t('contactUs')];
   const handleChangeLanguage = () => {
     const languageCode = i18n.language === "mt" ? "en" : "mt"
