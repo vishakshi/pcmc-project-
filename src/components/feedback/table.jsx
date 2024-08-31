@@ -23,20 +23,22 @@ const Table = ({ rowData, isLoading }) => {
     {
       name: "Email",
       selector: (row) => row?.email || "NA",
+      width:'250px'
     },
     {
       name: "Message",
       selector: (row) => row?.message,
+      width:'500px'
     },
     {
         name: "Created At",
         selector: (row) => getFormatDate(row.createdAt),
-        width:'180px',
+        width:'150px',
         sortable:true,
       },
     {
       name: "Action",
-      width:'150px',
+      width:'100px',
       center:true,
       selector: (row,ind,ass) => (
         <>

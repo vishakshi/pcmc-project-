@@ -141,8 +141,17 @@ i18next.use(initReactI18next).init({
                 message: 'Message',
                 name: 'Name',
                 contactUs2: 'Contact Us',
-                job1:'More information about Vacancies in Divyang Bhavan Foundation - Download from Here',
-                career:'Career'
+                career:'Career',
+                hiringNow: "Divyang Bhavan Foundation is hiring now..so get connect with us !!",
+                therapistInDifferentAreas: "Therapist in different areas",
+                lookingForTherapists: "We are looking for different therapists, kindly get details and connect with us",
+                vacanciesInformation: "More information about Vacancies in Divyang Bhavan Foundation - Download from here",
+                audiologistAndProsthetics: "Audiologist / Sr. Prosthetics / Orthotics",
+                lookingForAudiologist: "We are looking for Audiologist/ Sr. Prosthetics / Orthotics, kindly get details and connect with us",
+                rehabilitationWorkers: "Rehabilitation workers",
+                lookingForRehabilitationWorkers: "We are looking for Rehabilitation workers, kindly get details and connect with us",
+                kalaShikshak: "Kala Shikshak",
+                lookingForKalaShikshak: "We are looking for Kala Shikshak, kindly get details and connect with us",
             },
         },
         mt:{
@@ -279,8 +288,17 @@ i18next.use(initReactI18next).init({
                 message: 'संदेश',
                 name: 'नाव',
                 contactUs2: 'आम्हाला संपर्क करा',
-                job1:'दिव्यांग भवन फाऊंडेशन मध्ये रिक्त जागा भरण्या बाबत अधिक तपशील - डाउनलोड करा',
-                career:'करिअर'
+                career:'करिअर',
+                hiringNow: "दिव्यांग भवन फाऊंडेशन येथे भरती चालु आहे, त्यासाठी आमच्याशी संपर्क साधा....",
+                therapistInDifferentAreas: "विविध क्षेत्रातील रोगोपचारतज्ञ",
+                lookingForTherapists: "आमच्या कडे विविध रोगोपचार तज्ञांच्या जागा रिक्त आहेत, कृपया अधिक माहिती मिळवा आणि आमच्या शी संपर्क करा",
+                vacanciesInformation: "दिव्यांग भवन फाऊंडेशन च्या भरती चा अधिक तपशील - डाउनलोड करा",
+                audiologistAndProsthetics: "ऑडिओलॉजिस्ट / सिनियर प्रोस्थेटिक्स /ऑर्थोटिक्स",
+                lookingForAudiologist: "आमच्या कडे ऑडिओलॉजिस्ट / सिनियर प्रोस्थेटिक्स /ऑर्थोटिक्स साठी रिक्त जागा आहेत, कृपया अधिक माहिती मिळवा आणि आमच्या शी संपर्क करा",
+                rehabilitationWorkers: "पुनर्वसन उपचार परिचारिका",
+                lookingForRehabilitationWorkers: "आमच्या कडे पुनर्वसन उपचार परिचारिकां साठी रिक्त जागा आहेत, कृपया अधिक माहिती मिळवा आणि आमच्या शी संपर्क करा",
+                kalaShikshak: "कला शिक्षक",
+                lookingForKalaShikshak: "आमच्या कडे कला शिक्षकांसाठी रिक्त जागा आहेत, कृपया अधिक माहिती मिळवा आणि आमच्या शी संपर्क करा",
             }
         }
     }
