@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Typography,Box, CircularProgress,InputLabel, Autocomplete, TextField } from '@mui/material'
+import { Typography,Box, CircularProgress,InputLabel, Autocomplete, TextField, Button } from '@mui/material'
 import Breadcrumb from '../../components/breadCrumb'
 import SubmissionCard from '../../components/submissionCard';
 import ApiManager from '../../apiManager/apiManager';
@@ -50,6 +50,38 @@ const Submission = () => {
     }
   }
 
+  const handleDownload = () => {
+    console.log(singleContestData)
+    const csvData = singleContestData;
+        const fileName = "contest_data.csv";
+        const fileType = "text/csv;charset=utf-8;";
+        const fileHeaders = ["user.firstName", "user.lastName", "user.email", "type", "tagline"];
+        const fileHeadings = ["First Name", "Last Name", "Email", "Type", "Tagline"];
+
+        const csvContent = csvData.map((row) => {
+          return fileHeaders.map((field) => {
+              const [object, property] = field.split('.'); 
+              if (property) {
+                  return JSON.stringify(row[object][property] || "", (key, value) => (value === null ? "" : value));
+              } else {
+                  return JSON.stringify(row[object] || "", (key, value) => (value === null ? "" : value));
+              }
+          }).join(",");
+      });
+        csvContent.unshift(fileHeadings.join(","));
+        const csvArray = csvContent.join("\r\n");
+
+        const blob = new Blob([csvArray], { type: fileType });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", fileName);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+  }
+
 
   useEffect(()=>{
     handleChange("",selectedValue);
@@ -76,6 +108,7 @@ const Submission = () => {
       onChange={handleChange}
     />
     </Box>
+    {/* <Button  onClick={handleDownload} variant="contained">Download CSV</Button> */}
       <Box >
     {singleContestData && singleContestData?.map((cardData,index)=>(
         <SubmissionCard recall={()=>setRecall(recall + 1)} competetionData={data} setAlertData={setAlertData} serialNo={index+1} data={cardData} key={data?._id}/>

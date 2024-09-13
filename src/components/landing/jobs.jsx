@@ -7,7 +7,7 @@ const Jobs = () => {
   return (
     <Box sx={{bgcolor:'white',pb:5}}>
     <Container maxWidth="md">
-        <Box sx={{mx:'auto',textAlign:'center'}}><Typography sx={{bgcolor:'#AD41AE',color:'white',py:1,cursor:'pointer'}} variant='h6'><a style={{textDecoration:'none',color:'white'}} href={pdf1} download>{t('job1')}</a></Typography></Box>
+        <Box sx={{mx:'auto',textAlign:'center'}}><Typography sx={{bgcolor:'#AD41AE',color:'white',py:1,cursor:'pointer'}} variant='h6'><a style={{textDecoration:'none',color:'white'}} href={pdf1} download>{t('vacanciesInformation')}</a></Typography></Box>
     </Container>
     </Box>
   )

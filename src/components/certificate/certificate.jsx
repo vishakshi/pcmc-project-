@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import './certificate.css'
 import pcmc from '../../assets/shivaji-logo.png'
-import pcmc2 from '../../assets/sample-certificate.jpg'
+import signature from '../../assets/signature.png'
 import { Dialog,Box,DialogTitle,IconButton,DialogContent,DialogActions,Button } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import generatePDF, { Resolution, Margin } from 'react-to-pdf';
@@ -71,7 +71,7 @@ function Certificate({onOpen,onClose,contestName}) {
       </div>
       <div className='title'>
         <p style={{color:'#1B3360'}}>Certificate</p>
-        <p style={{fontFamily:"monospace",fontSize:"30px",color:"black",fontWeight:500,letterSpacing:'normal'}}>of appriciation</p>
+        <p style={{fontFamily:"monospace",fontSize:"30px",color:"black",fontWeight:500,letterSpacing:'normal'}}>of appreciation</p>
       </div>
       <div className='midtext'>
         <p>This certificate is presented to</p>
@@ -89,12 +89,11 @@ function Certificate({onOpen,onClose,contestName}) {
             <p style={{fontWeight:800}}> 15 August 2024</p>
             <p style={{borderBottom:'3px solid black',width:'200px',marginTop:'12px',marginBottom:'12px'}}></p>
             <p>DATE</p>
-            <p style={{color:'white'}}>.</p>
-            <p style={{color:'white'}}>.</p>
-            <p style={{color:'white'}}>.</p>
+
         </div>
         <div className='sign'>
-            <p style={{borderBottom:'3px solid black',width:'200px',marginTop:'12px',marginBottom:'12px'}}></p>
+            <img src={signature} alt="Omprakash Deshmukh" className='signature-img' height='100'/>
+            <p style={{borderBottom:'3px solid black',width:'200px',marginBottom:'12px'}}></p>
             <p>Omprakash Deshmukh</p>
             <p style={{fontWeight:700,fontSize:'17px'}}>(Retd. I.A.S)</p>
             <p style={{fontWeight:700,fontSize:'17px'}}>Managing Director</p>

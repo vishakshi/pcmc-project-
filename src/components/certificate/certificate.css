@@ -56,8 +56,6 @@
     justify-content:space-between;
     align-items: center;
    margin-left: 185px;
-   margin-top: 10px;
-   padding-top: 55px;
 }
 .footer .date{
    display: flex;
@@ -71,6 +69,7 @@
    padding-left: 30px;
    font-size: 20px;
    font-weight: 400;
+   padding-top: 30px;
 }
 .footer .sign{
     display: flex;
@@ -91,4 +90,7 @@
 }
 .logo-right{
    padding-top: 20px;
+}
+.signature-img{
+    border:'2px solid black';
 }
