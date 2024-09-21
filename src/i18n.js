@@ -152,6 +152,7 @@ i18next.use(initReactI18next).init({
                 lookingForRehabilitationWorkers: "We are looking for Rehabilitation workers, kindly get details and connect with us",
                 kalaShikshak: "Kala Shikshak",
                 lookingForKalaShikshak: "We are looking for Kala Shikshak, kindly get details and connect with us",
+                carrerResult:"Recruited Staff List",
             },
         },
         mt:{
@@ -299,6 +300,7 @@ i18next.use(initReactI18next).init({
                 lookingForRehabilitationWorkers: "आमच्या कडे पुनर्वसन उपचार परिचारिकां साठी रिक्त जागा आहेत, कृपया अधिक माहिती मिळवा आणि आमच्या शी संपर्क करा",
                 kalaShikshak: "कला शिक्षक",
                 lookingForKalaShikshak: "आमच्या कडे कला शिक्षकांसाठी रिक्त जागा आहेत, कृपया अधिक माहिती मिळवा आणि आमच्या शी संपर्क करा",
+                carrerResult:"भरती केलेले कर्मचारी",
             }
         }
     }
