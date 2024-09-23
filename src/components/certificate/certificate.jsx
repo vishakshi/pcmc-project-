@@ -51,7 +51,7 @@ function Certificate({onOpen,onClose,contestName}) {
         case "englishTagline":
           return "English Tagline";
         case "marathiTagline":
-          return "English Tagline";
+          return "Marathi Tagline";
         case "logo":
           return "Logo Competition";
         default :
@@ -118,7 +118,7 @@ function Certificate({onOpen,onClose,contestName}) {
     </Box>
     </DialogContent>
     <DialogActions sx={{borderTop:'1px solid #EFE7EB'}} >
-       <Button variant='contained' color='info' type='submit' onClick={() => generatePDF(targetRef, {filename: 'page.pdf',page:{orientation:'landscape',margin:Margin.SMALL}})}>Download Certificate</Button>
+       <Button variant='contained' color='info' type='submit' onClick={() => generatePDF(targetRef, {filename: 'certificate.pdf',page:{orientation:'landscape',margin:Margin.SMALL}})}>Download Certificate</Button>
      </DialogActions>
     </Dialog>
   );
