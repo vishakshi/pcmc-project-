@@ -95,7 +95,7 @@ function Certificate({onOpen,onClose,contestName}) {
         <p style={{letterSpacing:'-1.5px'}}>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
       </div>
       <div className='content'>
-        <p style={{textAlign:'center'}}>We are honoring you for participating the best <span style={{fontWeight:800}}>{getCategory(contestName?.contestType)}</span>, {(contestName?.contestType === "englishTagline" || contestName?.contestType === "englishTagline") && "For Tagline Competition"} which was held during 15/08/2024 to 31/08/2024 and sharing new invention of imagination with us, we appreciate you talent and honor your imagination.</p>
+        <p style={{textAlign:'center'}}>We are honoring you for participating <span style={{fontWeight:800}}>{getCategory(contestName?.contestType)}</span>, {(contestName?.contestType === "englishTagline" || contestName?.contestType === "englishTagline") && "For Tagline Competition"} which was held during 15/08/2024 to 31/08/2024 and sharing new invention of imagination with us, we appreciate you talent and honor your imagination.</p>
       </div>
       <div className='footer'>
         <div className='date'>
