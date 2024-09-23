@@ -73,7 +73,7 @@ export default function ResultCard({data}) {
     </Card>
     <Certificate contestName={data?.contest} onOpen={open} onClose={()=>setOpen(false)}/>
     </Grid>
-    <ConfirmDialog onOpen={winnerOpen} onClose={handleWinnerClose} message={`Congratulation! For winning ${data?.contest?.name || "Competition"}`} title='Notification 🎉' onConfirm={handleWinnerClose} />
+    <ConfirmDialog onOpen={winnerOpen} onClose={handleWinnerClose} message={`Congratulations on winning the ${data?.contest?.name || "Competition"}! Your creativity and originality truly set you apart. We are thrilled to see your amazing tagline take center stage. Keep up the fantastic work! Thank you so much for participating in this competition, We appreciate your talent !`} title='Notification 🎉' onConfirm={handleWinnerClose} />
     </>
   );
 }
