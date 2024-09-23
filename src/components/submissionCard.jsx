@@ -56,7 +56,7 @@ const SubmissionCard = ({data,serialNo,recall,setAlertData,competetionData}) => 
   const getPosition = (type) => {
     switch(type){
       case 1:
-        return "1st Position for Logo Winner"
+        return "1st Position Winner"
       case 2:
         return "2nd Position for Tagline Winner"
       case 3:
