@@ -45,6 +45,19 @@ const options = {
 function Certificate({onOpen,onClose,contestName}) {
     const targetRef = useRef();
     const {userDetails} = useAuthContext();
+    console.log(contestName)
+    const getCategory = (type) => {
+      switch(type){
+        case "englishTagline":
+          return "English Tagline";
+        case "marathiTagline":
+          return "English Tagline";
+        case "logo":
+          return "Logo Competition";
+        default :
+          return "Competition"
+      }
+    }
   return (
     <Dialog
     maxWidth="lg"
@@ -63,7 +76,7 @@ function Certificate({onOpen,onClose,contestName}) {
     <div  ref={targetRef} className='continer'>
       <div className='top'>
       <div className='logo-left'>
-        <p style={{fontWeight:"800",textAlign:"center",color:'#1B3360'}}>PCMC Divyang Bhavan Foundation</p>
+        <p style={{fontWeight:"500",textAlign:"center",color:'#1B3360',marginLeft:"-120px",textTransform:'capitalize',lineHeight:1.2}}><span>Pimpri Chinchwad Mahanagar Palika </span><span style={{display:'inline-block',fontWeight:"600"}}> Divyang Bhavan Foundation</span></p>
       </div>
       <div className='logo-right'>
         <img src={pcmc} style={{height:'70px'}} />
@@ -71,10 +84,10 @@ function Certificate({onOpen,onClose,contestName}) {
       </div>
       <div className='title'>
         <p style={{color:'#1B3360'}}>Certificate</p>
-        <p style={{fontFamily:"monospace",fontSize:"30px",color:"black",fontWeight:500,letterSpacing:'normal'}}>of appreciation</p>
+        <p style={{fontFamily:"monospace",fontSize:"30px",color:"black",fontWeight:500,letterSpacing:'normal'}}>of Appreciation</p>
       </div>
       <div className='midtext'>
-        <p>This certificate is presented to</p>
+        <p>This certificate is proudly presented to</p>
       </div>
      
       <div className='name'>
@@ -82,11 +95,11 @@ function Certificate({onOpen,onClose,contestName}) {
         <p style={{letterSpacing:'-1.5px'}}>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _</p>
       </div>
       <div className='content'>
-        <p>For participating successfully in "the <span style={{fontWeight:800}}>{contestName || "Competition"}"</span> by <span style={{fontWeight:800}}>Divyang Bhavan Foundation</span> on 15th August 2024, and <br/>sharing new invention of art with us, we appreciate your <br /> talent and honor your art.</p>
+        <p style={{textAlign:'center'}}>We are honoring you for participating the best <span style={{fontWeight:800}}>{getCategory(contestName?.contestType)}</span>, {(contestName?.contestType === "englishTagline" || contestName?.contestType === "englishTagline") && "For Tagline Competition"} which was held during 15/08/2024 to 31/08/2024 and sharing new invention of imagination with us, we appreciate you talent and honor your imagination.</p>
       </div>
       <div className='footer'>
         <div className='date'>
-            <p style={{fontWeight:800}}> 15 August 2024</p>
+            <p style={{fontWeight:800}}> 21 September 2024</p>
             <p style={{borderBottom:'3px solid black',width:'200px',marginTop:'12px',marginBottom:'12px'}}></p>
             <p>DATE</p>
 
@@ -95,7 +108,7 @@ function Certificate({onOpen,onClose,contestName}) {
             <img src={signature} alt="Omprakash Deshmukh" className='signature-img' height='100'/>
             <p style={{borderBottom:'3px solid black',width:'200px',marginBottom:'12px'}}></p>
             <p>Omprakash Deshmukh</p>
-            <p style={{fontWeight:700,fontSize:'17px'}}>(Retd. I.A.S)</p>
+            <p style={{fontWeight:700,fontSize:'17px'}}>(IAS Retd.)</p>
             <p style={{fontWeight:700,fontSize:'17px'}}>Managing Director</p>
         </div>
         

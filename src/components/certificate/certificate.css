@@ -6,7 +6,7 @@
     background-image: url("../../assets/certificateBg.jpg");
 }
 .logo-left{
-   font-size: 32px;
+   font-size: 30px;
     font-weight: 700;
     height: 60px;
    padding-top: 50px;
@@ -19,7 +19,7 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    color: rgb(43, 43, 112);
     text-align: center;
-    padding-top: 60px;
+    padding-top: 50px;
     line-height: 80px;
 }
 .midtext{
@@ -41,8 +41,8 @@
 }
 .content{
     padding-top: 40px;
-    font-size: 20px;
-    width: 65%;
+    font-size: 18px;
+    width: 60%;
     font-weight: 600;
     margin: auto;
     color: #22201d;
@@ -52,6 +52,7 @@
    
 }
 .footer{
+    padding-top: 1rem;
     display: flex;
     justify-content:space-between;
     align-items: center;

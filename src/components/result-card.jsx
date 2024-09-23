@@ -71,7 +71,7 @@ export default function ResultCard({data}) {
         {/* </a> */}
       </CardActions>}
     </Card>
-    <Certificate contestName={data?.contest?.name || ""} onOpen={open} onClose={()=>setOpen(false)}/>
+    <Certificate contestName={data?.contest} onOpen={open} onClose={()=>setOpen(false)}/>
     </Grid>
     <ConfirmDialog onOpen={winnerOpen} onClose={handleWinnerClose} message={`Congratulation! For winning ${data?.contest?.name || "Competition"}`} title='Notification 🎉' onConfirm={handleWinnerClose} />
     </>
