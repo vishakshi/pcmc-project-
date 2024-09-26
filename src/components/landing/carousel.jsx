@@ -10,6 +10,8 @@ import d1En from "../../assets/d1_en.png"
 import d2En from "../../assets/d2_en.png"
 import d3En from "../../assets/d3_en.jpg"
 import d4En from "../../assets/d4_en.jpg"
+import engWinner from "../../assets/engWinner.jpg"
+import matWinner from "../../assets/matWinner.jpg"
 import { useTranslation } from "react-i18next";
 
 const MyCarousel = () => {
@@ -37,8 +39,8 @@ const MyCarousel = () => {
   
 
   return (
-    <Box sx={{marginTop:{'md':-15}}} >
-    <Carousel
+    <Box sx={{pt:{xs:4,md:7}}} >
+    {/* <Carousel
       swipeable={true}
       slidesToSlide={1}
       // draggable={true}
@@ -59,7 +61,8 @@ const MyCarousel = () => {
      {imageArr.map((item,index)=>(
       <Box component='img' width={'100%'} height={'100%'} src={item} key={index} />
      ))}
-    </Carousel>
+    </Carousel> */}
+    <Box component='img' sx={{width:'100%'}} src={i18n.language === "en" ? engWinner : matWinner} />
     </Box>
   );
 };

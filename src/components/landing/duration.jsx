@@ -46,9 +46,9 @@ const Duration = () => {
             <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('competitionDescription')}
             </Typography>
-            <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
+            {/* <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
             {t('competitionDuration')} <span style={{fontWeight:700}}> 15-08-2024 {t('to')} 31-08-2024</span>
-            </Typography>
+            </Typography> */}
             <Box mx='auto'><Button variant='contained' onClick={handleSignIn} size="large" endIcon={<LoginOutlined/>} sx={{color:'white',backgroundColor:'#800080','&:hover':{backgroundColor:'#9b009b'}}}>{t('registerNow')}</Button></Box>
         </Grid>
         <Grid sx={{display:'flex',justifyContent:{xs:'center',sm:'end'}}} item sm={12} xs={12} md={6}><Box sx={{borderRadius:5,objectFit:'contain',width:{xs:300,sm:300,md:400}}}  component='img' src={image} /></Grid>
