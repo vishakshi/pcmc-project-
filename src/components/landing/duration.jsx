@@ -46,6 +46,9 @@ const Duration = () => {
             <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
                 {t('competitionDescription')}
             </Typography>
+            <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center',fontWeight:'bold'}}>
+                {t('congratsMsg')}
+            </Typography>
             {/* <Typography variant='body1' sx={{fontSize:pxToRem(18),textAlign:'center'}}>
             {t('competitionDuration')} <span style={{fontWeight:700}}> 15-08-2024 {t('to')} 31-08-2024</span>
             </Typography> */}
