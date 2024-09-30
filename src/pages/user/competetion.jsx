@@ -12,39 +12,35 @@ const Competetion = () => {
   const [isLoading,setIsLoading] = useState(false);
   const [recall,setRecall] = useState(1);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       setIsLoading(true);
-  //       const userData = getDecodedToken();
-  //       const response2 = await ApiManager.getSubmissionsByUser(userData?._id);
-  //       const response = await ApiManager.getActiveCompetetions();
-  //       if (response2.data?.status) {
-  //         setSubmissionData(()=>response2.data?.data);
-  //       }
-  //       if (response.data?.status) {
-  //         setData(()=>response.data?.data);
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   })();
-  // }, [recall]);
+  useEffect(() => {
+    (async () => {
+      try {
+        setIsLoading(true);
+        const userData = getDecodedToken();
+        const response2 = await ApiManager.getSubmissionsByUser(userData?._id);
+        const response = await ApiManager.getActiveCompetetions();
+        if (response2.data?.status) {
+          setSubmissionData(()=>response2.data?.data);
+        }
+        if (response.data?.status) {
+          setData(()=>response.data?.data);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, [recall]);
 
   return (
     <div>
       <DialogLoader isLoading={isLoading}/>
-        <Box height={'80vh'} display='flex' justifyContent='center'  alignItems='center'>
-      {/* {data.map((data, index) => (
+        <Box display='flex' justifyContent='center'  alignItems='center'>
+      {data.map((data, index) => (
         <CompetitionCard submissionData={submissionData} recall={()=>setRecall(recall + 1)} key={data?._id} data={data} />
-      ))} */}
+      ))}
       <Box >
-    <Alert variant="outlined" sx={{backgroundColor:'white'}} severity="info">
-  <AlertTitle>Info</AlertTitle>
-  Find your result in the Result section and get your certificate online..Thank you so much for Participating...!
-</Alert>
 </Box>
       </Box>
     </div>
