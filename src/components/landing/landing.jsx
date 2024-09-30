@@ -11,15 +11,17 @@ import Testimonials from './testimonials'
 import Rule from './rule'
 import Support from './supportUs'
 import Jobs from './jobs'
+import Extented from './extented'
 
 const Landing = () => {
   return (
    <Navbar>
       <MyCarousel/>
+       <Extented />
         {/* <Slider/> */}
         {/* <Rule /> */}
         {/* <Notice/> */}
-        <Duration/>
+        {/* <Duration/> */}
         <Support/>
         {/* <Prizes /> */}
         <CompetenceCard/>
