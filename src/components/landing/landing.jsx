@@ -16,12 +16,12 @@ const Landing = () => {
   return (
    <Navbar>
       <MyCarousel/>
-        <Slider/>
-        <Rule />
-        <Notice/>
+        {/* <Slider/> */}
+        {/* <Rule /> */}
+        {/* <Notice/> */}
         <Duration/>
         <Support/>
-        <Prizes />
+        {/* <Prizes /> */}
         <CompetenceCard/>
         <Testimonials/>
         <DivyangAbout/>
